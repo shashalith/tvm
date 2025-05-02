@@ -1,0 +1,69 @@
+<app-nav-details></app-nav-details>
+<form >
+    <div class="borderLine">
+    <h3>KYC Documents</h3>
+    <p style="margin: 10px;">Upload images in less size</p>
+    <div class="form-grid">
+    <div class="form-group">
+        <label for="">Pan card Image</label>
+        <input type="file" name="panCard" formControlName="panCard">
+    </div>
+    <div class="form-group">
+        <label for="">Aadhar card image</label>
+        <input type="file" name="aadharCard" formControlName="aadharCard">
+    </div>
+    <div class="form-group">
+        <label for="">Passport size image</label>
+        <input type="file" name="pSizePhoto" formControlName="pSizePhoto">
+    </div>
+</div>
+</div>
+<div class="borderLine">
+<h3>Education Docs </h3><p style="margin: 10px;">Supported file .pdf only</p>
+<div class="form-grid">
+    <div class="form-group">
+        <label for="">10th education document</label>
+        <input type="file">
+    </div>
+    <div class="form-group">
+        <label for="">12th education document</label>
+        <input type="file" name="intermediate" formControlName="intermediate">
+    </div>
+    <div class="form-group">
+        <label for="">Graduation education document</label>
+        <input type="file" name="graduationMarksheet" formControlName="graduationMarksheet">
+    </div>
+    <div class="form-group">
+        <label for="">PostGraduation education document</label>
+        <input type="file" name="postGraduation" formControlName="postGraduation">
+    </div>
+</div>
+</div>
+<div class="borderLine">
+
+<div class="leftBox">
+    <h3>Upload your latest photo</h3>
+<p>Employee photo should be in good resolution and proper background with background color</p>
+    <div class="form-group">
+        <label for="">Employee Photo</label>
+        <input type="file" name="latestPhoto" formControlName="latestPhoto">
+    </div>
+</div>
+<div class="rightBox">
+    <div class="form-group">
+        <label for="">Upload Employee Document</label>
+        <input type="file" name="empDocument" formControlName="empDocument">
+    </div>
+</div>
+
+</div>
+
+    <br>
+    <div class="button-group">
+        <a routerLink="/certificate">&laquo; Previous</a>
+        <button class="update-button" type="submit">Save</button>
+        <a href="/resume">Next &raquo;</a>
+      </div>
+    
+    
+</form>

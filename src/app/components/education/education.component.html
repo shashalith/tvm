@@ -1,0 +1,54 @@
+<app-nav-details></app-nav-details>
+<form class="form-grid"  [formGroup]="educationForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+        <label for="">Qualification</label>
+        <input type="text" name="qualification" formControlName="qualification">
+    </div>
+    <div class="form-group">
+        <label for="">Specilization</label>
+        <input type="text" name="specilization" formControlName="specilization">
+    </div>
+    <div class="form-group">
+        <label for="">Institute Name</label>
+        <input type="text" name="instituteName" formControlName="instituteName">
+    </div>
+    <div class="form-group" name="" formControlName="control">
+        <label for="">University Name</label>
+        <input type="text" name="universityName" formControlName="universityName">
+    </div>
+    <div class="form-group">
+        <label for="">Full time/part time</label>
+        <input type="text" name="time" formControlName="time">
+    </div>
+    <div class="form-group">
+        <label for="">from</label>
+        <input type="text" name="fromDate" formControlName="fromDate">
+    </div>
+    <div class="form-group">
+        <label for="">To</label>
+        <input type="text" name="toDate" formControlName="toDate">
+    </div>
+    <div class="form-group">
+        <label for="">Percentage(%)</label>
+        <input type="text" name="percentage" formControlName="percentage">
+    </div>
+    <div class="form-group">
+        <label for="">Roll No:</label>
+        <input type="text" name="rollNo" formControlName="rollNo">
+    </div>
+    <div class="form-group">
+        <label for="">Education Type</label>
+        <select name="" id="" name="educationType" formControlName="educationType">
+            <option value="">Select</option>
+            <option value="parttime">Part time</option>
+            <option value="fulltime">Full Time</option>
+        </select>
+    </div>
+    <br>
+    <div class="button-group">
+        <a href="education.html">&laquo; Previous</a>
+        <button class="update-button" type="submit">Save</button>
+        <a href="skills.html">Next &raquo;</a>
+      </div>
+    
+</form>

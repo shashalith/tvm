@@ -1,0 +1,44 @@
+<app-nav-details></app-nav-details>
+<form #form="ngForm" [formGroup]="userForm" (ngSubmit)="submitForm()" >
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="nationality">Nationality:</label>
+      <select id="nationality" name="nationality" ngModel formControlName="nationality">
+        <option value="">Select</option>
+        <option value="Indian">Indian</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="passport">Do you have passport:</label>
+      <select id="passport" name="ifPassport" [(ngModel)]="passportValue" formControlName="ifPassport">
+        <option value="">Select</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+
+    <div class="form-group" *ngIf="passportValue === 'Yes'">
+      <label for="passportNumber">Enter Passport Number:</label>
+      <input
+        type="text"
+        id="passportNumber"
+        name="passportNumber"
+        ngModel
+        placeholder="Passport Number"
+        formControlName="passportNumber"
+      />
+    </div>
+  </div>
+
+  <div class="button-group">
+    <a routerLink="/kyc" class="prev-btn">&laquo; Previous</a>
+    <button type="submit" class="save-btn">Save</button>
+    <a routerLink="/family" class="next-btn">Next &raquo;</a>
+  </div>
+
+  <div class="info-box">
+    <strong>Save!</strong> your data before click on Next/Previous.
+  </div>
+</form>

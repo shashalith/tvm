@@ -1,0 +1,16 @@
+<nav>
+    <div id="navBar">
+        <img id="iconimg" [src]="logoUrl" alt="logo">
+        <h1 id="tvm">TVM Infotech</h1>
+        <i class="ri-home-4-fill"><a routerLink="login">Home</a></i>
+    </div>
+    
+    <!-- Conditionally display Login or Signup buttons -->
+    <i class="login">
+        <!-- <button *ngIf="showLogin" (click)="toggleForm(false)">Sign Up</button>
+        <button *ngIf="!showLogin" (click)="toggleForm(true)">Login</button> -->
+        <a routerLink="/login"><button>Login</button></a>
+        <a routerLink="/signup"><button>Signup</button></a>
+    </i>
+
+</nav>

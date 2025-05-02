@@ -1,0 +1,42 @@
+<app-nav-details></app-nav-details>
+<form class="form-grid" [formGroup]="skillForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+        <label for="">Skill Name</label>
+        <input type="text" name="skillName" formControlName="skillName">
+    </div>
+    <div class="form-group">
+        <label for="">Skill categories</label>
+        <input type="text" name="skillCategories" formControlName="skillCategories">
+    </div>
+    <div class="form-group">
+        <label for="">Version Number</label>
+        <input type="text" name="VersionNum" formControlName="VersionNum">
+    </div>
+    <div class="form-group">
+        <label for="">Experience in years</label>
+        <input type="text" name="experience_year" formControlName="experience_year">
+    </div>
+    <div class="form-group">
+        <label for="">Experience in Months</label>
+        <input type="text" name="experience_month" formControlName="experience_month">
+    </div>
+    
+    <div class="form-group">
+        <label for="selfRate">Self rating(1-5)</label>
+        <select id="selfRate" name="selfRate" formControlName="selfRate">
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <br>
+    <div class="button-group">
+        <a href="education.html">&laquo; Previous</a>
+        <button class="update-button" type="submit">Save</button>
+        <a href="certification.html">Next &raquo;</a>
+      </div>
+    
+</form>

@@ -1,0 +1,85 @@
+<!-- <div class="employment-section">
+    <button class="add-btn"> <a href="addEmployment.html">Add</a></button>
+    <p>No Employment data added.</p>
+</div>
+<div class="navigation-buttons">
+    <a href="family.html">&laquo; Previous</a>
+    <a href="education.html">Next &raquo;</a>
+</div>
+<div class="note">
+    <strong>Save!</strong> your data before click on Next/Previous.
+</div> -->
+<!-- Popup Modal -->
+
+<!-- Employment Section -->
+
+<app-nav-details></app-nav-details>
+<div class="employment-section">
+    <button class="add-btn" (click)="openPopup()">Add</button>
+  
+    <div *ngIf="employmentList.length === 0">
+      <p>No Employment data added.</p>
+    </div>
+  
+    <ul *ngIf="employmentList.length > 0">
+      <li *ngFor="let emp of employmentList">
+        <strong>{{ emp.companyName }}</strong> — {{ emp.designation }} ({{ emp.employmentType }})  
+        <br>
+        From: {{ emp.startDate }} To: {{ emp.endDate }}
+      </li>
+    </ul>
+  </div>
+  
+  <!-- Popup Modal -->
+  <div class="popup" *ngIf="showPopup">
+    <div class="popup-content">
+      <span class="close" (click)="closePopup()">&times;</span>
+      <form [formGroup]="employmentForm" (ngSubmit)="saveEmployment()">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Company name</label>
+            <input type="text" formControlName="companyName" />
+            <div *ngIf="employmentForm.get('companyName')?.touched && employmentForm.get('companyName')?.invalid" class="error">
+              Company name is required
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Designation</label>
+            <input type="text" formControlName="designation" />
+            <div *ngIf="employmentForm.get('designation')?.touched && employmentForm.get('designation')?.invalid" class="error">
+              Designation is required
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Employment type</label>
+            <select formControlName="employmentType">
+              <option value="">Select</option>
+              <option value="developer">Developer</option>
+              <option value="tester">Tester</option>
+              <option value="designer">Designer</option>
+            </select>
+            <div *ngIf="employmentForm.get('employmentType')?.touched && employmentForm.get('employmentType')?.invalid" class="error">
+              Select an employment type
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>Start date</label>
+            <input type="date" formControlName="startDate" />
+          </div>
+  
+          <div class="form-group">
+            <label>Exit date</label>
+            <input type="date" formControlName="endDate" />
+          </div>
+  
+          <div class="form-group full-width">
+            <button type="submit" id="save-btn">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

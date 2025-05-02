@@ -1,0 +1,237 @@
+<app-nav-details></app-nav-details>
+<div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="submitForm()" id="form" class="form-grid">
+      
+      <div class="form-group">
+        <label for="fname">First Name:</label>
+        <input type="text" name="fname" id="fname" formControlName="fname">
+      </div>
+  
+      <div class="form-group">
+        <label for="mname">Middle Name:</label>
+        <input type="text" name="mname" id="mname" formControlName="mname">
+      </div>
+  
+      <div class="form-group">
+        <label for="lname">Last Name (Surname):</label>
+        <input type="text" name="lname" id="lname" formControlName="lname">
+      </div>
+  
+      <div class="form-group">
+        <label for="pemail">Personal Email:</label>
+        <input type="email" name="email" id="pemail" formControlName="email">
+      </div>
+  
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender" formControlName="gender">
+          <option value="">Select gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="bloodg">Blood Group:</label>
+        <select name="bloodGroup" id="bloodg" formControlName="bloodGroup">
+          <option value="">Select blood group</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="dob">Official DOB:</label>
+        <input type="text" id="dob" name="dob" placeholder="DD-MM-YYYY" formControlName="dob">
+      </div>
+  
+      <div class="form-group">
+        <label for="merital">Marital Status:</label>
+        <select name="merital" id="merital" formControlName="merital">
+          <option>Select status</option>
+          <option value="single">Single</option>
+          <option value="married">Married</option>
+          <option value="divorced">Divorced</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="marriegedate">Marriage Date:</label>
+        <input type="text" id="marriegedate" name="marriegedate" placeholder="Ex. 4-March" formControlName="marriegedate">
+      </div>
+  
+      <div class="form-group full-width">
+        <label for="current_address">Current Address:</label>
+        <textarea name="current_address" id="current_address" formControlName="current_address"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="current_country">Country:</label>
+        <select name="current_country" id="current_country" formControlName="country">
+          <option value="">Select</option>
+          <option value="india">India</option>
+          <option value="nepal">Nepal</option>
+          <option value="usa">USA</option>
+          <option value="russia">Russia</option>
+          <option value="bangladesh">Bangladesh</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="current_state">State:</label>
+        <input type="text" id="current_state" name="current_state" placeholder="State" formControlName="current_state">
+      </div>
+  
+      <div class="form-group">
+        <label for="current_city">City:</label>
+        <input type="text" id="current_city" name="current_city" placeholder="City" formControlName="current_city">
+      </div>
+  
+      <div class="form-group">
+        <label for="current_pincode">Pincode:</label>
+        <input type="number" id="current_pincode" name="pincode" formControlName="current_pincode">
+      </div>
+  
+      <div class="form-group">
+        <label for="current_contact">Contact Number:</label>
+        <input type="number" id="current_contact" name="current_contact" formControlName="current_contact">
+      </div>
+  
+      <div class="form-group full-width">
+        <label for="permanent_address">Permanent Address: 
+          <input type="checkbox" id="same_as_current"> Same as Above
+        </label>
+        <textarea name="permanent_address" id="permanent_address" formControlName="permanent_address"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="permanent_country">Country:</label>
+        <select name="permanent_country" id="permanent_country" formControlName="permanent_country">
+          <option value="">Select</option>
+          <option value="india">India</option>
+          <option value="nepal">Nepal</option>
+          <option value="usa">USA</option>
+          <option value="russia">Russia</option>
+          <option value="bangladesh">Bangladesh</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="permanent_state">State:</label>
+        <input type="text" id="permanent_state" name="permanent_state" placeholder="State" formControlName="permanent_state">
+      </div>
+  
+      <div class="form-group">
+        <label for="permanent_city">City:</label>
+        <input type="text" id="permanent_city" name="permanent_city" placeholder="City" formControlName="permanent_city">
+      </div>
+  
+      <div class="form-group">
+        <label for="permanent_pincode">Pincode:</label>
+        <input type="number" id="permanent_pincode" name="permanent_pincode" formControlName="permanent_pincode">
+      </div>
+  
+      <div class="form-group">
+        <label for="permanent_contact">Permanent Contact Number:</label>
+        <input type="number" id="permanent_contact" name="permanent_contact" formControlName="permanent_contact">
+      </div>
+  
+      <div class="form-group full-width">
+        <label for="bcp_address">BCP Work Address (with Landmark):</label>
+        <textarea id="bcp_address" name="bcp_address" formControlName="bcp_address"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="bcp_country">Country:</label>
+        <select id="bcp_country" name="bcp_country" formControlName="bcp_country">
+          <option value="">Select</option>
+          <option value="india">India</option>
+          <option value="nepal">Nepal</option>
+          <option value="usa">USA</option>
+          <option value="russia">Russia</option>
+          <option value="bangladesh">Bangladesh</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="bcp_state">State:</label>
+        <input type="text" name="bcp_state" id="bcp_state" placeholder="State" formControlName="bcp_state">
+      </div>
+  
+      <div class="form-group">
+        <label for="bcp_city">City:</label>
+        <input type="text" name="bcp_city" id="bcp_city" placeholder="City" formControlName="bcp_city">
+      </div>
+  
+      <div class="form-group">
+        <label for="bcp_pincode">Pincode:</label>
+        <input type="number" name="bcp_pincode" id="bcp_pincode" formControlName="bcp_pincode">
+      </div>
+  
+      <div class="form-group full-width">
+        <label for="emergency_contact_name">Emergency Contact Name & Address:</label>
+        <textarea name="emergency_contact_name" id="emergency_contact_name" formControlName="emergency_contact_name"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="emergency_contact_number">Emergency Contact Number:</label>
+        <input type="number" name="emergency_contact_number" id="emergency_contact_number" formControlName="emergency_contact_number">
+      </div>
+  
+      <div class="form-group">
+        <label for="emergency_relationship">Relationship with Employee:</label>
+        <input type="text" name="emergency_relationship" id="emergency_relationship" formControlName="emergency_relationship">
+      </div>
+  
+      <div class="form-group">
+        <label for="prev_experience_years">Previous Experience (Years):</label>
+        <select name="year" id="prev_experience_years" formControlName="year">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="prev_experience_months">Previous Experience (Months):</label>
+        <select name="month" id="prev_experience_months" formControlName="month">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="relevant_experience">Relevant Experience:</label>
+        <select name="relevantYear" id="relevant_experience" formControlName="relevantYear">
+          <option value="">Select year</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+  
+      <div class="form-group full-width button-group">
+        <button type="submit" class="update-button" [disabled]="!userForm.valid">Update</button>
+        <a routerLink="/kyc" class="next-link">Next &raquo;</a>
+      </div>
+  
+      <div class="save-warning full-width">
+        <strong>Save!</strong> Your data before clicking on next/previous
+      </div>
+  
+    </form>
+  </div>
+  
