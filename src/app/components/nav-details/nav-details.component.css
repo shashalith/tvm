@@ -26,6 +26,6 @@
 }
 
 .tabs a.active-tab {
-  background-color: #007bff;
-  color: white;
+  background-color: #007bff !important;
+  color: white !important;
 }

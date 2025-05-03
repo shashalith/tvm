@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder,FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserServiceService } from '../user-service.service';
+
 
 @Component({
   selector: 'app-resume',
@@ -11,7 +14,7 @@ export class ResumeComponent {
   resumeForm!:FormGroup;
   achievements: string = '';
   resumeCate='';
-  constructor(private formBuilder:FormBuilder){
+  constructor(private formBuilder:FormBuilder,private router:Router,private userService:UserServiceService){
     this.resumeForm = this.formBuilder.group({
       achievements:['',Validators.required],
       resumeCate:['',Validators.required],
@@ -21,8 +24,11 @@ export class ResumeComponent {
   submitForm(){
     if(this.resumeForm.valid){
     console.log(this.resumeForm.value);
-    this.achievements = this.resumeForm.value.achievements;
-    this.resumeCate = this.resumeForm.value.resumeCate;
+    this.userService.setFormData("Resume Data: ",this.resumeForm.value);
+    this.resumeForm.reset();
+    this.router.navigate(['/final']);
+    // this.achievements = this.resumeForm.value.achievements;
+    // this.resumeCate = this.resumeForm.value.resumeCate;
   }else{
     alert("All fields are mandetory")
     console.log("Invalid form");

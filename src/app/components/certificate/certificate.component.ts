@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
+import { UserServiceService } from '../user-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-certificate',
@@ -15,12 +17,12 @@ completionDate: string = '';
 marks: number = 0;
 
 
-constructor(private formBuilder:FormBuilder){
+constructor(private formBuilder:FormBuilder,private router:Router,private userService:UserServiceService){
   this.certificateForm = this.formBuilder.group({
 
-     CertificateName:['',Validators.required],
+     certificateName:['',Validators.required],
      certifiedBy:['',Validators.required],
-     CompletionDate:['',Validators.required],
+     completionDate:['',Validators.required],
      marks:['',Validators.required],
   });
 }
@@ -28,7 +30,13 @@ constructor(private formBuilder:FormBuilder){
 submitForm(){
   if(this.certificateForm.valid){
     console.log("certificate details: ",this.certificateForm.value);
+    this.userService.setFormData("Certificate Data: ",this.certificateForm.value);
+    this.certificateForm.reset();
+    alert("Certificate submitted successfully!");
+    this.router.navigate(['/document']);
     
+  }else{
+    alert("All fields are madetory!");
   }
 }
 }

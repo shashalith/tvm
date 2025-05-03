@@ -5,5 +5,17 @@ import { Injectable } from '@angular/core';
 })
 export class UserServiceService {
 
-  constructor() { }
+  private formData: any = {};
+
+  setFormData(step: string, data: any) {
+    this.formData[step] = data;
+  }
+
+  getFormData() {
+    return this.formData;
+  }
+
+  clearFormData() {
+    this.formData = {};
+  }
 }

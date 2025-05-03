@@ -1,16 +1,8 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-final',
-//   templateUrl: './final.component.html',
-//   styleUrls: ['./final.component.css']
-// })
-// export class FinalComponent {
-
-// }
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserServiceService } from '../user-service.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   templateUrl: './final.component.html',
@@ -23,7 +15,7 @@ export class FinalComponent {
   signature = '';
   date = '';
 
-  constructor(private formbulder: FormBuilder) {
+  constructor(private formbulder: FormBuilder,private router:Router,private userService:UserServiceService) {
     this.declarationForm = this.formbulder.group({
       checked: [false, Validators.requiredTrue],
       signature: ['', Validators.required],
@@ -34,9 +26,15 @@ export class FinalComponent {
   submitForm() {
     if (this.declarationForm.valid) {
       console.log(this.declarationForm.value);
-      this.check = this.declarationForm.value.check;
-      this.signature = this.declarationForm.value.signature;
-      this.date = this.declarationForm.value.date;
+      this.userService.setFormData('Final Form Data', this.declarationForm.value);
+
+      // get All Dtata
+      const allData = this.userService.getFormData();
+      console.log("All Form Data",allData);
+      
+      this.declarationForm.reset();
+      alert("Form Submitted Successfully");
+     
     } else {
       this.declarationForm.markAllAsTouched();
     }

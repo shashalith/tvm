@@ -10,6 +10,7 @@ nav {
 }
 
 .login {
+    align-items: center;
     cursor: pointer;
     display: flex;
     gap: 10px; /* Adjust gap between Login/Signup buttons */

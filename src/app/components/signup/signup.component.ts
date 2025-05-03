@@ -14,6 +14,8 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.signupForm = this.fb.group(
       {
+        fullName: ['', [Validators.required]],
+        mobile: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', [Validators.required]]
@@ -31,14 +33,9 @@ export class SignupComponent implements OnInit {
 
   onSubmit(): void {
     if (this.signupForm.valid) {
-      console.log('Form Submitted', this.signupForm.value);
+      console.log('Form Submitted:', this.signupForm.value);
     } else {
       this.signupForm.markAllAsTouched();
     }
-  }
-
-  toggleForm(isLogin: boolean): void {
-    // Logic to switch to the login form, can be handled via routing or parent component
-    console.log('Switching to Login form', isLogin);
   }
 }

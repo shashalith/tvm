@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder,FormGroup,Validators } from '@angular/forms';
+import { UserServiceService } from '../user-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personal',
@@ -42,7 +44,11 @@ export class PersonalComponent {
   year = '';
   month = '';
   relevantYear = '';
-  constructor(private formBuilder:FormBuilder){
+  constructor(
+    private formBuilder:FormBuilder,
+    private userService:UserServiceService,
+    private router:Router,
+  ){
     this.userForm = this.formBuilder.group({
       fname:['',Validators.required],
       mname:[''],
@@ -89,47 +95,30 @@ export class PersonalComponent {
     })
   };
 
+  // submitForm() {
+  //   if (this.userForm.valid) {
+  //     console.log('Form Submitted', this.userForm.value);
+  //     this.userService.setFormData('personal', this.userForm.value);
+  //     this.router.navigate(['/kyc']);
+  //   } else {
+  //     alert("All fields are mandatory");
+  //     console.log("This form is invalid!");
+  //   }
+  // }
+  
   submitForm() {
     if (this.userForm.valid) {
-      console.log("personal Form Values:", this.userForm.value);
-  
-      const formData = this.userForm.value;
-      this.fname = formData.fname;
-      this.mname = formData.mname;
-      this.lname = formData.lname;
-      this.email = formData.email;
-      this.gender = formData.gender;
-      this.bloodGroup = formData.bloodGroup;
-      this.dob = formData.dob;
-      this.merital = formData.merital;
-      this.marriegedate = formData.marriegedate;
-      this.current_address = formData.current_address;
-      this.current_country = formData.current_country;
-      this.current_state = formData.current_state;
-      this.current_city = formData.current_city;
-      this.current_pincode = formData.current_pincode;
-      this.current_contact = formData.current_contact;
-      this.permanent_address = formData.permanent_address;
-      this.permanent_country = formData.permanent_country;
-      this.permanent_state = formData.permanent_state;
-      this.permanent_city = formData.permanent_city;
-      this.permanent_pincode = formData.permanent_pincode;
-      this.permanent_contact = formData.permanent_contact;
-      this.bcp_address = formData.bcp_address;
-      this.bcp_country = formData.bcp_country;
-      this.bcp_state = formData.bcp_state;
-      this.bcp_city = formData.bcp_city;
-      this.bcp_pincode = formData.bcp_pincode;
-      this.emergency_contact_name = formData.emergency_contact_name;
-      this.emergency_contact_number = formData.emergency_contact_number;
-      this.emergency_relationship = formData.emergency_relationship;
-      this.year = formData.year;
-      this.month = formData.month;
-      this.relevantYear = formData.relevantYear;
+      console.log('Form Submitted', this.userForm.value);
+      this.userService.setFormData('Personal Data', this.userForm.value);
+      // console.log('Stored Data:', this.userService.getFormData());
+      this.userForm.reset();
+      this.router.navigate(['/kyc']);
     } else {
       alert("All fields are mandatory");
       console.log("This form is invalid!");
     }
   }
+  
+  
   
 }

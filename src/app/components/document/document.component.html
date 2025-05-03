@@ -1,20 +1,20 @@
 <app-nav-details></app-nav-details>
-<form >
+<form [formGroup]="documentForm" (ngSubmit)="submitForm()">
     <div class="borderLine">
     <h3>KYC Documents</h3>
     <p style="margin: 10px;">Upload images in less size</p>
     <div class="form-grid">
     <div class="form-group">
         <label for="">Pan card Image</label>
-        <input type="file" name="panCard" formControlName="panCard">
+        <input type="file" name="panCard" formControlName="panCard" (change)="onFileChange($event, 'panCard')">
     </div>
     <div class="form-group">
         <label for="">Aadhar card image</label>
-        <input type="file" name="aadharCard" formControlName="aadharCard">
+        <input type="file" name="aadharCard" formControlName="aadharCard" (change)="onFileChange($event, 'aadharCard')">
     </div>
     <div class="form-group">
         <label for="">Passport size image</label>
-        <input type="file" name="pSizePhoto" formControlName="pSizePhoto">
+        <input type="file" name="pSizePhoto" formControlName="pSizePhoto" (change)="onFileChange($event, 'pSizePhoto')">
     </div>
 </div>
 </div>
@@ -23,19 +23,19 @@
 <div class="form-grid">
     <div class="form-group">
         <label for="">10th education document</label>
-        <input type="file">
+        <input type="file" name="matric" formControlName="matric" (change)="onFileChange($event, 'matric')">
     </div>
     <div class="form-group">
         <label for="">12th education document</label>
-        <input type="file" name="intermediate" formControlName="intermediate">
+        <input type="file" name="intermediate" formControlName="intermediate" (change)="onFileChange($event, 'intermediate')">
     </div>
     <div class="form-group">
         <label for="">Graduation education document</label>
-        <input type="file" name="graduationMarksheet" formControlName="graduationMarksheet">
+        <input type="file" name="graduationMarksheet" formControlName="graduationMarksheet" (change)="onFileChange($event, 'graduationMarksheet')">
     </div>
     <div class="form-group">
         <label for="">PostGraduation education document</label>
-        <input type="file" name="postGraduation" formControlName="postGraduation">
+        <input type="file" name="postGraduation" formControlName="postGraduation" (change)="onFileChange($event, 'postGraduation')">
     </div>
 </div>
 </div>
@@ -46,13 +46,13 @@
 <p>Employee photo should be in good resolution and proper background with background color</p>
     <div class="form-group">
         <label for="">Employee Photo</label>
-        <input type="file" name="latestPhoto" formControlName="latestPhoto">
+        <input type="file" name="latestPhoto" formControlName="latestPhoto" (change)="onFileChange($event, 'latestPhoto')">
     </div>
 </div>
 <div class="rightBox">
     <div class="form-group">
         <label for="">Upload Employee Document</label>
-        <input type="file" name="empDocument" formControlName="empDocument">
+        <input type="file" name="empDocument" formControlName="empDocument" (change)="onFileChange($event, 'empDocument')">
     </div>
 </div>
 

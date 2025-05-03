@@ -74,7 +74,7 @@
   
       <div class="form-group">
         <label for="current_country">Country:</label>
-        <select name="current_country" id="current_country" formControlName="country">
+        <select name="current_country" id="current_country" formControlName="current_country">
           <option value="">Select</option>
           <option value="india">India</option>
           <option value="nepal">Nepal</option>
@@ -224,7 +224,8 @@
       </div>
   
       <div class="form-group full-width button-group">
-        <button type="submit" class="update-button" [disabled]="!userForm.valid">Update</button>
+        <button type="submit" class="update-button" [disabled]="userForm.invalid">Save</button>
+<p *ngIf="!userForm.valid">Form is invalid!</p>
         <a routerLink="/kyc" class="next-link">Next &raquo;</a>
       </div>
   

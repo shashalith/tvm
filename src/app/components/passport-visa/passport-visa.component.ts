@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import {FormBuilder,FormGroup,Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserServiceService } from '../user-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-passport-visa',
@@ -9,25 +11,33 @@ import {FormBuilder,FormGroup,Validators } from '@angular/forms';
 export class PassportVisaComponent {
   passportValue: string = '';
 
-  userForm!:FormGroup;
+  userForm!: FormGroup;
   nationality = '';
   ifPassport = '';
   passportNumber = '';
 
-  constructor(private formBuilder:FormBuilder){
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserServiceService,
+    private router: Router,
+
+  ) {
     this.userForm = this.formBuilder.group({
-      nationality:['',Validators.required],
-      ifPassport:['',Validators.required],
-      passportNumber:['',Validators.required],
+      nationality: ['', Validators.required],
+      ifPassport: ['', Validators.required],
+      passportNumber: ['', Validators.required],
     });
   }
 
-  submitForm(){
-    console.log("passport form value: ",this.userForm.value);
+  submitForm() {
+    if (this.userForm.valid) {
+      console.log("passport form value: ", this.userForm.value);
+      this.userService.setFormData('Passport Data: ', this.userForm.value);
+      this.userForm.reset(); // Optionally reset the form
+      this.router.navigate(['/family']);
+    } else {
+      console.log("invalid form");
 
-    const formData = this.userForm.value;
-    this.nationality = formData.nationality;
-    this.ifPassport = formData.ifPassport;
-    this.passportNumber = formData.passportNumber;
+    }
   }
 }
