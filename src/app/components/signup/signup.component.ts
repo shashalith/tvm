@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-signup',
@@ -9,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,private authService:AuthService) {}
 
   ngOnInit(): void {
     this.signupForm = this.fb.group(
@@ -31,11 +33,31 @@ export class SignupComponent implements OnInit {
     return password === confirmPassword ? null : { mismatch: true };
   }
 
+  // onSubmit(): void {
+  //   if (this.signupForm.valid) {
+  //     console.log('Form Submitted:', this.signupForm.value);
+  //   } else {
+  //     this.signupForm.markAllAsTouched();
+  //   }
+  // }
   onSubmit(): void {
     if (this.signupForm.valid) {
-      console.log('Form Submitted:', this.signupForm.value);
+      const formData = this.signupForm.value;
+      delete formData.confirmPassword; // confirmPassword ko server pe bhejne ki zarurat nahi
+  
+      this.authService.register(formData).subscribe({
+        next: (res) => {
+          console.log('Signup successful:', res);
+          // Optionally: navigate to login or show success message
+        },
+        error: (err) => {
+          console.error('Signup error:', err);
+          // Optionally: show user-friendly error
+        }
+      });
     } else {
       this.signupForm.markAllAsTouched();
     }
   }
+  
 }
