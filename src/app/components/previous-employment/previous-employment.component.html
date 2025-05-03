@@ -1,18 +1,3 @@
-<!-- <div class="employment-section">
-    <button class="add-btn"> <a href="addEmployment.html">Add</a></button>
-    <p>No Employment data added.</p>
-</div>
-<div class="navigation-buttons">
-    <a href="family.html">&laquo; Previous</a>
-    <a href="education.html">Next &raquo;</a>
-</div>
-<div class="note">
-    <strong>Save!</strong> your data before click on Next/Previous.
-</div> -->
-<!-- Popup Modal -->
-
-<!-- Employment Section -->
-
 <app-nav-details></app-nav-details>
 <div class="employment-section">
     <button class="add-btn" (click)="openPopup()">Add</button>
@@ -79,7 +64,13 @@
             <button type="submit" id="save-btn">Save</button>
           </div>
         </div>
+        
       </form>
     </div>
+  </div>
+  <div class="button-group">
+    <a routerLink="/family">&laquo; Previous</a>
+    <button class="update-button" type="submit">Save</button>
+    <a routerLink="/education">Next &raquo;</a>
   </div>
   

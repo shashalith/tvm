@@ -1,23 +1,25 @@
-.form-container {
+/* .form-container {
   max-width: 800px;
   margin: 140px auto;
   padding: 30px;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* Grid layout for form fields */
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.2rem;
-  margin-bottom: 20px;
+  margin: 20px auto;
+  max-width: 800px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
 }
 
 .form-group label {
@@ -64,9 +66,9 @@
   gap: 12px;
 }
 
-.prev-btn,
-.update-btn,
-.next-btn {
+
+.update-btn
+ {
   background-color: #007bff;
   color: white;
   padding: 10px 22px;
@@ -77,6 +79,21 @@
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
+
+.button-group a {
+  text-decoration: none;
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+}
+
+.button-group a:hover, .update-button:hover {
+  background-color: #004aad;
+  color: white;
+}
+
 
 .prev-btn:hover,
 .update-btn:hover,

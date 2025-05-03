@@ -128,7 +128,15 @@
   
   .button-group a {
     text-decoration: none;
-    color: #004aad;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: black;
     font-weight: bold;
+  }
+  
+  .button-group a:hover, .update-button:hover {
+    background-color: #004aad;
+    color: white;
   }
   

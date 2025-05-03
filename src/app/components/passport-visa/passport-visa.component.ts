@@ -25,7 +25,7 @@ export class PassportVisaComponent {
     this.userForm = this.formBuilder.group({
       nationality: ['', Validators.required],
       ifPassport: ['', Validators.required],
-      passportNumber: ['', Validators.required],
+      passportNumber: [''],
     });
   }
 
@@ -35,7 +35,9 @@ export class PassportVisaComponent {
       this.userService.setFormData('Passport Data: ', this.userForm.value);
       this.userForm.reset(); // Optionally reset the form
       this.router.navigate(['/family']);
+      
     } else {
+      alert("All fields are Mandatory")
       console.log("invalid form");
 
     }

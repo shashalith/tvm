@@ -32,16 +32,11 @@
   border-color: #007bff;
 }
 
-.button-group {
-  margin-top: 25px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-}
 
-.prev-btn,
-.save-btn,
-.next-btn {
+
+/* .prev-btn, 
+.next-btn,*/
+.save-btn {
   background-color: #007bff;
   color: white;
   padding: 8px 16px;
@@ -52,10 +47,15 @@
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
+.button-group a {
+  text-decoration: none;
+  color: #004aad;
+  font-weight: bold;
+}
 
-.prev-btn:hover,
-.save-btn:hover,
-.next-btn:hover {
+
+.save-btn:hover
+ {
   background-color: #0056b3;
 }
 
@@ -70,9 +70,25 @@
   max-width: 800px;
   margin-inline: auto;
 }
+
 .button-group {
   margin-top: 25px;
   display: flex;
-  justify-content: center; /* Center the buttons */
-  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.button-group a {
+  text-decoration: none;
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+}
+
+.button-group a:hover, .update-button:hover {
+  background-color: #004aad;
+  color: white;
 }

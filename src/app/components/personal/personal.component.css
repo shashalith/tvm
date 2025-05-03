@@ -57,14 +57,14 @@ textarea {
 
 .button-group {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
   align-items: center;
   margin-top: 20px;
 }
 
 
 .update-button {
-  margin-bottom:10px ;
   background-color: #007BFF;
   color: white;
   border: none;
@@ -79,19 +79,20 @@ textarea {
   background-color: #0056b3;
 }
 
-.next-link {
-  background-color: #28a745;
-  color: white;
+.button-group a {
   text-decoration: none;
-  padding: 12px 24px;
+  background-color: #f0f0f0;
+  padding: 10px 20px;
   border-radius: 8px;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  color: black;
+  font-weight: bold;
 }
 
-.next-link:hover {
-  background-color: #1e7e34;
+.button-group a:hover, .update-button:hover {
+  background-color: #004aad;
+  color: white;
 }
+
 
 
 .save-warning {

@@ -1,21 +1,8 @@
-/* Global Reset */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    width: 100%;
-    min-height: 100vh;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #f8f9fa;
-}
 
 /* Form Styling */
 form {
-    width: 80%;
-    max-width: 900px;
+    width: 90%;
+    max-width: 1000px;
     margin: 40px auto;
     padding: 20px;
     border: 2px solid #ccc;
@@ -64,12 +51,14 @@ input[type="date"] {
     background-color: #fefefe;
     font-size: 16px;
     color: #333;
+    cursor: pointer;
 }
 
 /* Button Group Styling */
 .button-group {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
     align-items: center;
     margin-top: 30px;
 }

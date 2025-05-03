@@ -62,7 +62,7 @@ export class EducationComponent {
       // this.rollNo  = educationData.rollNo; 
       // this.educationType  = educationData.educationType; 
     }else {
-      alert('Please fill all required fields.');
+      alert('All fields are mandatory');
     }
     
   }

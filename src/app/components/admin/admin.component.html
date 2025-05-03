@@ -1,0 +1,35 @@
+<div class="admin-container">
+    <h2 style="margin-bottom: 10px;">Employee List</h2>
+    <table *ngIf="employees.length > 0; else noData">
+      <thead>
+        <tr>
+          <th>S.N</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th>Gender</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees">
+          <td>{{ emp.index }}</td>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.email }}</td>
+          <td>{{ emp.contact }}</td>
+          <td>{{ emp.gender }}</td>
+          <td><button (click)="viewDetails(emp)">View</button></td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <ng-template #noData>
+      <p>No employee data available.</p>
+    </ng-template>
+  
+    <div *ngIf="selectedEmployee" class="details">
+      <h3>Employee Full Details</h3>
+      <pre>{{ selectedEmployee.details | json }}</pre>
+    </div>
+  </div>
+  

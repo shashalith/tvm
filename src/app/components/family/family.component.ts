@@ -43,17 +43,9 @@ export class FamilyComponent {
       this.userService.setFormData("Family Data:",this.familyForm.value);
       this.familyForm.reset();
       this.router.navigate(["/previousEmployee"]);
-      // const familyData = this.familyForm.value;
-      // this.fatherName = familyData.fatherName;  
-      // this.fatherDOB = familyData.fatherDOB;  
-      // this.motherName = familyData.motherName;  
-      // this.motherDOB = familyData.motherDOB;  
-      // this.spouseName = familyData.spouseName;  
-      // this.spouseDOB = familyData.spouseDOB;   
-      // this.spouseGender = familyData.spouseGender;   
-      // this.children = familyData.children;  
+
     } else {
-      alert('Please fill all required fields.');
+      alert('All fields are mandatory');
     }
   }
 }

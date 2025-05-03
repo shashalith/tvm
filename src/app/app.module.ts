@@ -21,6 +21,7 @@ import { NavDetailsComponent } from './components/nav-details/nav-details.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,8 @@ import { SignupComponent } from './components/signup/signup.component';
     NavDetailsComponent,
     LoginComponent,
     SignupComponent,
+    AdminComponent,
+    
     
   ],
   imports: [

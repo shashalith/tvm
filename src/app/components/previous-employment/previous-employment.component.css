@@ -1,48 +1,6 @@
-/* .tabs .active {
-    background-color: #007bff;
-    color: white;
-    border: none;
-}
 
 .employment-section {
-    margin: 20px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    min-height: 150px;
-}
-
-.note {
-    background-color: #fff3cd;
-    color: #856404;
-    padding: 10px;
-    border: 1px solid #ffeeba;
-    margin: 20px;
-}
-
-.navigation-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 20px;
-}
-
-.add-btn {
-    float: right;
-    margin-top: -30px;
-    padding: 5px;
-    text-decoration: none;
-    background-color: blue;
-    border-radius: 5px;
-    color: white;
-}
-.add-btn a{
-    color: white;
-    text-decoration: none;
-} */
-
-/* Popup background */
-
-.employment-section {
-    margin: 20px;
+  margin: 20px 10%;
     border: 1px solid #ccc;
     padding: 20px;
     min-height: 150px;
@@ -149,5 +107,37 @@
   
   #save-btn:hover {
     background-color: #218838;
+  }
+  
+  
+  .button-group {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .update-button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .button-group a {
+    text-decoration: none;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .button-group a:hover, .update-button:hover {
+    background-color: #004aad;
+    color: white;
   }
   
