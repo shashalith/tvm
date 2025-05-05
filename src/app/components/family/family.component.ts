@@ -40,7 +40,7 @@ export class FamilyComponent {
   submitForm(){
     if (this.familyForm.valid) {
       console.log('Family Details:', this.familyForm.value);
-      this.userService.setFormData("Family Data:",this.familyForm.value);
+      this.userService.setFormData("family",this.familyForm.value);
       this.familyForm.reset();
       this.router.navigate(["/previousEmployee"]);
 

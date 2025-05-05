@@ -38,7 +38,7 @@ export class DocumentComponent {
   submitForm() {
     if (this.documentForm.valid) {
       console.log("Document Data:", this.documentForm.value);
-      this.userService.setFormData('documentForm', this.documentForm.value);
+      this.userService.setFormData('documents', this.documentForm.value);
       this.router.navigate(['/resume']);
     } else {
       this.documentForm.markAllAsTouched();

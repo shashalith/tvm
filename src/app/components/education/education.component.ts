@@ -46,7 +46,7 @@ export class EducationComponent {
     if(this.educationForm.valid){
       console.log("education form submited ",this.educationForm.value);
 
-      this.userService.setFormData("Education Data: ",this.educationForm.value);
+      this.userService.setFormData("education",this.educationForm.value);
       this.educationForm.reset();
       this.router.navigate(['/skills']);
 

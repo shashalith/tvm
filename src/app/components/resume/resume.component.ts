@@ -24,7 +24,7 @@ export class ResumeComponent {
   submitForm(){
     if(this.resumeForm.valid){
     console.log(this.resumeForm.value);
-    this.userService.setFormData("Resume Data: ",this.resumeForm.value);
+    this.userService.setFormData("resume",this.resumeForm.value);
     this.resumeForm.reset();
     this.router.navigate(['/final']);
     // this.achievements = this.resumeForm.value.achievements;

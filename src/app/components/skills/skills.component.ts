@@ -33,7 +33,7 @@ export class SkillsComponent {
   submitForm() {
     if (this.skillForm.valid) {
       console.log("skills form: ", this.skillForm.value);
-      this.userService.setFormData("Skills Data: ", this.skillForm.value);
+      this.userService.setFormData("skills", this.skillForm.value);
       this.skillForm.reset();
       this.router.navigate(['/certificate']);
     }else{

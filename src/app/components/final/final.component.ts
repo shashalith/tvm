@@ -26,7 +26,7 @@ export class FinalComponent {
   submitForm() {
     if (this.declarationForm.valid) {
       console.log(this.declarationForm.value);
-      this.userService.setFormData('Final Form Data', this.declarationForm.value);
+      this.userService.setFormData('aFinal', this.declarationForm.value);
 
       // get All Dtata
       const allData = this.userService.getFormData();

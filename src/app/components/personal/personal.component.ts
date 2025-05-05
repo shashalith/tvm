@@ -109,7 +109,7 @@ export class PersonalComponent {
   submitForm() {
     if (this.userForm.valid) {
       console.log('Form Submitted', this.userForm.value);
-      this.userService.setFormData('Personal Data', this.userForm.value);
+      this.userService.setFormData('personal', this.userForm.value);
       // console.log('Stored Data:', this.userService.getFormData());
       this.userForm.reset();
       this.router.navigate(['/kyc']);

@@ -39,7 +39,7 @@ export class KycComponent {
   submitForm() {
     if (this.kycForm.valid) {
       console.log('Form Values:', this.kycForm.value);
-      this.userService.setFormData('Kyc Data: ', this.kycForm.value);
+      this.userService.setFormData('kyc', this.kycForm.value);
       this.kycForm.reset(); // Optionally reset the form
       this.router.navigate(['/passport']);
     } else {

@@ -29,7 +29,7 @@ constructor(private formBuilder:FormBuilder,private router:Router,private userSe
 
 submitForm(){
   if(this.certificateForm.valid){
-    console.log("certificate details: ",this.certificateForm.value);
+    console.log("certifications",this.certificateForm.value);
     this.userService.setFormData("Certificate Data: ",this.certificateForm.value);
     this.certificateForm.reset();
     // alert("Certificate submitted successfully!");
