@@ -1,39 +1,101 @@
 <div class="searchBox">
   <label for="search">Find Employee</label>
-  <input type="text" id="search" placeholder="name">
-</div>
+  <input
+    type="text"
+    id="search"
+    [(ngModel)]="searchText"
+    (input)="onSearch()"
+    placeholder="Search by name"
+    />
+  </div>
 <div class="admin-container">
-    <h2 style="margin-bottom: 10px;">Employee List</h2>
-    <table *ngIf="employees.length > 0; else noData">
-      <thead>
-        <tr>
-          <th>S.N</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Contact</th>
-          <th>Gender</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let emp of employees">
-          <td>{{ emp.index }}</td>
-          <td>{{ emp.name }}</td>
-          <td>{{ emp.email }}</td>
-          <td>{{ emp.contact }}</td>
-          <td>{{ emp.gender }}</td>
-          <td><button (click)="viewDetails(emp)">View</button></td>
-        </tr>
-      </tbody>
-    </table>
-  
-    <ng-template #noData>
-      <p>No employee data available.</p>
-    </ng-template>
-  
-    <div *ngIf="selectedEmployee" class="details">
-      <h3>Employee Full Details</h3>
-      <pre>{{ selectedEmployee.details | json }}</pre>
+  <h2>Employee List</h2>
+  <table *ngIf="filteredEmployees.length > 0; else noData">
+    <thead>
+      <tr>
+        <th>S.N</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Gender</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of filteredEmployees">
+        <td>{{ emp.index }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.contact }}</td>
+        <td>{{ emp.gender }}</td>
+        <td><button (click)="viewDetails(emp)">View</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+    <p>No employee data available.</p>
+  </ng-template>
+</div>
+
+<!-- ✅ Popup for Employee Details -->
+<div *ngIf="selectedEmployee" class="popup-overlay">
+  <div class="popup-content scrollable">
+    <h3>Personal Details</h3>
+    <p><b>Name:</b> {{ selectedEmployee.details.fname }} {{ selectedEmployee.details.lname }}</p>
+    <p><b>Email:</b> {{ selectedEmployee.details.email }}</p>
+    <p><b>DOB:</b> {{ selectedEmployee.details.dob }}</p>
+    <p><b>Gender:</b> {{ selectedEmployee.details.gender }}</p>
+    <p><b>Blood Group:</b> {{ selectedEmployee.details.bloodGroup }}</p>
+
+    <h4>Current Address</h4>
+    <p>{{ selectedEmployee.details.current_address }}, {{ selectedEmployee.details.current_city }}, {{ selectedEmployee.details.current_state }} - {{ selectedEmployee.details.current_pincode }}</p>
+
+    <h3>Previous Employment</h3>
+    <div *ngFor="let emp of selectedEmployee.details.previousEmployment">
+      <p><b>Company:</b> {{ emp.companyName }}</p>
+      <p><b>Designation:</b> {{ emp.designation }}</p>
+      <p><b>Type:</b> {{ emp.employmentType }}</p>
+      <p><b>From:</b> {{ emp.startDate }} - <b>To:</b> {{ emp.endDate }}</p>
+      <hr>
     </div>
-  </div>
-  
+
+    <h3>Education</h3>
+    <div *ngFor="let edu of selectedEmployee.details.education">
+      <p><b>Qualification:</b> {{ edu.qualification }} ({{ edu.specilization }})</p>
+      <p><b>Institute:</b> {{ edu.instituteName }}</p>
+      <p><b>University:</b> {{ edu.universityName }}</p>
+      <p><b>From:</b> {{ edu.fromDate }} <b>To:</b> {{ edu.toDate }}</p>
+      <p><b>Marks:</b> {{ edu.percentage }}%</p>
+      <hr>
+    </div>
+
+    <h3>Skills</h3>
+    <div *ngFor="let skill of selectedEmployee.details.skills">
+      <p><b>Skill:</b> {{ skill.skillName }} (v{{ skill.versionNum }})</p>
+      <p><b>Category:</b> {{ skill.skillCategories }}</p>
+      <p><b>Experience:</b> {{ skill.experience_year }}y {{ skill.experience_month }}m</p>
+      <p><b>Self Rating:</b> {{ skill.selfRate }}/5</p>
+      <hr>
+    </div>
+
+    <h3>Certifications</h3>
+    <div *ngFor="let cert of selectedEmployee.details.certification">
+      <p><b>Certificate:</b> {{ cert.certificateName }}</p>
+      <p><b>By:</b> {{ cert.certifiedBy }}</p>
+      <p><b>Completed on:</b> {{ cert.completionDate }}</p>
+      <p><b>Marks:</b> {{ cert.marks }}</p>
+      <hr>
+    </div>
+
+    <h3>Resume Info</h3>
+    <p><b>Achievements:</b> {{ selectedEmployee.details.resume.achievements }}</p>
+    <p><b>Category:</b> {{ selectedEmployee.details.resume.resumeCate }}</p>
+
+    <h3>Final Declaration</h3>
+    <p><b>Signature:</b> {{ selectedEmployee.details.aFinal.signature }}</p>
+    <p><b>Date:</b> {{ selectedEmployee.details.aFinal.date }}</p>
+
+    <button (click)="closePopup()">Close</button>
+  </div>
+  </div>
