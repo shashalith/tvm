@@ -32,7 +32,7 @@ submitForm(){
     console.log("certificate details: ",this.certificateForm.value);
     this.userService.setFormData("Certificate Data: ",this.certificateForm.value);
     this.certificateForm.reset();
-    alert("Certificate submitted successfully!");
+    // alert("Certificate submitted successfully!");
     this.router.navigate(['/document']);
     
   }else{

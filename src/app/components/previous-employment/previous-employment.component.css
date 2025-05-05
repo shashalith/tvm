@@ -141,3 +141,11 @@
     color: white;
   }
   
+  .delete-btn{
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+    background-color: red;
+    color: #fff;
+    border: none;
+  }

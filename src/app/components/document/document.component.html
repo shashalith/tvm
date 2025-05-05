@@ -42,17 +42,17 @@
 <div class="borderLine">
 
 <div class="leftBox">
-    <h3>Upload your latest photo</h3>
-<p>Employee photo should be in good resolution and proper background with background color</p>
+    <h3>Bank Details</h3>
+<p>Upload clear resolution of the check leaf and pass</p>
     <div class="form-group">
-        <label for="">Employee Photo</label>
-        <input type="file" name="latestPhoto" formControlName="latestPhoto" (change)="onFileChange($event, 'latestPhoto')">
+        <label for="checkleaf">Upload Check Leaf</label>
+        <input type="file" name="checkLeaf" formControlName="checkLeaf" (change)="onFileChange($event, 'checkLeaf')">
     </div>
 </div>
 <div class="rightBox">
     <div class="form-group">
-        <label for="">Upload Employee Document</label>
-        <input type="file" name="empDocument" formControlName="empDocument" (change)="onFileChange($event, 'empDocument')">
+        <label for="passbook">Upload Bank Passbook</label>
+        <input type="file" name="passbook" formControlName="passbook" (change)="onFileChange($event, 'passbook')">
     </div>
 </div>
 
