@@ -1,4 +1,4 @@
-<app-nav-details></app-nav-details>
+<!-- <app-nav-details></app-nav-details>
 <form class="form-grid" [formGroup]="certificateForm" (ngSubmit)="submitForm()">
     <div class="form-group">
         <label for="">Certificate Name</label>
@@ -23,4 +23,49 @@
         <a [routerLink]="['/document']" routerLinkActive="router-link-active" >Next &raquo;</a>
       </div>
     
+</form> -->
+
+
+<app-nav-details></app-nav-details>
+
+<!-- Certificate List -->
+<div *ngIf="certificateList.length === 0">
+  <p>No certificates added.</p>
+</div>
+
+<ul *ngIf="certificateList.length > 0">
+  <li *ngFor="let cert of certificateList; let i = index">
+    {{ cert.certificateName }} by {{ cert.certifiedBy }} on {{ cert.completionDate }} - Marks: {{ cert.marks }}
+    <button (click)="deleteCertificate(i)">Delete</button>
+  </li>
+</ul>
+
+<!-- Certificate Form -->
+<form class="form-grid" [formGroup]="certificateForm" (ngSubmit)="addCertificate()">
+  <div class="form-group">
+    <label>Certificate Name</label>
+    <input type="text" formControlName="certificateName" />
+  </div>
+  <div class="form-group">
+    <label>Certified by</label>
+    <input type="text" formControlName="certifiedBy" />
+  </div>
+  <div class="form-group">
+    <label>Completion Date</label>
+    <input type="date" formControlName="completionDate" />
+  </div>
+  <div class="form-group">
+    <label>Marks</label>
+    <input type="number" formControlName="marks" />
+  </div>
+
+  <div class="button-group">
+    <button class="update-button" type="submit">Add Certificate</button>
+  </div>
 </form>
+
+<!-- Navigation Buttons -->
+<div class="button-group">
+  <a routerLink="/skills">&laquo; Previous</a>
+  <button class="update-button" type="button" (click)="finalSubmit()">Next &raquo;</button>
+</div>

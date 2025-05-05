@@ -35,3 +35,16 @@
     border: 1px solid #ddd;
   }
   
+  .searchBox{
+    /* width: 220px; */
+    display: flex;
+    padding: 20px;
+    justify-content:right;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+  }
+  #search{
+    padding: 10px;
+    border-radius: 10px;
+  }

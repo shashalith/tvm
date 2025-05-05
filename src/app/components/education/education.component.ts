@@ -10,6 +10,7 @@ import { UserServiceService } from '../user-service.service';
 })
 export class EducationComponent {
 
+  educationList:any[] = [];
   educationForm!: FormGroup;
 
   qualification = "";
@@ -42,28 +43,19 @@ export class EducationComponent {
     })
   }
 
-  submitForm(){
-    if(this.educationForm.valid){
-      console.log("education form submited ",this.educationForm.value);
-
-      this.userService.setFormData("education",this.educationForm.value);
+  submitForm() {
+    if (this.educationForm.valid) {
+      this.educationList.push(this.educationForm.value);
+      console.log("Education form submitted", this.educationList);
+  
+      // Store the whole array in userService
+      this.userService.setFormData("education", this.educationList);
+  
       this.educationForm.reset();
       this.router.navigate(['/skills']);
-
-      // const educationData = this.educationForm.value;
-      // this.qualification  = educationData.qualification; 
-      // this.specilization  = educationData.specilization; 
-      // this.instituteName  = educationData.instituteName; 
-      // this.universityName  = educationData.universityName; 
-      // this.time  = educationData.time; 
-      // this.fromDate  = educationData.from; 
-      // this.toDate  = educationData.to; 
-      // this.percentage  = educationData.percentage; 
-      // this.rollNo  = educationData.rollNo; 
-      // this.educationType  = educationData.educationType; 
-    }else {
+    } else {
       alert('All fields are mandatory');
     }
-    
   }
+  
 }

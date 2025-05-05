@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./certificate.component.css']
 })
 export class CertificateComponent {
+  certificateList: any[] = [];
+
 certificateForm!:FormGroup;
 
 certificateName: string = '';
@@ -26,17 +28,39 @@ constructor(private formBuilder:FormBuilder,private router:Router,private userSe
      marks:['',Validators.required],
   });
 }
-
-submitForm(){
-  if(this.certificateForm.valid){
-    console.log("certifications",this.certificateForm.value);
-    this.userService.setFormData("Certificate Data: ",this.certificateForm.value);
+addCertificate() {
+  if (this.certificateForm.valid) {
+    this.certificateList.push(this.certificateForm.value);
+    this.userService.setFormData("certification", this.certificateList);
+    console.log("Certificate added: ", this.certificateForm.value);
     this.certificateForm.reset();
-    // alert("Certificate submitted successfully!");
-    this.router.navigate(['/document']);
-    
-  }else{
-    alert("All fields are madetory!");
+  } else {
+    alert("All fields are mandatory!");
   }
 }
+
+deleteCertificate(index: number) {
+  this.certificateList.splice(index, 1);
+}
+finalSubmit() {
+  if (this.certificateList.length > 0) {
+    this.userService.setFormData("certification", this.certificateList);
+    this.router.navigate(['/document']);
+  } else {
+    alert("Please add at least one certificate.");
+  }
+}
+
+// submitForm(){
+//   if(this.certificateForm.valid){
+//     console.log("certifications",this.certificateForm.value);
+//     this.userService.setFormData("certification",this.certificateForm.value);
+//     this.certificateForm.reset();
+//     // alert("Certificate submitted successfully!");
+//     this.router.navigate(['/document']);
+    
+//   }else{
+//     alert("All fields are madetory!");
+//   }
+// }
 }

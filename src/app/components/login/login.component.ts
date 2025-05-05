@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;
-      this.http.post('http://localhost:8080/login', loginData).subscribe({
+      this.http.post('http://localhost:8080/admin/login', loginData).subscribe({
           next: (res) => {
             console.log('Login successful:', res);
             this.router.navigate(['/admin']);

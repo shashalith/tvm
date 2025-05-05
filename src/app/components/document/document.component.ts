@@ -23,8 +23,8 @@ export class DocumentComponent {
       intermediate: [null, Validators.required],
       graduationMarksheet: [null, Validators.required],
       postGraduation: [null, Validators.required],
-      latestPhoto: [null, Validators.required],
-      empDocument: [null, Validators.required],
+      checkLeaf: [null, Validators.required],
+      passbook: [null, Validators.required],
     });
   }
 

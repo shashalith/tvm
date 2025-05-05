@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserServiceService } from '../user-service.service';
 
-
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
@@ -11,13 +10,8 @@ import { UserServiceService } from '../user-service.service';
 })
 export class SkillsComponent {
   skillForm!: FormGroup;
-
-  skillName = '';
-  skillCategories = '';
-  versionNum = '';
-  experience_year = '';
-  experience_month = '';
-  selfRate = '';
+  skillList: any[] = [];
+  showPopup = false;
 
   constructor(private formBuilder: FormBuilder, private userService: UserServiceService, private router: Router) {
     this.skillForm = this.formBuilder.group({
@@ -30,15 +24,38 @@ export class SkillsComponent {
     });
   }
 
-  submitForm() {
+  openPopup() {
+    this.showPopup = true;
+  }
+
+  closePopup() {
+    this.showPopup = false;
+    // this.skillForm.reset();
+  }
+
+  addSkill() {
     if (this.skillForm.valid) {
-      console.log("skills form: ", this.skillForm.value);
-      this.userService.setFormData("skills", this.skillForm.value);
+      this.skillList.push(this.skillForm.value);
+      this.userService.setFormData("skills", this.skillList);
+      console.log("Skill added: ", this.skillForm.value);
       this.skillForm.reset();
-      this.router.navigate(['/certificate']);
-    }else{
+      this.showPopup = false;
+    } else {
+      this.skillForm.markAllAsTouched();
       alert('All fields are mandatory');
     }
+  }
 
+  deleteSkill(index: number) {
+    this.skillList.splice(index, 1);
+  }
+
+  finalSubmit() {
+    if (this.skillList.length > 0) {
+      this.userService.setFormData("skills", this.skillList);
+      this.router.navigate(['/certificate']);
+    } else {
+      alert("Please add at least one skill");
+    }
   }
 }

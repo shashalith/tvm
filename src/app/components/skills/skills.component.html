@@ -1,42 +1,66 @@
 <app-nav-details></app-nav-details>
-<form class="form-grid" [formGroup]="skillForm" (ngSubmit)="submitForm()">
-    <div class="form-group">
-        <label for="">Skill Name</label>
-        <input type="text" name="skillName" formControlName="skillName">
-    </div>
-    <div class="form-group">
-        <label for="">Skill categories</label>
-        <input type="text" name="skillCategories" formControlName="skillCategories">
-    </div>
-    <div class="form-group">
-        <label for="">Version Number</label>
-        <input type="text" name="versionNum" formControlName="versionNum">
-    </div>
-    <div class="form-group">
-        <label for="">Experience in years</label>
-        <input type="text" name="experience_year" formControlName="experience_year">
-    </div>
-    <div class="form-group">
-        <label for="">Experience in Months</label>
-        <input type="text" name="experience_month" formControlName="experience_month">
-    </div>
-    
-    <div class="form-group">
-        <label for="selfRate">Self rating(1-5)</label>
-        <select id="selfRate" name="selfRate" formControlName="selfRate">
+
+<!-- List Section -->
+<div class="noSkill" *ngIf="skillList.length === 0">
+  <p>No skills added.</p>
+</div>
+
+<ul *ngIf="skillList.length > 0">
+  <li *ngFor="let skill of skillList; let i = index">
+    {{ skill.skillName }} ({{ skill.skillCategories }}) - Version: {{ skill.versionNum }},
+    Exp: {{ skill.experience_year }}y {{ skill.experience_month }}m, Rating: {{ skill.selfRate }}
+    <button (click)="deleteSkill(i)">Delete</button>
+  </li>
+</ul>
+
+<!-- Add Skill Button -->
+<button class="addSkill" (click)="openPopup()">Add Skill</button>
+
+<!-- Popup Form -->
+<div class="popup" *ngIf="showPopup">
+  <div class="popup-content">
+    <span class="close" (click)="closePopup()">&times;</span>
+
+    <form [formGroup]="skillForm" (ngSubmit)="addSkill()">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Skill Name</label>
+          <input type="text" formControlName="skillName">
+        </div>
+        <div class="form-group">
+          <label>Skill categories</label>
+          <input type="text" formControlName="skillCategories">
+        </div>
+        <div class="form-group">
+          <label>Version Number</label>
+          <input type="text" formControlName="versionNum">
+        </div>
+        <div class="form-group">
+          <label>Experience in years</label>
+          <input type="text" formControlName="experience_year">
+        </div>
+        <div class="form-group">
+          <label>Experience in Months</label>
+          <input type="text" formControlName="experience_month">
+        </div>
+        <div class="form-group">
+          <label>Self rating(1-5)</label>
+          <select formControlName="selfRate">
             <option value="">Select</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-    </div>
-    <br>
-    <div class="button-group">
-        <a routerLink="/education">&laquo; Previous</a>
-        <button class="update-button" type="submit">Save</button>
-        <a routerLink="/certificate">Next &raquo;</a>
+            <option *ngFor="let rate of [1,2,3,4,5]" [value]="rate">{{ rate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group full-width">
+          <button type="submit">Save Skill</button>
+        </div>
       </div>
-    
-</form>
+    </form>
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="button-group">
+  <a routerLink="/education">&laquo; Previous</a>
+  <button type="button" (click)="finalSubmit()">Next &raquo;</button>
+</div>

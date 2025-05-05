@@ -23,20 +23,60 @@ export class FinalComponent {
     });
   }
 
+  // submitForm() {
+  //   if (this.declarationForm.valid) {
+  //     console.log(this.declarationForm.value);
+  //     this.userService.setFormData('aFinal', this.declarationForm.value);
+
+  //     // get All Dtata
+  //     const allData = this.userService.getFormData();
+  //     console.log("All Form Data",allData);
+      
+  //     this.declarationForm.reset();
+  //     alert("Form Submitted Successfully");
+     
+  //   } else {
+  //     this.declarationForm.markAllAsTouched();
+  //   }
+  // }
+
   submitForm() {
     if (this.declarationForm.valid) {
-      console.log(this.declarationForm.value);
       this.userService.setFormData('aFinal', this.declarationForm.value);
-
-      // get All Dtata
+  
       const allData = this.userService.getFormData();
-      console.log("All Form Data",allData);
-      
-      this.declarationForm.reset();
-      alert("Form Submitted Successfully");
-     
+  
+      const finalData = {
+        ...allData.personal,
+        kyc: allData.kyc,
+        passport: allData.passport,
+        family: allData.family,
+        previousEmployment: allData.previousEmployment,
+        education: allData.education,
+        skills: allData.skills,
+        certification: allData.certification,
+        documents: allData.documents,
+        resume: allData.resume,
+        aFinal: allData.aFinal
+      };
+  
+      // Send to backend
+      this.userService.submitFinalData(finalData).subscribe({
+        next: (response) => {
+          console.log('API Response:', response);
+          alert("Form Submitted Successfully");
+          this.declarationForm.reset();
+          this.userService.clearFormData();
+          // this.router.navigate(['/thank-you']); // optional
+        },
+        error: (err) => {
+          console.error('API Error:', err);
+          alert("Something went wrong while submitting. Please try again.");
+        }
+      });
     } else {
       this.declarationForm.markAllAsTouched();
     }
   }
+  
 }

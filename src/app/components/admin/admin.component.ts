@@ -17,10 +17,10 @@ export class AdminComponent implements OnInit {
       next: (res) => {
         this.employees = res.map((data, index) => ({
           index: index + 1,
-          name: data["Personal Data"].fname + ' ' + data["Personal Data"].lname,
-          email: data["Personal Data"].email,
-          contact: data["Personal Data"].current_contact,
-          gender: data["Personal Data"].gender,
+          name: data["personal"].fname + ' ' + data["personal"].lname,
+          email: data["personal"].email,
+          contact: data["personal"].current_contact,
+          gender: data["personal"].gender,
           details: data
         }));
       },
