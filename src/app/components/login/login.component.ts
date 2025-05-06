@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
       this.http.post('http://localhost:8080/admin/verifyByEmail', loginData).subscribe({
         next: (res) => {
           console.log('Login successful:', res);
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/personal']);
         },
         error: (err) => {
           console.error('Login failed:', err);
