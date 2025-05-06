@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   private baseUrl = 'http://localhost:8080/admin'; // Admin-related APIs
-  private userBaseUrl = 'http://localhost:8080/user'; // For user APIs, if applicable
+  // private userBaseUrl = 'http://localhost:8080/user'; // For user APIs, if applicable
 
   constructor(private http: HttpClient) {}
 
@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   // Check the role of the logged-in user
-  checkRole(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/check-role`);
-  }
+  // checkRole(): Observable<any> {
+  //   return this.http.get(`${this.baseUrl}/check-role`);
+  // }
 }

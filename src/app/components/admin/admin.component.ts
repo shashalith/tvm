@@ -83,12 +83,12 @@ export class AdminComponent implements OnInit {
         // const employeeList = Array.isArray(res) ? res : [res[0]];
         // console.log(employeeList);
         
-        this.employees = d.body.map((data: any, index: number) => ({
-          index: index + 1,
+        this.employees = d.body.map((data: any) => ({
+          index:"TVM-"+data.id,
           name: data.fname + ' ' + data.lname,
           email: data.email,
-          contact: data.current_contact,
-          gender: data.gender,
+          contact: data.permanentContact,
+          city: data.permanentCity,
           details: data
         }));
         
@@ -106,9 +106,9 @@ export class AdminComponent implements OnInit {
   
     this.filteredEmployees = this.employees.filter(emp =>
       emp.name.toLowerCase().includes(term) ||
-      emp.details.permanent_city?.toLowerCase().includes(term) ||
-      emp.details.permanent_contact?.toLowerCase().includes(term) ||
-      emp.details.id?.toString().toLowerCase().includes(term)
+      emp.details.permanentCity?.toLowerCase().includes(term) ||
+      emp.contact?.toString().toLowerCase().includes(term)||
+      emp.index?.toLowerCase().includes(term)
     );
   }
   

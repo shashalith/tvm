@@ -16,22 +16,22 @@
   <table *ngIf="filteredEmployees.length > 0; else noData">
     <thead>
       <tr>
-        <th>S.N</th>
+        <th>Employee ID</th>
         <th>Name</th>
         <th>Email</th>
         <th>Contact</th>
-        <th>Gender</th>
-        <th>Action</th>
+        <th>City</th>
+        <!-- <th>Action</th> -->
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let emp of filteredEmployees">
-        <td>{{ emp.index }}</td>
+        <td><a style="cursor: pointer;" (click)="viewDetails(emp)">{{ emp.index }}</a> </td>
         <td>{{ emp.name }}</td>
         <td>{{ emp.email }}</td>
         <td>{{ emp.contact }}</td>
-        <td>{{ emp.gender }}</td>
-        <td><button (click)="viewDetails(emp)">View</button></td>
+        <td>{{ emp.city }}</td>
+        <!-- <td><button (click)="viewDetails(emp)">View</button></td> -->
       </tr>
     </tbody>
   </table>
