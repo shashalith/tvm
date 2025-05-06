@@ -7,6 +7,7 @@
     
     <!-- Conditionally display Login or Signup buttons -->
     <i class="login">
+        <button routerLink="adminLogin">Admin</button>
         <button *ngIf="!showLogin" routerLink="/signup" (click)="toggleForm(true)">SignUp</button>
         <button *ngIf="showLogin" routerLink="/login" (click)="toggleForm(false)">Login</button>
         <!-- <p>Admin</p>
