@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:8080/admin'; // Admin-related APIs
+  private baseUrl = 'http://localhost:8080/employee'; // Admin-related APIs
   // private userBaseUrl = 'http://localhost:8080/user'; // For user APIs, if applicable
 
   constructor(private http: HttpClient) {}
