@@ -23,10 +23,13 @@ nav {
     cursor: pointer;
     font-size: 16px;
     padding: 5px 10px;
+    transition: background-color ease 0.3s;
 }
 
 .login button:hover {
     background-color: #1d2b64;
+    border-radius: 10px;
+    /* padding: 5px; */
 }
 
 nav #navBar {

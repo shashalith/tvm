@@ -1,13 +1,16 @@
 <div class="searchBox">
-  <label for="search">Find Employee</label>
+  <i class="ri-user-search-fill"></i>
   <input
     type="text"
     id="search"
     [(ngModel)]="searchText"
     (input)="onSearch()"
-    placeholder="Search by name"
-    />
-  </div>
+    placeholder="Search by name,city,contact,or ID"
+  />
+</div>
+
+
+
 <div class="admin-container">
   <h2>Employee List</h2>
   <table *ngIf="filteredEmployees.length > 0; else noData">
@@ -33,7 +36,7 @@
     </tbody>
   </table>
 
-  <ng-template #noData>
+  <ng-template id="notFound" #noData>
     <p>No employee data available.</p>
   </ng-template>
 </div>

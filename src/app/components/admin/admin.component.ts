@@ -103,10 +103,16 @@ export class AdminComponent implements OnInit {
   
   onSearch() {
     const term = this.searchText.trim().toLowerCase();
+  
     this.filteredEmployees = this.employees.filter(emp =>
-      emp.name.toLowerCase().includes(term)
+      emp.name.toLowerCase().includes(term) ||
+      emp.details.permanent_city?.toLowerCase().includes(term) ||
+      emp.details.permanent_contact?.toLowerCase().includes(term) ||
+      emp.details.id?.toString().toLowerCase().includes(term)
     );
   }
+  
+  
 
   viewDetails(employee: any) {
     this.selectedEmployee = employee;

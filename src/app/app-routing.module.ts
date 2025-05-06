@@ -15,6 +15,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { adminAuthGuard } from './guards/admin-auth.guard';
+
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -32,7 +34,7 @@ const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path:'admin',component:AdminComponent},
+  {path:'admin',component:AdminComponent, canActivate:[adminAuthGuard]},
 
 ];
 
