@@ -25,7 +25,7 @@
       <div class="form-grid">
         <div class="form-group">
           <label>Company name</label>
-          <input type="text" formControlName="companyName" />
+          <input type="text" placeholder="ABC Company" formControlName="companyName" />
           <div *ngIf="employmentForm.get('companyName')?.touched && employmentForm.get('companyName')?.invalid" class="error">
             Company name is required
           </div>
@@ -33,20 +33,48 @@
 
         <div class="form-group">
           <label>Designation</label>
-          <input type="text" formControlName="designation" />
-          <div *ngIf="employmentForm.get('designation')?.touched && employmentForm.get('designation')?.invalid" class="error">
-            Designation is required
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Employment type</label>
-          <select formControlName="employmentType">
+          <select formControlName="designation">
             <option value="">Select</option>
             <option value="developer">Developer</option>
             <option value="tester">Tester</option>
             <option value="designer">Designer</option>
+            <option value="frontend_developer">Frontend Developer</option>
+            <option value="backend_developer">Backend Developer</option>
+            <option value="fullstack_developer">Full Stack Developer</option>
+            <option value="devops_engineer">DevOps Engineer</option>
+            <option value="data_engineer">Data Engineer</option>
+            <option value="data_scientist">Data Scientist</option>
+            <option value="machine_learning_engineer">Machine Learning Engineer</option>
+            <option value="qa_engineer">QA Engineer</option>
+            <option value="ui_ux_designer">UI/UX Designer</option>
+            <option value="business_analyst">Business Analyst</option>
+            <option value="project_manager">Project Manager</option>
+            <option value="product_manager">Product Manager</option>
+            <option value="scrum_master">Scrum Master</option>
+            <option value="system_admin">System Administrator</option>
+            <option value="network_engineer">Network Engineer</option>
+            <option value="technical_writer">Technical Writer</option>
+            <option value="support_engineer">Support Engineer</option>
           </select>
+          <div *ngIf="employmentForm.get('designation')?.touched && employmentForm.get('designation')?.invalid" class="error">
+            Designation is required
+          </div>
+          
+        </div>
+
+        <div class="form-group">
+          <label>Employment type</label>
+          <!-- <input type="text" formControlName="employmentType" /> -->
+          <select formControlName="employmentType">
+            <option value="">Select Employment Type</option>
+            <option value="full_time">Full-time</option>
+            <option value="part_time">Part-time</option>
+            <option value="contractual">Contractual</option>
+            <option value="freelance">Freelance</option>
+            <option value="intern">Intern</option>
+            <option value="consultant">Consultant</option>
+          </select>
+          
           <div *ngIf="employmentForm.get('employmentType')?.touched && employmentForm.get('employmentType')?.invalid" class="error">
             Select an employment type
           </div>
@@ -72,6 +100,6 @@
 
 <div class="button-group">
   <a routerLink="/family">&laquo; Previous</a>
-  <button class="update-button" type="button" (click)="finalSave()">Save</button>
-  <a *ngIf="employmentList.length > 0" routerLink="/education">Next &raquo;</a>
+  <button class="update-button" type="submit" (click)="finalSave()">Next</button>
+  <!-- <a *ngIf="employmentList.length > 0" routerLink="/education">Next &raquo;</a> -->
 </div>

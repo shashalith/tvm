@@ -17,6 +17,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { EmployeeDataComponent } from './components/employee-data/employee-data.component';
+import { LoginByNumberComponent } from './components/login-by-number/login-by-number.component';
 // import { adminAuthGuard } from './guards/admin-auth.guard';
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path:"final",component:FinalComponent},
   {path:"",component:HomeComponent},
   {path:'login',component:LoginComponent},
+  {path:'loginByNumber',component:LoginByNumberComponent},
   {path:'signup',component:SignupComponent},
   {path:'admin',component:AdminComponent},
   {path:'adminLogin',component:AdminLoginComponent},

@@ -2,53 +2,61 @@
 <form class="form-grid"  [formGroup]="educationForm" (ngSubmit)="submitForm()">
     <div class="form-group">
         <label for="">Qualification</label>
-        <input type="text" name="qualification" formControlName="qualification">
+        <input type="text" name="qualification" formControlName="qualification"  placeholder="Enter Qualification (e.g., B.Tech, M.Sc)">
     </div>
     <div class="form-group">
         <label for="">Specilization</label>
-        <input type="text" name="specilization" formControlName="specilization">
+        <input type="text" name="specilization" formControlName="specilization" placeholder="Enter Specialization (e.g., Computer Science)" />
     </div>
     <div class="form-group">
         <label for="">Institute Name</label>
-        <input type="text" name="instituteName" formControlName="instituteName">
+        <input type="text" name="instituteName" formControlName="instituteName" placeholder="Enter Institute Name" >
     </div>
     <div class="form-group">
         <label for="">University Name</label>
-        <input type="text" name="universityName" formControlName="universityName">
+        <input type="text" name="universityName" formControlName="universityName" placeholder="Enter University Name">
     </div>
     <div class="form-group">
-        <label for="">Full time/part time</label>
-        <input type="text" name="time" formControlName="time">
+        <label for="">Study Mode</label>
+        <select name="time" formControlName="time">
+            <option value="">Select Study Mode</option>
+            <option value="full_time">Full-time</option>
+            <option value="part_time">Part-time</option>
+          </select>
     </div>
     <div class="form-group">
         <label for="">from</label>
-        <input type="text" name="fromDate" formControlName="fromDate">
+        <input type="text" name="fromDate" formControlName="fromDate" placeholder="Start Year" >
     </div>
     <div class="form-group">
         <label for="">To</label>
-        <input type="text" name="toDate" formControlName="toDate">
+        <input type="text" name="toDate" formControlName="toDate" placeholder="End Year">
     </div>
     <div class="form-group">
         <label for="">Percentage(%)</label>
-        <input type="text" name="percentage" formControlName="percentage">
+        <input type="number" name="percentage" formControlName="percentage" placeholder="Enter Percentage (%)" step="0.01" min="0" max="100">
     </div>
     <div class="form-group">
         <label for="">Roll No:</label>
-        <input type="text" name="rollNo" formControlName="rollNo">
+        <input type="text" name="rollNo" formControlName="rollNo" placeholder="Enter Roll Number" >
     </div>
     <div class="form-group">
         <label for="">Education Type</label>
         <select name="" id="" name="educationType" formControlName="educationType">
-            <option value="">Select</option>
-            <option value="parttime">Part time</option>
-            <option value="fulltime">Full Time</option>
+            <option value="">Select Education Type</option>
+            <option value="school">School</option>
+            <option value="diploma">Diploma</option>
+            <option value="undergraduate">Undergraduate</option>
+            <option value="postgraduate">Postgraduate</option>
+            <option value="phd">Ph.D</option>
+            <option value="certification">Certification</option>
         </select>
     </div>
     <br>
     <div class="button-group">
         <a routerLink="/previousEmployee">&laquo; Previous</a>
-        <button class="update-button" type="submit">Save</button>
-        <a routerLink="/skills">Next &raquo;</a>
+        <button class="update-button" type="submit">Next &raquo;</button>
+        <!-- <a routerLink="/skills">Next &raquo;</a> -->
       </div>
     
 </form>

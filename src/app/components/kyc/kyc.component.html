@@ -4,7 +4,7 @@
     <div class="form-grid">
       <div class="form-group">
         <label for="pan">Pan Card Number</label>
-        <input type="text" id="pan" formControlName="pan" />
+        <input type="text" id="pan" placeholder="ABCDE1234F" formControlName="pan" />
         <div *ngIf="kycForm.get('pan')?.touched && kycForm.get('pan')?.invalid" class="error">
           Invalid PAN format (e.g., ABCDE1234F)
         </div>
@@ -12,7 +12,7 @@
 
       <div class="form-group">
         <label for="pan-name">Name on Pan Card</label>
-        <input type="text" id="pan-name" formControlName="panName" />
+        <input type="text" id="pan-name" placeholder="name on PAN" formControlName="panName" />
         <div *ngIf="kycForm.get('panName')?.touched && kycForm.get('panName')?.invalid" class="error">
           Name on PAN is required
         </div>
@@ -20,7 +20,7 @@
 
       <div class="form-group">
         <label for="aadhar">Aadhar Number</label>
-        <input type="text" id="aadhar" formControlName="aadhar" />
+        <input type="text" id="aadhar" placeholder="1111 2222 3333" formControlName="aadhar" />
         <div *ngIf="kycForm.get('aadhar')?.touched && kycForm.get('aadhar')?.invalid" class="error">
           Aadhar must be a 12-digit number
         </div>
@@ -28,7 +28,7 @@
 
       <div class="form-group">
         <label for="aadhar-name">Name on Aadhar Card</label>
-        <input type="text" id="aadhar-name" formControlName="aadharName" />
+        <input type="text" id="aadhar-name" placeholder="name on aadhar" formControlName="aadharName" />
         <div *ngIf="kycForm.get('aadharName')?.touched && kycForm.get('aadharName')?.invalid" class="error">
           Name on Aadhar is required
         </div>
@@ -36,7 +36,7 @@
 
       <div class="form-group">
         <label for="uan">UAN Number</label>
-        <input type="text" id="uan" formControlName="uan" />
+        <input type="text" id="uan" placeholder="100234567890" formControlName="uan" />
         <div *ngIf="kycForm.get('uan')?.touched && kycForm.get('uan')?.invalid" class="error">
           UAN must be a 12-digit number
         </div>
@@ -44,7 +44,7 @@
 
       <div class="form-group">
         <label for="pf">PF Number</label>
-        <input type="text" id="pf" formControlName="pf" />
+        <input type="text" id="pf" placeholder="TNMAS1234567000001234567" formControlName="pf" />
         <div *ngIf="kycForm.get('pf')?.touched && kycForm.get('pf')?.invalid" class="error">
           PF Number is required
         </div>
@@ -65,8 +65,8 @@
 
     <div class="button-group">
       <a routerLink="/personal">&laquo; Previous</a>
-      <button class="update-button" type="submit">Save</button>
-      <a routerLink="/passport">Next &raquo;</a>
+      <button class="update-button" type="submit">Next &raquo;</button>
+      <!-- <a routerLink="/passport">Next &raquo;</a> -->
     </div>
   </form>
 </div>

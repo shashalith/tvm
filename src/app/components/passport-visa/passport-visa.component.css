@@ -74,7 +74,7 @@
 .button-group {
   margin-top: 25px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   gap: 50px;
 }
@@ -82,7 +82,7 @@
 .button-group a {
   text-decoration: none;
   background-color: #f0f0f0;
-  padding: 10px 20px;
+  padding: 8px 10px;
   border-radius: 8px;
   color: black;
   font-weight: bold;

@@ -4,22 +4,22 @@
       
       <div class="form-group">
         <label for="fname">First Name:</label>
-        <input type="text" name="fname" id="fname" formControlName="fname">
+        <input type="text" name="fname" id="fname" placeholder="First Name" formControlName="fname">
       </div>
   
       <div class="form-group">
         <label for="mname">Middle Name:</label>
-        <input type="text" name="mname" id="mname" formControlName="mname">
+        <input type="text" name="mname" id="mname" placeholder="Middle Name" formControlName="mname">
       </div>
   
       <div class="form-group">
         <label for="lname">Last Name (Surname):</label>
-        <input type="text" name="lname" id="lname" formControlName="lname">
+        <input type="text" name="lname" id="lname" placeholder="Last Name" formControlName="lname">
       </div>
   
       <div class="form-group">
         <label for="pemail">Personal Email:</label>
-        <input type="email" name="email" id="pemail" formControlName="email">
+        <input type="email" name="email" id="pemail" placeholder="example@gmail.com" formControlName="email">
       </div>
   
       <div class="form-group">
@@ -55,7 +55,7 @@
       <div class="form-group">
         <label for="merital">Marital Status:</label>
         <select name="merital" id="merital" formControlName="merital">
-          <option>Select status</option>
+          <option value="">Select status</option>
           <option value="single">Single</option>
           <option value="married">Married</option>
           <option value="divorced">Divorced</option>
@@ -69,21 +69,27 @@
   
       <div class="form-group full-width">
         <label for="current_address">Current Address:</label>
-        <textarea name="current_address" id="current_address" formControlName="current_address"></textarea>
+        <textarea name="current_address" id="current_address" placeholder="Current Address" formControlName="current_address"></textarea>
       </div>
   
       <div class="form-group">
         <label for="current_country">Country:</label>
-        <select name="current_country" id="current_country" formControlName="current_country">
+        <select id="current_country" formControlName="current_country" [(ngModel)]="current_countryValue">
           <option value="">Select</option>
           <option value="india">India</option>
           <option value="nepal">Nepal</option>
           <option value="usa">USA</option>
           <option value="russia">Russia</option>
           <option value="bangladesh">Bangladesh</option>
+          <option value="other">Other</option>
         </select>
       </div>
-  
+      
+      <div class="form-group" *ngIf="current_countryValue === 'other'">
+        <label for="other_country">Country Name:</label>
+        <input type="text" id="other_country" formControlName="other_country" placeholder="Enter country">
+      </div>
+      
       <div class="form-group">
         <label for="current_state">State:</label>
         <input type="text" id="current_state" name="current_state" placeholder="State" formControlName="current_state">
@@ -96,19 +102,19 @@
   
       <div class="form-group">
         <label for="current_pincode">Pincode:</label>
-        <input type="number" id="current_pincode" name="pincode" formControlName="current_pincode">
+        <input type="number" id="current_pincode" name="pincode" placeholder="ex.808080" formControlName="current_pincode">
       </div>
   
       <div class="form-group">
         <label for="current_contact">Contact Number:</label>
-        <input type="number" id="current_contact" name="current_contact" formControlName="current_contact">
+        <input type="number" id="current_contact" name="current_contact" placeholder="9876543210" formControlName="current_contact">
       </div>
   
       <div class="form-group full-width">
         <label for="permanent_address">Permanent Address: 
           <input type="checkbox" id="same_as_current"> Same as Above
         </label>
-        <textarea name="permanent_address" id="permanent_address" formControlName="permanent_address"></textarea>
+        <textarea name="permanent_address" id="permanent_address" placeholder="Permanant Address" formControlName="permanent_address"></textarea>
       </div>
   
       <div class="form-group">
@@ -135,17 +141,17 @@
   
       <div class="form-group">
         <label for="permanent_pincode">Pincode:</label>
-        <input type="number" id="permanent_pincode" name="permanent_pincode" formControlName="permanent_pincode">
+        <input type="number" id="permanent_pincode" name="permanent_pincode" placeholder="ex.808080" formControlName="permanent_pincode">
       </div>
   
       <div class="form-group">
         <label for="permanent_contact">Permanent Contact Number:</label>
-        <input type="number" id="permanent_contact" name="permanent_contact" formControlName="permanent_contact">
+        <input type="number" id="permanent_contact" name="permanent_contact" placeholder="Permanent Number" formControlName="permanent_contact">
       </div>
   
       <div class="form-group full-width">
         <label for="bcp_address">BCP Work Address (with Landmark):</label>
-        <textarea id="bcp_address" name="bcp_address" formControlName="bcp_address"></textarea>
+        <textarea id="bcp_address" name="bcp_address" placeholder="BPC Address" formControlName="bcp_address"></textarea>
       </div>
   
       <div class="form-group">
@@ -172,66 +178,83 @@
   
       <div class="form-group">
         <label for="bcp_pincode">Pincode:</label>
-        <input type="number" name="bcp_pincode" id="bcp_pincode" formControlName="bcp_pincode">
+        <input type="number" name="bcp_pincode" id="bcp_pincode" placeholder="ex.808080" formControlName="bcp_pincode">
       </div>
   
       <div class="form-group full-width">
         <label for="emergency_contact_name">Emergency Contact Name & Address:</label>
-        <textarea name="emergency_contact_name" id="emergency_contact_name" formControlName="emergency_contact_name"></textarea>
+        <textarea name="emergency_contact_name" id="emergency_contact_name" placeholder="Emergency Contact Name & Address" formControlName="emergency_contact_name"></textarea>
       </div>
   
       <div class="form-group">
         <label for="emergency_contact_number">Emergency Contact Number:</label>
-        <input type="number" name="emergency_contact_number" id="emergency_contact_number" formControlName="emergency_contact_number">
+        <input type="number" name="emergency_contact_number" id="emergency_contact_number" placeholder="Emergency Number" formControlName="emergency_contact_number">
       </div>
   
       <div class="form-group">
         <label for="emergency_relationship">Relationship with Employee:</label>
-        <input type="text" name="emergency_relationship" id="emergency_relationship" formControlName="emergency_relationship">
-      </div>
+        <input type="text" name="emergency_relationship" id="emergency_relationship" placeholder="Relationship with Employee" formControlName="emergency_relationship">
+      </div> <br>
   
       <div class="form-group">
-        <label for="prev_experience_years">Previous Experience (Years):</label>
-        <select name="year" id="prev_experience_years" formControlName="year">
+        <label for="relevant_experience">Relevant Experience:</label>
+        <select name="relevantYear" id="relevant_experience" formControlName="relevantYear">
+          <option value="">Select year</option>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="prev_experience_years">Previous Experience (Years):</label>
+        <select name="year" id="prev_experience_years" formControlName="year">
+          <option value="">Select year</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          
         </select>
       </div>
   
       <div class="form-group">
         <label for="prev_experience_months">Previous Experience (Months):</label>
         <select name="month" id="prev_experience_months" formControlName="month">
+          <option value="">Select Month</option>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
         </select>
       </div>
   
-      <div class="form-group">
-        <label for="relevant_experience">Relevant Experience:</label>
-        <select name="relevantYear" id="relevant_experience" formControlName="relevantYear">
-          <option >Select year</option>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
-      </div>
+      
   
       <div class=" full-width button-group">
-        <button type="submit" class="update-button" >Save</button>
+        <button type="submit" class="update-button" >Next &raquo;</button>
 
-        <a routerLink="/kyc" class="next-link">Next &raquo;</a>
+        <!-- <a routerLink="/kyc" class="next-link">Next &raquo;</a> -->
       </div>
   
-      <div class="save-warning full-width">
+      <!-- <div class="save-warning full-width">
         <strong>Save!</strong> Your data before clicking on next/previous
-      </div>
+      </div> -->
   
     </form>
   </div>

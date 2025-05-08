@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  isEmailLogin: boolean = true; // by default email login
 
   constructor(
     private fb: FormBuilder,
@@ -19,48 +18,20 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.initForm();
-  }
-
-  initForm(): void {
     this.loginForm = this.fb.group({
-      username: [
-        '',
-        this.isEmailLogin
-          ? [Validators.required, Validators.email]
-          : [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]
-      ],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
 
-  toggleLoginType(): void {
-    this.isEmailLogin = !this.isEmailLogin;
-
-    const usernameControl = this.loginForm.get('username');
-    if (usernameControl) {
-      usernameControl.clearValidators();
-      usernameControl.setValidators(
-        this.isEmailLogin
-          ? [Validators.required, Validators.email]
-          : [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]
-      );
-      usernameControl.updateValueAndValidity();
-    }
-  }
-
   onSubmit(): void {
     if (this.loginForm.valid) {
-      const loginData = {
-        email: this.loginForm.value.username, // backend expects `email` key
-        password: this.loginForm.value.password
-      };
-      console.log(loginData);
-      
+      const loginData = this.loginForm.value;
 
       this.http.post('http://localhost:8080/employee/verifyByEmail', loginData).subscribe({
         next: (res) => {
           console.log('Login successful:', res);
+          // localStorage.setItem('token', 'true'); // Set login token
           this.router.navigate(['/personal']);
         },
         error: (err) => {

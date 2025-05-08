@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./personal.component.css']
 })
 export class PersonalComponent {
-
+  current_countryValue:string= '';
   userForm!:FormGroup;
 
   fname = '';
@@ -23,6 +23,7 @@ export class PersonalComponent {
   marriegedate = '';
   current_address = '';
   current_country = '';
+  other_country = '';
   current_state = '';
   current_city = '';
   current_pincode = '';
@@ -63,6 +64,7 @@ export class PersonalComponent {
       marriegedate:[''],
       current_address:['',Validators.required],
       current_country:['',Validators.required],
+      other_country:[''],
       current_state:['',Validators.required],
       current_city:['',Validators.required],
 

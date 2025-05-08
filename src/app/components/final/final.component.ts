@@ -75,6 +75,7 @@ export class FinalComponent {
         }
       });
     } else {
+      alert("All fields are mandatory*")
       this.declarationForm.markAllAsTouched();
     }
   }

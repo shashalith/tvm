@@ -33,7 +33,7 @@ export class PassportVisaComponent {
     if (this.userForm.valid) {
       console.log("passport form value: ", this.userForm.value);
       this.userService.setFormData('passport', this.userForm.value);
-      this.userForm.reset(); // Optionally reset the form
+      // this.userForm.reset();
       this.router.navigate(['/family']);
       
     } else {

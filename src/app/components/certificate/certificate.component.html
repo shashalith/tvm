@@ -1,35 +1,7 @@
-<!-- <app-nav-details></app-nav-details>
-<form class="form-grid" [formGroup]="certificateForm" (ngSubmit)="submitForm()">
-    <div class="form-group">
-        <label for="">Certificate Name</label>
-        <input type="text" name="CertificateName" formControlName="certificateName">
-    </div>
-    <div class="form-group">
-        <label for="">Certified by</label>
-        <input type="text" name="certifiedBy" formControlName="certifiedBy">
-    </div>
-    <div class="form-group">
-        <label for="">Completion Date</label>
-        <input type="text" name="CompletionDate" formControlName="completionDate">
-    </div>
-    <div class="form-group">
-        <label for="">Marks</label>
-        <input type="text" name="marks" formControlName="marks">
-    </div>
-    
-    <div class="button-group">
-        <a href="skills">&laquo; Previous</a>
-        <button class="update-button" type="submit">Save</button>
-        <a [routerLink]="['/document']" routerLinkActive="router-link-active" >Next &raquo;</a>
-      </div>
-    
-</form> -->
-
-
 <app-nav-details></app-nav-details>
 
 <!-- Certificate List -->
-<div *ngIf="certificateList.length === 0">
+<div class="noCertificate" *ngIf="certificateList.length === 0">
   <p>No certificates added.</p>
 </div>
 
@@ -44,11 +16,11 @@
 <form class="form-grid" [formGroup]="certificateForm" (ngSubmit)="addCertificate()">
   <div class="form-group">
     <label>Certificate Name</label>
-    <input type="text" formControlName="certificateName" />
+    <input type="text" formControlName="certificateName" placeholder="Enter Certificate Name (e.g., AWS Cloud Practitioner)" />
   </div>
   <div class="form-group">
     <label>Certified by</label>
-    <input type="text" formControlName="certifiedBy" />
+    <input type="text" formControlName="certifiedBy" placeholder="Certified By (e.g., Amazon, Microsoft)"  />
   </div>
   <div class="form-group">
     <label>Completion Date</label>
@@ -56,7 +28,7 @@
   </div>
   <div class="form-group">
     <label>Marks</label>
-    <input type="number" formControlName="marks" />
+    <input type="number" formControlName="marks" placeholder="Enter Marks or Score (if any)" min="0" />
   </div>
 
   <div class="button-group">

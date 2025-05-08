@@ -1,18 +1,12 @@
 <div class="login-container">
-  <h2>Login</h2>
+  <h2><i class="ri-user-line"></i> Login</h2>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label *ngIf="isEmailLogin">Email</label>
-      <label *ngIf="!isEmailLogin">Mobile Number</label>
-      <input 
-  type="text" 
-  formControlName="username" 
-  placeholder="Enter your email or mobile number" 
-/>
-<div *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid" class="error">
-  Valid email or mobile number is required
-</div>
-
+      <label>Email</label>
+      <input type="email" formControlName="email" placeholder="Enter your email" />
+      <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="error">
+        Valid email is required
+      </div>
     </div>
 
     <div class="form-group">
@@ -27,10 +21,8 @@
 
     <div class="register-link">
       <a routerLink="/signup">Don't have an account? Register</a>
-      <br />
-      <a (click)="toggleLoginType()" class="alt-login">
-        {{ isEmailLogin ? 'Login using mobile number' : 'Login using email' }}
-      </a>
+      <a routerLink="/loginByNumber">Login by Mobile Number</a>
     </div>
+    
   </form>
 </div>

@@ -1,4 +1,14 @@
 /* Overall form container */
+.noCertificate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: large;
+}
+.noCertificate p{
+    font-weight: bold;
+}
 .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
 
+  isLoggedIn:boolean = false;
+  ngOnInit() {
+    this.isLoggedIn = !!localStorage.getItem('token');
+  }
   logoUrl = 'assets/images/logo.png'; // Your logo image path
 
   showLogin = true; // Initially show the Login form, toggle to Signup when false
