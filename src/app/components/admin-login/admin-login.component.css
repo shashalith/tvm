@@ -30,7 +30,12 @@
     font-size: 13px;
     margin-top: 5px;
   }
-  
+  #error{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
   .login-btn {
     width: 100%;
     padding: 10px;

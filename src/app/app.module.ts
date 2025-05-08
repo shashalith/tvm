@@ -23,6 +23,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { EmployeeDataComponent } from './components/employee-data/employee-data.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
     SignupComponent,
     AdminComponent,
     AdminLoginComponent,
+    EmployeeDataComponent,
     
     
   ],

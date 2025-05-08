@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
 })
 export class AdminLoginComponent implements OnInit {
   adminLoginForm!: FormGroup;
-
+  loginError: string = '';
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
@@ -36,17 +36,19 @@ export class AdminLoginComponent implements OnInit {
   }
 
   onAdminLogin(): void {
+    this.loginError = '';
     if (this.adminLoginForm.valid) {
       const loginData = this.adminLoginForm.value;
 
       console.log(loginData);
       
-      this.http.post('http://localhost:8080/admin/login', loginData).subscribe({
+      this.http.post('http://localhost:8080/admin/verifyByEmail', loginData).subscribe({
         next: (res) => {
           console.log('Admin login successful:', res);
           this.router.navigate(['/admin']); 
         },
         error: (err) => {
+          this.loginError = 'Admin email or password is incorrect';
           console.error('Admin login failed:', err);
         }
       });

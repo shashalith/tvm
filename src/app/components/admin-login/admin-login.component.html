@@ -1,5 +1,7 @@
 <div class="login-container">
     <h2>Admin Login</h2>
+    <div *ngIf="loginError" id="error" class="error"> <p>{{ loginError }}</p></div>
+    
     <form [formGroup]="adminLoginForm" (ngSubmit)="onAdminLogin()">
       <div class="form-group">
         <label>Email</label>
