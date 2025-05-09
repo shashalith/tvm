@@ -55,7 +55,8 @@ export class EducationComponent {
       this.educationForm.reset();
       this.router.navigate(['/skills']);
     } else {
-      alert('All fields are mandatory');
+      // alert('All fields are mandatory');
+      this.educationForm.markAllAsTouched();
     }
   }
   

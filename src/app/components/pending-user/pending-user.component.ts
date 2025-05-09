@@ -17,14 +17,16 @@ export class PendingUserComponent {
   }
 
   fetchUsers() {
-    this.http.get<any[]>('https://your-api-endpoint.com/users')
+    this.http.get<{ message: string, body: any[], statusCode: number }>('http://localhost:8080/personal/pendingEmp')
       .subscribe((data) => {
-        this.users = data.map(user => ({
+        console.log(data);
+        
+        this.users = data.body.map((user: any) => ({
           ...user,
-          status: this.checkIfFormSubmitted(user) ? 'Submitted' : 'Pending'
+          // status: this.checkIfFormSubmitted(user) 'Pending'
         }));
-      });
-  }
+      });
+  }
 
   checkIfFormSubmitted(user: any): boolean {
     return user.fullName && user.mobile && user.aadhar && user.dob && user.gender;

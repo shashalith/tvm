@@ -3,6 +3,9 @@
     <strong>Profile & Achievements:</strong>
     
     <textarea style="width: 100%; height: 200px; border-radius: 10px; margin-top: 20px; padding: 10px;" name="achievements" formControlName="achievements" placeholder="Briefly describe your profile, key achievements, and skills. For example: Experience in web development, leadership skills, notable project contributions, etc."></textarea>
+    <div *ngIf="resumeForm.get('achievements')?.touched && resumeForm.get('achievements')?.hasError('required')" class="error">
+        Achievements is required
+      </div>
     <div class="">
         <select name="resumeCate" formControlName="resumeCate">
             <option value="">Select Category</option>
@@ -19,6 +22,9 @@
             <option value="QA & Testing">QA & Testing</option>
             <option value="other">Other</option>
           </select>
+          <div *ngIf="resumeForm.get('resumeCate')?.touched && resumeForm.get('resumeCate')?.hasError('required')" class="error">
+        Select category  is required
+      </div>
           
 </div>
     <div class="button-group">

@@ -31,7 +31,8 @@ export class ResumeComponent {
     // this.achievements = this.resumeForm.value.achievements;
     // this.resumeCate = this.resumeForm.value.resumeCate;
   }else{
-    alert("All fields are mandetory")
+    // alert("All fields are mandetory")
+    this.resumeForm.markAllAsTouched();
     console.log("Invalid form");
     
   }

@@ -123,3 +123,8 @@ ul {
     background-color: #c0392b;
   }
   
+  .error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}

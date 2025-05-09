@@ -41,4 +41,8 @@ export class UserService {
   getInvalidSteps(): string[] {
     return Object.keys(this.formGroups).filter(key => !this.formGroups[key].valid);
   }
+  uploadDocuments(formData: FormData) {
+  return this.http.post('/api/upload-documents', formData); //pending real API endpoint
+}
+
 }

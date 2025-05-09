@@ -43,7 +43,7 @@ export class SkillsComponent {
       this.showPopup = false;
     } else {
       this.skillForm.markAllAsTouched();
-      alert('All fields are mandatory');
+      // alert('All fields are mandatory');
     }
   }
 

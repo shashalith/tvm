@@ -25,12 +25,13 @@
         <td>{{ user.dob || '---' }}</td>
         <td>{{ user.gender || '---' }}</td>
         <td>
-          <span class="status-badge" [ngClass]="{
+            <span >{{ user.status==0?"Pending":"Submitted" }}</span>
+          <!-- <span class="status-badge" [ngClass]="{
             'pending': user.status === 'Pending',
             'submitted': user.status === 'Submitted'
-          }">
-            {{ user.status }}
-          </span>
+          }"> 
+            
+          </span>-->
         </td>
       </tr>
       <tr *ngIf="filteredUsers().length === 0">

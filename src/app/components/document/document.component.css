@@ -104,3 +104,9 @@ select {
         grid-template-columns: 1fr;
     }
 }
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
