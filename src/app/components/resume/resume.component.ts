@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder,FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserServiceService } from '../user-service.service';
+import { UserService } from '../user-service.service';
 
 
 @Component({
@@ -14,11 +14,12 @@ export class ResumeComponent {
   resumeForm!:FormGroup;
   achievements: string = '';
   resumeCate='';
-  constructor(private formBuilder:FormBuilder,private router:Router,private userService:UserServiceService){
+  constructor(private formBuilder:FormBuilder,private router:Router,private userService:UserService){
     this.resumeForm = this.formBuilder.group({
       achievements:['',Validators.required],
       resumeCate:['',Validators.required],
-    })
+    });
+    this.userService.setFormData('education', this.resumeForm);
   }
 
   submitForm(){

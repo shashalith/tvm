@@ -92,3 +92,9 @@
   background-color: #004aad;
   color: white;
 }
+
+.error{
+  color: red;
+  margin-top:5px ;
+  font-size: 14px;
+}

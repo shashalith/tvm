@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserServiceService } from '../user-service.service';
+import { UserService } from '../user-service.service';
 import { Router } from '@angular/router';
 
 
@@ -22,7 +22,7 @@ export class FamilyComponent {
       children = ""; 
   constructor(
     private formBuilder: FormBuilder,
-    private userService:UserServiceService,
+    private userService:UserService,
     private router:Router,
   ) {
     this.familyForm = this.formBuilder.group({
@@ -33,8 +33,10 @@ export class FamilyComponent {
       spouseName: [''],
       spouseDOB: [''],
       spouseGender: [''],
-      children: ['No', Validators.required],
+      children: ['', Validators.required],
     });
+    this.userService.setFormGroup('family', this.familyForm);
+
   }
 
   submitForm(){
@@ -45,7 +47,10 @@ export class FamilyComponent {
       this.router.navigate(["/previousEmployee"]);
 
     } else {
-      alert('All fields are mandatory');
+      this.familyForm.markAllAsTouched();
+      // alert('All fields are mandatory');
+      console.log('this form is invalid');
+      
     }
   }
 }

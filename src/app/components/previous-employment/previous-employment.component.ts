@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserServiceService } from '../user-service.service';
+import { UserService } from '../user-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ export class PreviousEmploymentComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserServiceService,
+    private userService: UserService,
     private router: Router
   ) {}
 
@@ -27,6 +27,8 @@ export class PreviousEmploymentComponent implements OnInit {
       startDate: ['', Validators.required],
       endDate: ['', Validators.required]
     });
+    this.userService.setFormGroup('personal', this.employmentForm);
+
   }
 
   openPopup(): void {
@@ -59,7 +61,7 @@ export class PreviousEmploymentComponent implements OnInit {
       this.userService.setFormData('previousEmployment', this.employmentList);
       this.router.navigate(['/education']);
     } else {
-      alert('Please add at least one employment record.');
+      this.employmentForm.markAllAsTouched();
     }
   }
 }

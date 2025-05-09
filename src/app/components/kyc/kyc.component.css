@@ -139,4 +139,8 @@
     background-color: #004aad;
     color: white;
   }
-  
+  .error{
+    color: red;
+    font-size: 13px;
+    margin-top: 10px;
+  }

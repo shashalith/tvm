@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserServiceService } from '../user-service.service';
+import { UserService } from '../user-service.service';
 
 @Component({
   selector: 'app-skills',
@@ -13,7 +13,7 @@ export class SkillsComponent {
   skillList: any[] = [];
   showPopup = false;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserServiceService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
     this.skillForm = this.formBuilder.group({
       skillName: ['', Validators.required],
       skillCategories: ['', Validators.required],
@@ -22,6 +22,7 @@ export class SkillsComponent {
       experience_month: ['', Validators.required],
       selfRate: ['', Validators.required],
     });
+    this.userService.setFormGroup('skills',this.skillForm);
   }
 
   openPopup() {

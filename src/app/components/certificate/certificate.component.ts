@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
-import { UserServiceService } from '../user-service.service';
+import { UserService } from '../user-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,7 +19,7 @@ completionDate: string = '';
 marks: number = 0;
 
 
-constructor(private formBuilder:FormBuilder,private router:Router,private userService:UserServiceService){
+constructor(private formBuilder:FormBuilder,private router:Router,private userService:UserService){
   this.certificateForm = this.formBuilder.group({
 
      certificateName:['',Validators.required],
@@ -27,6 +27,7 @@ constructor(private formBuilder:FormBuilder,private router:Router,private userSe
      completionDate:['',Validators.required],
      marks:['',Validators.required],
   });
+  this.userService.setFormData('education', this.certificateForm);
 }
 addCertificate() {
   if (this.certificateForm.valid) {

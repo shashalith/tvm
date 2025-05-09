@@ -1,18 +1,29 @@
+<!-- nav.component.html -->
 <nav>
     <div id="navBar">
-        <img id="iconimg" [src]="logoUrl" alt="logo">
-        <h1 id="tvm">TVM Infotech</h1>
-        <i class="ri-home-4-fill"><a routerLink="/">Home</a></i>
+      <h1 id="tvm">TVM Infotech</h1>
+      <i class="ri-home-4-fill"><a routerLink="/">Home</a></i>
+  
+      <!-- Onboarding dropdown -->
+      <div class="dropdown" (click)="toggleDropdown()" tabindex="0">
+        <button class="dropbtn">Onboarding</button>
+        <div class="dropdown-content" *ngIf="dropdownOpen">
+          <a routerLink="/pendingUser" (click)="closeDropdown()"  (click)="toggleDropdown()">Pending User</a>
+          <a routerLink="/admin" (click)="closeDropdown()" (click)="toggleDropdown()">User List</a>
+        </div>
+      </div>
     </div>
-    
-    <!-- Conditionally display Login or Signup buttons -->
-    <i class="login" *ngIf="!isLoggedIn">
-        <!-- <button routerLink="adminLogin">Admin</button> -->
-        <button *ngIf="!showLogin" routerLink="/signup" (click)="toggleForm(true)"> <i class="ri-file-user-line"></i> SignUp</button>
-        <button *ngIf="showLogin" routerLink="/login" (click)="toggleForm(false)"> <i class="ri-user-line"></i> Login</button>
-        <!-- <p>Admin</p>
-        <a routerLink="/login"><button>Login</button></a>
-        <a routerLink="/signup"><button>Signup</button></a> -->
+  
+    <i class="login">
+      <button *ngIf="!isLoggedIn" routerLink="adminLogin">
+        <i class="ri-admin-line"></i> Admin
+      </button>
+      <!-- <button routerLink="/signup" (click)="toggleForm(true)">
+        <i class="ri-user-add-line"></i> Create User
+      </button> -->
+      <button routerLink="/login" (click)="toggleForm(false)">
+        <i class="ri-user-line"></i> User
+      </button>
     </i>
-
-</nav>
+  </nav>
+  

@@ -25,6 +25,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { EmployeeDataComponent } from './components/employee-data/employee-data.component';
 import { LoginByNumberComponent } from './components/login-by-number/login-by-number.component';
+import { OnboardingComponent } from './components/onboarding/onboarding.component';
+import { PendingUserComponent } from './components/pending-user/pending-user.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { LoginByNumberComponent } from './components/login-by-number/login-by-nu
     AdminLoginComponent,
     EmployeeDataComponent,
     LoginByNumberComponent,
+    OnboardingComponent,
+    PendingUserComponent,
     
     
   ],

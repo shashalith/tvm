@@ -1,0 +1,24 @@
+<div class="onboarding-container">
+  <div class="welcome-section">
+    <h1>Welcome, Admin!</h1>
+    <p>Let’s get you started with setting up your dashboard.</p>
+  </div>
+
+  <!-- <div class="steps-section">
+    <h2>Setup Checklist</h2>
+    <ul>
+      <li *ngFor="let step of steps">
+        <span class="step-status" [class.complete]="step.completed">
+          {{ step.completed ? '✔' : '○' }}
+        </span>
+        {{ step.label }}
+      </li>
+    </ul>
+  </div> -->
+
+  <div class="actions-section">
+    <!-- <button (click)="goToDashboard()">Go to Dashboard</button> -->
+    <button (click)="addUser()"><i class="ri-user-add-line"></i> Add New User</button>
+    <!-- <button (click)="openHelp()">Need Help?</button> -->
+  </div>
+</div>

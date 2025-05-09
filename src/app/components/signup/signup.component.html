@@ -1,5 +1,5 @@
 <div class="signup-container">
-  <h2>Sign Up</h2>
+  <h2><i class="ri-user-add-fill"></i> Create User</h2>
   <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="form-grid">
 
     <!-- Full Name -->
@@ -84,7 +84,7 @@
 
     <!-- Submit Button (Full Width) -->
     <div class=" full-width">
-      <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+      <button type="submit" [disabled]="signupForm.invalid">Create</button>
     </div>
   </form>
 

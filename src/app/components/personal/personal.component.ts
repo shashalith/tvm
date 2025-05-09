@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder,FormGroup,Validators } from '@angular/forms';
-import { UserServiceService } from '../user-service.service';
+import { UserService } from '../user-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,42 +12,9 @@ export class PersonalComponent {
   current_countryValue:string= '';
   userForm!:FormGroup;
 
-  fname = '';
-  mname = '';
-  lname = '';
-  email = '';
-  gender = '';
-  bloodGroup = '';
-  dob = '';
-  merital = '';
-  marriegedate = '';
-  current_address = '';
-  current_country = '';
-  other_country = '';
-  current_state = '';
-  current_city = '';
-  current_pincode = '';
-  current_contact = '';
-  permanent_address = '';
-  permanent_country = '';
-  permanent_state = '';
-  permanent_city = '';
-  permanent_pincode = '';
-  permanent_contact = '';
-  bcp_address = '';
-  bcp_country = '';
-  bcp_state = '';
-  bcp_city = '';
-  bcp_pincode = '';
-  emergency_contact_name = '';
-  emergency_contact_number = '';
-  emergency_relationship = '';
-  year = '';
-  month = '';
-  relevantYear = '';
   constructor(
     private formBuilder:FormBuilder,
-    private userService:UserServiceService,
+    private userService:UserService,
     private router:Router,
   ){
     this.userForm = this.formBuilder.group({
@@ -95,18 +62,9 @@ export class PersonalComponent {
       month:['',Validators.required],
       relevantYear:['',Validators.required],
     })
+    this.userService.setFormGroup('personal', this.userForm);
   };
-
-  // submitForm() {
-  //   if (this.userForm.valid) {
-  //     console.log('Form Submitted', this.userForm.value);
-  //     this.userService.setFormData('personal', this.userForm.value);
-  //     this.router.navigate(['/kyc']);
-  //   } else {
-  //     alert("All fields are mandatory");
-  //     console.log("This form is invalid!");
-  //   }
-  // }
+  
   
   submitForm() {
     if (this.userForm.valid) {
@@ -116,10 +74,12 @@ export class PersonalComponent {
       this.userForm.reset();
       this.router.navigate(['/kyc']);
     } else {
-      alert("All fields are mandatory");
+      // alert("All fields are mandatory");
+      this.userForm.markAllAsTouched();
       console.log("This form is invalid!");
     }
   }
+  
   
   
   

@@ -19,6 +19,10 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { EmployeeDataComponent } from './components/employee-data/employee-data.component';
 import { LoginByNumberComponent } from './components/login-by-number/login-by-number.component';
 // import { adminAuthGuard } from './guards/admin-auth.guard';
+import { ThankYouComponent } from './components/thank-you/thank-you.component';
+import { OnboardingComponent } from './components/onboarding/onboarding.component';
+import { PendingUserComponent } from './components/pending-user/pending-user.component';
+
 
 
 
@@ -41,8 +45,10 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent},
   {path:'admin',component:AdminComponent},
   {path:'adminLogin',component:AdminLoginComponent},
-  {path:"employeeData/:id",component:EmployeeDataComponent}
-
+  {path:"employeeData/:id",component:EmployeeDataComponent},
+  {path:'thankYou',component:ThankYouComponent},
+  {path:'onboarding',component:OnboardingComponent},
+  {path:'pendingUser',component:PendingUserComponent}
 ];
 
 @NgModule({

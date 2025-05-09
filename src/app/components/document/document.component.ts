@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserServiceService } from '../user-service.service';
+import { UserService } from '../user-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,19 +13,21 @@ export class DocumentComponent {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserServiceService,
+    private userService: UserService,
     private router: Router
   ) {
     this.documentForm = this.fb.group({
       panCard: [null, Validators.required],
       aadharCard: [null, Validators.required],
       pSizePhoto: [null, Validators.required],
+      matric:[null, Validators.required],
       intermediate: [null, Validators.required],
       graduationMarksheet: [null, Validators.required],
       postGraduation: [null, Validators.required],
       checkLeaf: [null, Validators.required],
       passbook: [null, Validators.required],
     });
+    this.userService.setFormData('education', this.documentForm);
   }
 
   onFileChange(event: any, controlName: string) {

@@ -9,8 +9,7 @@
 
   <ul *ngIf="employmentList.length > 0">
     <li *ngFor="let emp of employmentList; let i = index">
-      <strong>{{ emp.companyName }}</strong> — {{ emp.designation }} ({{ emp.employmentType }})
-      <br />
+      <strong>{{ emp.companyName }}</strong> — {{ emp.designation }} ({{ emp.employmentType }})<br />
       From: {{ emp.startDate }} To: {{ emp.endDate }}
       <button (click)="deleteEmployment(i)" class="delete-btn">Delete</button>
     </li>
@@ -23,6 +22,7 @@
     <span class="close" (click)="closePopup()">&times;</span>
     <form [formGroup]="employmentForm" (ngSubmit)="saveEmployment()">
       <div class="form-grid">
+        <!-- Company Name -->
         <div class="form-group">
           <label>Company name</label>
           <input type="text" placeholder="ABC Company" formControlName="companyName" />
@@ -31,6 +31,7 @@
           </div>
         </div>
 
+        <!-- Designation -->
         <div class="form-group">
           <label>Designation</label>
           <select formControlName="designation">
@@ -59,12 +60,11 @@
           <div *ngIf="employmentForm.get('designation')?.touched && employmentForm.get('designation')?.invalid" class="error">
             Designation is required
           </div>
-          
         </div>
 
+        <!-- Employment Type -->
         <div class="form-group">
           <label>Employment type</label>
-          <!-- <input type="text" formControlName="employmentType" /> -->
           <select formControlName="employmentType">
             <option value="">Select Employment Type</option>
             <option value="full_time">Full-time</option>
@@ -74,22 +74,30 @@
             <option value="intern">Intern</option>
             <option value="consultant">Consultant</option>
           </select>
-          
           <div *ngIf="employmentForm.get('employmentType')?.touched && employmentForm.get('employmentType')?.invalid" class="error">
-            Select an employment type
+            Employment type is required
           </div>
         </div>
 
+        <!-- Start Date -->
         <div class="form-group">
           <label>Start date</label>
           <input type="date" formControlName="startDate" />
+          <div *ngIf="employmentForm.get('startDate')?.touched && employmentForm.get('startDate')?.invalid" class="error">
+            Start date is required
+          </div>
         </div>
 
+        <!-- End Date -->
         <div class="form-group">
           <label>Exit date</label>
           <input type="date" formControlName="endDate" />
+          <div *ngIf="employmentForm.get('endDate')?.touched && employmentForm.get('endDate')?.invalid" class="error">
+            Exit date is required
+          </div>
         </div>
 
+        <!-- Submit -->
         <div class="form-group full-width">
           <button id="save-btn" type="submit">Save</button>
         </div>
@@ -98,8 +106,8 @@
   </div>
 </div>
 
+<!-- Navigation Buttons -->
 <div class="button-group">
   <a routerLink="/family">&laquo; Previous</a>
   <button class="update-button" type="submit" (click)="finalSave()">Next</button>
-  <!-- <a *ngIf="employmentList.length > 0" routerLink="/education">Next &raquo;</a> -->
 </div>

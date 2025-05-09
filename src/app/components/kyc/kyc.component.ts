@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserServiceService } from '../user-service.service';
-import { Route, Router } from '@angular/router';
+import { UserService } from '../user-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-kyc',
@@ -22,7 +22,7 @@ export class KycComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserServiceService,
+    private userService: UserService,
     private router: Router,
   ) {
     this.kycForm = this.formBuilder.group({
@@ -34,6 +34,7 @@ export class KycComponent {
       pf: ['', Validators.required],
       hdfc: ['', Validators.required],
     });
+    this.userService.setFormGroup('kyc', this.kycForm);
   }
 
   submitForm() {
@@ -43,7 +44,8 @@ export class KycComponent {
       this.kycForm.reset(); // Optionally reset the form
       this.router.navigate(['/passport']);
     } else {
-      alert('All fields are mandatory');
+      // alert('All fields are mandatory');
+      this.kycForm.markAllAsTouched();
       console.log('This form is invalid!');
     }
   }

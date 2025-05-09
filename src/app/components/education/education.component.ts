@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserServiceService } from '../user-service.service';
+import { UserService } from '../user-service.service';
 
 @Component({
   selector: 'app-education',
@@ -26,7 +26,7 @@ export class EducationComponent {
   constructor(
     private formBuilder: FormBuilder,
     private router:Router,
-    private userService:UserServiceService,
+    private userService:UserService,
 
   ) {
     this.educationForm = this.formBuilder.group({
@@ -40,7 +40,8 @@ export class EducationComponent {
       percentage:['',Validators.required],
       rollNo:['',Validators.required],
       educationType:['',Validators.required],
-    })
+    });
+    this.userService.setFormData('education', this.educationForm);
   }
 
   submitForm() {

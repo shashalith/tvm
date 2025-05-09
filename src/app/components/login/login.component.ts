@@ -28,16 +28,22 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;
 
-      this.http.post('http://localhost:8080/employee/verifyByEmail', loginData).subscribe({
-        next: (res) => {
-          console.log('Login successful:', res);
-          // localStorage.setItem('token', 'true'); // Set login token
-          this.router.navigate(['/personal']);
-        },
-        error: (err) => {
-          console.error('Login failed:', err);
-        }
-      });
+      this.http.post<any>('http://localhost:8080/employee/verifyByEmail', loginData).subscribe({
+    next: (res) => {
+      console.log('Login successful:', res);
+      const empId = res?.body?.id;
+      if (empId !== undefined) {
+        localStorage.setItem('empId', empId.toString());
+        console.log(empId);
+        this.router.navigate(['/personal']);
+      } else {
+        console.error('empId not found in response body');
+      }
+    },
+    error: (err) => {
+      console.error('Login failed:', err);
+    }
+  });
     } else {
       this.loginForm.markAllAsTouched();
     }

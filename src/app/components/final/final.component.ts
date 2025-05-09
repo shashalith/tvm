@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserServiceService } from '../user-service.service';
+import { UserService } from '../user-service.service';
 import { Router } from '@angular/router';
 
 
@@ -15,35 +15,31 @@ export class FinalComponent {
   signature = '';
   date = '';
 
-  constructor(private formbulder: FormBuilder,private router:Router,private userService:UserServiceService) {
+  constructor(private formbulder: FormBuilder,private router:Router,private userService:UserService) {
     this.declarationForm = this.formbulder.group({
       checked: [false, Validators.requiredTrue],
       signature: ['', Validators.required],
       date: ['', Validators.required]
     });
+    this.userService.setFormGroup('aFinal', this.declarationForm);
+
   }
 
-  // submitForm() {
-  //   if (this.declarationForm.valid) {
-  //     console.log(this.declarationForm.value);
-  //     this.userService.setFormData('aFinal', this.declarationForm.value);
-
-  //     // get All Dtata
-  //     const allData = this.userService.getFormData();
-  //     console.log("All Form Data",allData);
-      
-  //     this.declarationForm.reset();
-  //     alert("Form Submitted Successfully");
-     
-  //   } else {
-  //     this.declarationForm.markAllAsTouched();
-  //   }
-  // }
 
   submitForm() {
     if (this.declarationForm.valid) {
+
+      // ✅ Validate all registered forms
+      if (!this.userService.isAllFormsValid()) {
+        const incompleteSteps = this.userService.getInvalidSteps();
+        alert("Please complete the following steps before submitting: " + incompleteSteps.join(', '));
+        return;
+      }
+
+      // ✅ Save declaration data
       this.userService.setFormData('aFinal', this.declarationForm.value);
-  
+
+      // ✅ Combine all saved form data
       const allData = this.userService.getFormData();
   
       const finalData = {
@@ -67,7 +63,7 @@ export class FinalComponent {
           alert("Form Submitted Successfully");
           this.declarationForm.reset();
           this.userService.clearFormData();
-          // this.router.navigate(['/thank-you']); // optional
+          this.router.navigate(['/thankYou']);
         },
         error: (err) => {
           console.error('API Error:', err);
