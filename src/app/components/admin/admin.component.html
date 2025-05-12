@@ -26,7 +26,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let emp of filteredEmployees">
-        <td><a [routerLink]="['/employeeData', emp.details.id]" title="View Employee Details" style="cursor: pointer;">
+        <td><a [routerLink]="['/admin/empdetails', emp.details.id]" title="View Employee Details" style="cursor: pointer;">
           {{ emp.index }}
         </a> </td>
         <td>{{ emp.name }}</td>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../services/employee.service';
+import { Router } from '@angular/router';
+import { EmployeeDataService } from 'src/app/services/employee-data.service';
 
 @Component({
   selector: 'app-admin',
@@ -12,7 +14,12 @@ export class AdminComponent implements OnInit {
   selectedEmployee: any = null;
   searchText: string = '';
 
-  constructor(private empService: EmployeeService) {}
+  // constructor(private empService: EmployeeService) {}
+  constructor(
+  private empService: EmployeeService,
+  private router: Router,
+  private empDataService: EmployeeDataService
+) {}
 
   // ngOnInit(): void {
   //   this.empService.getEmployees().subscribe({
@@ -73,9 +80,7 @@ export class AdminComponent implements OnInit {
 
   viewDetails(employee: any) {
     this.selectedEmployee = employee;
+    this.empDataService.setEmployeeData(employee.details); // Set the full object
+  // this.router.navigate(['/admin/empresume', employee.details.id]); // Navigate with ID (optional)
   }
-
-  closePopup() {
-    this.selectedEmployee = null;
-  }
 }

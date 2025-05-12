@@ -16,9 +16,9 @@ export class OnboardingComponent {
   //   { label: 'Review dashboard', completed: false }
   // ];
 
-  // goToDashboard() {
-  //   console.log('Navigating to dashboard...');
-  // }
+  goToDashboard() {
+    this.router.navigate(['/admin/dashboard']);
+  }
 
   addUser() {
     this.router.navigate(['/signup']);

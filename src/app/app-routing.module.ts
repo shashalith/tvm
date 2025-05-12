@@ -23,6 +23,20 @@ import { ThankYouComponent } from './components/thank-you/thank-you.component';
 import { OnboardingComponent } from './components/onboarding/onboarding.component';
 import { PendingUserComponent } from './components/pending-user/pending-user.component';
 
+// Employee details component
+import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
+import { EmpkycComponent } from './components/employee-details/empkyc/empkyc.component';
+import { EmppassportComponent } from './components/employee-details/emppassport/emppassport.component';
+import { EmpfamilyComponent } from './components/employee-details/empfamily/empfamily.component';
+import { EmppreviousEmployeeComponent } from './components/employee-details/empprevious-employee/empprevious-employee.component';
+import { EmpeducationComponent } from './components/employee-details/empeducation/empeducation.component';
+import { EmpskillsComponent } from './components/employee-details/empskills/empskills.component';
+import { EmpcertificateComponent } from './components/employee-details/empcertificate/empcertificate.component';
+import { EmpdocumentComponent } from './components/employee-details/empdocument/empdocument.component';
+import { EmpresumeComponent } from './components/employee-details/empresume/empresume.component';
+import { EmpfinalComponent } from './components/employee-details/empfinal/empfinal.component';
+
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -48,7 +62,24 @@ const routes: Routes = [
   {path:"employeeData/:id",component:EmployeeDataComponent},
   {path:'thankYou',component:ThankYouComponent},
   {path:'onboarding',component:OnboardingComponent},
-  {path:'pendingUser',component:PendingUserComponent}
+  {path:'pendingUser',component:PendingUserComponent},
+
+  // Employee details routes
+
+  {path:"admin/empdetails",component: EmployeeDetailsComponent},
+  {path:"admin/empkyc",component:EmpkycComponent},
+  {path:"admin/emppassport",component:EmppassportComponent},
+  {path:"admin/empfamily",component:EmpfamilyComponent},
+  {path:"admin/emppreviousEmployee",component:EmppreviousEmployeeComponent},
+  {path:"admin/empeducation",component:EmpeducationComponent},
+  {path:"admin/empskills",component:EmpskillsComponent},
+  {path:"admin/empcertificate",component:EmpcertificateComponent},
+  {path:"admin/empdocument",component:EmpdocumentComponent},
+  {path:"admin/empresume",component:EmpresumeComponent},
+  {path:"admin/empfinal",component:EmpfinalComponent},
+  {path:"admin/dashboard",component:DashboardComponent},
+
+  {path: '**', component: HomeComponent} //   Default route
 ];
 
 @NgModule({

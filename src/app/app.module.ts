@@ -27,6 +27,19 @@ import { EmployeeDataComponent } from './components/employee-data/employee-data.
 import { LoginByNumberComponent } from './components/login-by-number/login-by-number.component';
 import { OnboardingComponent } from './components/onboarding/onboarding.component';
 import { PendingUserComponent } from './components/pending-user/pending-user.component';
+import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
+import { NavDisplayComponent } from './components/nav-display/nav-display.component';
+import { EmpkycComponent } from './components/employee-details/empkyc/empkyc.component';
+import { EmppassportComponent } from './components/employee-details/emppassport/emppassport.component';
+import { EmpfamilyComponent } from './components/employee-details/empfamily/empfamily.component';
+import { EmppreviousEmployeeComponent } from './components/employee-details/empprevious-employee/empprevious-employee.component';
+import { EmpeducationComponent } from './components/employee-details/empeducation/empeducation.component';
+import { EmpskillsComponent } from './components/employee-details/empskills/empskills.component';
+import { EmpcertificateComponent } from './components/employee-details/empcertificate/empcertificate.component';
+import { EmpdocumentComponent } from './components/employee-details/empdocument/empdocument.component';
+import { EmpresumeComponent } from './components/employee-details/empresume/empresume.component';
+import { EmpfinalComponent } from './components/employee-details/empfinal/empfinal.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +66,19 @@ import { PendingUserComponent } from './components/pending-user/pending-user.com
     LoginByNumberComponent,
     OnboardingComponent,
     PendingUserComponent,
+    EmployeeDetailsComponent,
+    NavDisplayComponent,
+    EmpkycComponent,
+    EmppassportComponent,
+    EmpfamilyComponent,
+    EmppreviousEmployeeComponent,
+    EmpeducationComponent,
+    EmpskillsComponent,
+    EmpcertificateComponent,
+    EmpdocumentComponent,
+    EmpresumeComponent,
+    EmpfinalComponent,
+    DashboardComponent,
     
     
   ],

@@ -1,5 +1,6 @@
 .onboarding-container {
-  max-width: 800px;
+  max-width: 90vw;
+  height: 80vh;
   margin: 2rem auto;
   padding: 2rem;
   border-radius: 12px;

@@ -57,6 +57,7 @@ export class SignupComponent implements OnInit {
       this.authService.register(formData).subscribe({
         next: (res) => {
           console.log('Signup successful:', res);
+          this.signupForm.reset();
           alert('Registration successful! Please check your email.');
         },
         error: (err) => {
