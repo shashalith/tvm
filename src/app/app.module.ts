@@ -27,7 +27,7 @@ import { EmployeeDataComponent } from './components/employee-data/employee-data.
 import { LoginByNumberComponent } from './components/login-by-number/login-by-number.component';
 import { OnboardingComponent } from './components/onboarding/onboarding.component';
 import { PendingUserComponent } from './components/pending-user/pending-user.component';
-<<<<<<< HEAD
+
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { NavDisplayComponent } from './components/nav-display/nav-display.component';
 import { EmpkycComponent } from './components/employee-details/empkyc/empkyc.component';
@@ -41,10 +41,10 @@ import { EmpdocumentComponent } from './components/employee-details/empdocument/
 import { EmpresumeComponent } from './components/employee-details/empresume/empresume.component';
 import { EmpfinalComponent } from './components/employee-details/empfinal/empfinal.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-=======
+
 import { TimeSheetComponent } from './components/time-sheet/time-sheet.component';
 import { TimeSheetViewComponent } from './components/time-sheet/time-sheet-view/time-sheet-view.component';
->>>>>>> a4d701b (Your commit message)
+
 
 @NgModule({
   declarations: [
@@ -71,7 +71,7 @@ import { TimeSheetViewComponent } from './components/time-sheet/time-sheet-view/
     LoginByNumberComponent,
     OnboardingComponent,
     PendingUserComponent,
-<<<<<<< HEAD
+
     EmployeeDetailsComponent,
     NavDisplayComponent,
     EmpkycComponent,
@@ -85,10 +85,10 @@ import { TimeSheetViewComponent } from './components/time-sheet/time-sheet-view/
     EmpresumeComponent,
     EmpfinalComponent,
     DashboardComponent,
-=======
+
     TimeSheetComponent,
     TimeSheetViewComponent,
->>>>>>> a4d701b (Your commit message)
+
     
     
   ],

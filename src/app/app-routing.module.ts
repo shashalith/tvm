@@ -65,7 +65,7 @@ const routes: Routes = [
   {path:'thankYou',component:ThankYouComponent},
   {path:'onboarding',component:OnboardingComponent},
   {path:'pendingUser',component:PendingUserComponent},
-<<<<<<< HEAD
+
 
   // Employee details routes
 
@@ -81,12 +81,11 @@ const routes: Routes = [
   {path:"admin/empresume",component:EmpresumeComponent},
   {path:"admin/empfinal",component:EmpfinalComponent},
   {path:"admin/dashboard",component:DashboardComponent},
+{path:'timesheet',component:TimeSheetComponent},
+  { path: 'timesheet-view/:id', component: TimeSheetViewComponent },
+  {path: '**', component: HomeComponent}, //   Default route
 
-  {path: '**', component: HomeComponent} //   Default route
-=======
-  {path:'timesheet',component:TimeSheetComponent},
-  { path: 'timesheet-view/:id', component: TimeSheetViewComponent }
->>>>>>> a4d701b (Your commit message)
+  
 ];
 
 @NgModule({
