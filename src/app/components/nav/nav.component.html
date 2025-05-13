@@ -9,7 +9,9 @@
         <button class="dropbtn">Onboarding</button>
         <div class="dropdown-content" *ngIf="dropdownOpen">
           <a routerLink="/pendingUser" (click)="closeDropdown()"  (click)="toggleDropdown()">Pending User</a>
+          <a routerLink="/timesheet" (click)="closeDropdown()"  (click)="toggleDropdown()">Time-Sheet</a>
           <a routerLink="/admin" (click)="closeDropdown()" (click)="toggleDropdown()">User List</a>
+          <a routerLink="/timesheet-view" (click)="closeDropdown()" (click)="toggleDropdown()">Time-Sheet-view</a>
         </div>
       </div>
     </div>

@@ -22,6 +22,8 @@ import { LoginByNumberComponent } from './components/login-by-number/login-by-nu
 import { ThankYouComponent } from './components/thank-you/thank-you.component';
 import { OnboardingComponent } from './components/onboarding/onboarding.component';
 import { PendingUserComponent } from './components/pending-user/pending-user.component';
+import { TimeSheetComponent } from './components/time-sheet/time-sheet.component';
+import { TimeSheetViewComponent } from './components/time-sheet/time-sheet-view/time-sheet-view.component';
 
 // Employee details component
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
@@ -63,6 +65,7 @@ const routes: Routes = [
   {path:'thankYou',component:ThankYouComponent},
   {path:'onboarding',component:OnboardingComponent},
   {path:'pendingUser',component:PendingUserComponent},
+<<<<<<< HEAD
 
   // Employee details routes
 
@@ -80,6 +83,10 @@ const routes: Routes = [
   {path:"admin/dashboard",component:DashboardComponent},
 
   {path: '**', component: HomeComponent} //   Default route
+=======
+  {path:'timesheet',component:TimeSheetComponent},
+  { path: 'timesheet-view/:id', component: TimeSheetViewComponent }
+>>>>>>> a4d701b (Your commit message)
 ];
 
 @NgModule({
