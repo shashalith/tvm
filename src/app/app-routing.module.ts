@@ -66,7 +66,6 @@ const routes: Routes = [
   {path:'onboarding',component:OnboardingComponent},
   {path:'pendingUser',component:PendingUserComponent},
 
-
   // Employee details routes
 
   {path:"admin/empdetails",component: EmployeeDetailsComponent},
@@ -80,8 +79,8 @@ const routes: Routes = [
   {path:"admin/empdocument",component:EmpdocumentComponent},
   {path:"admin/empresume",component:EmpresumeComponent},
   {path:"admin/empfinal",component:EmpfinalComponent},
-  {path:"admin/dashboard",component:DashboardComponent},
-{path:'timesheet',component:TimeSheetComponent},
+  {path:"dashboard",component:DashboardComponent},
+  {path:'timesheet',component:TimeSheetComponent},
   { path: 'timesheet-view/:id', component: TimeSheetViewComponent },
   {path: '**', component: HomeComponent}, //   Default route
 

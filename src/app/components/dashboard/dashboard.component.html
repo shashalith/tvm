@@ -1,1 +1,15 @@
-<p>dashboard works!</p>
+
+
+
+<aside class="sidebar">
+  <div class="logo">TVM INFOTECH </div>
+  
+  <nav class="nav">
+    <div class="dropdown">
+      <button class="nav-button" (click)="toggleHomeDropdown()">Home</button>
+      <div *ngIf="showHomeDropdown" class="dropdown-content">
+        <!-- Dropdown items go here -->
+      </div>
+    </div> 
+  </nav>
+</aside>

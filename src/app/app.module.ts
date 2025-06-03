@@ -72,6 +72,7 @@ import { TimeSheetViewComponent } from './components/time-sheet/time-sheet-view/
     OnboardingComponent,
     PendingUserComponent,
 
+
     EmployeeDetailsComponent,
     NavDisplayComponent,
     EmpkycComponent,
@@ -97,7 +98,7 @@ import { TimeSheetViewComponent } from './components/time-sheet/time-sheet-view/
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

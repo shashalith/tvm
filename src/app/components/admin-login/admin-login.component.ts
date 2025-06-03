@@ -35,25 +35,34 @@ export class AdminLoginComponent implements OnInit {
     });
   }
 
-  onAdminLogin(): void {
-    this.loginError = '';
-    if (this.adminLoginForm.valid) {
-      const loginData = this.adminLoginForm.value;
+onAdminLogin(): void {
+  this.loginError = '';
 
-      console.log(loginData);
-      
-      this.http.post('http://localhost:8080/admin/verifyByEmail', loginData).subscribe({
-        next: (res) => {
-          console.log('Admin login successful:', res);
-          this.router.navigate(['/admin']); 
-        },
-        error: (err) => {
+  if (this.adminLoginForm.valid) {
+    const loginData = this.adminLoginForm.value;
+
+    // Load JSON file from assets folder
+    this.http.get<any[]>('assets/users.json').subscribe({
+      next: (users) => {
+    
+        const matchedUser = users.find(user =>
+          user.email === loginData.email && user.password === loginData.password
+        );
+
+        if (matchedUser) {
+          this.router.navigate(['/personal']);
+        } else {
           this.loginError = 'Admin email or password is incorrect';
-          console.error('Admin login failed:', err);
         }
-      });
-    } else {
-      this.adminLoginForm.markAllAsTouched();
-    }
+      },
+      error: (err) => {
+        console.error('Error loading admin users JSON:', err);
+        this.loginError = 'An error occurred. Please try again later.';
+      }
+    });
+  } else {
+    this.adminLoginForm.markAllAsTouched();
   }
+}
+
 }

@@ -31,23 +31,26 @@ export class DocumentComponent {
     this.userService.setFormData('education', this.documentForm);
   }
 
-  onFileChange(event: any, controlName: string) {
+onFileChange(event: any, controlName: string) {
   const file = event.target.files[0];
   if (file) {
     const maxSizeInMB = 1;
     const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
     if (file.size > maxSizeInBytes) {
-       this.fileErrors[controlName] = 'File size must be less than 1 MB';
-      // alert(`${controlName} file size should not exceed ${maxSizeInMB} MB.`);
-      this.documentForm.patchValue({ [controlName]: null });
+      this.fileErrors[controlName] = 'File size must be less than 1 MB';
+
+      // Clear the file input element in DOM to prevent InvalidStateError
+      event.target.value = ''; // ✅ safe and allowed
+      this.documentForm.get(controlName)?.setValue(null); // use setValue, not patchValue
+
       return;
-    }
-    else {
+    } else {
       this.fileErrors[controlName] = '';
-      this.documentForm.patchValue({ [controlName]: file });
+      this.documentForm.get(controlName)?.setValue(file); // ✅ use setValue instead of patchValue
     }
   }
 }
+
   submitForm() {
   if (this.documentForm.valid) {
     const formData = new FormData();
