@@ -44,6 +44,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { TimeSheetComponent } from './components/time-sheet/time-sheet.component';
 import { TimeSheetViewComponent } from './components/time-sheet/time-sheet-view/time-sheet-view.component';
+import { WorkfromhomeComponent } from './components/dashboard/workfromhome/workfromhome.component';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { TimeSheetViewComponent } from './components/time-sheet/time-sheet-view/
 
     TimeSheetComponent,
     TimeSheetViewComponent,
+    WorkfromhomeComponent,
 
     
     
