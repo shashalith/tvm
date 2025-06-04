@@ -73,7 +73,40 @@
   margin-right: 8px;
 }
 
-/* Main content */
+
+.tabs {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.tab-header {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tab-header li {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-bottom: none;
+}
+
+.tab-header li.active {
+  border: 1px solid #ccc;
+  border-bottom: 1px solid white;
+  background-color: white;
+  font-weight: bold;
+}
+
+.tab-body {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: white;
+}
+
 main {
   flex-grow: 1;
   background-color: white;
@@ -96,31 +129,7 @@ main {
 
 .welcome {
   font-size: 1rem;
-}
-
-/* Icon menu */
-.icon-menu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.icon-menu button {
-  display: flex;
-  align-items: center;
-  background: #eef0f3;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.icon-menu .material-icons {
-  margin-right: 5px;
-}
-
-/* Top bar icons (search, notifications, settings) */
+} 
 .top-bar-icons {
   position: absolute;
   top: 20px;
@@ -132,9 +141,9 @@ main {
 }
 
 .icon-btn {
-  font-size: 28px;
+  font-size: 26px;
   cursor: pointer;
-  color: #555;
+  color: #534c4c;
   background: transparent;
   border: none;
   padding: 6px;
@@ -144,5 +153,5 @@ main {
 
 .icon-btn:hover {
   color: #000;
-  background-color: #eee;
+  background-color: #ffffff;
 }

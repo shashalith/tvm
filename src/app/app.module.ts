@@ -40,11 +40,11 @@ import { EmpcertificateComponent } from './components/employee-details/empcertif
 import { EmpdocumentComponent } from './components/employee-details/empdocument/empdocument.component';
 import { EmpresumeComponent } from './components/employee-details/empresume/empresume.component';
 import { EmpfinalComponent } from './components/employee-details/empfinal/empfinal.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-
 import { TimeSheetComponent } from './components/time-sheet/time-sheet.component';
 import { TimeSheetViewComponent } from './components/time-sheet/time-sheet-view/time-sheet-view.component';
-import { WorkfromhomeComponent } from './components/dashboard/workfromhome/workfromhome.component';
+import { HoildayCalendarComponent } from './components/mainlayout/hoilday-calendar/hoilday-calendar.component';
+import { DashboardhomeComponent } from './components/mainlayout/dashboardhome/dashboardhome.component';
+import { MainlayoutComponent } from './components/mainlayout/mainlayout.component';
 
 
 @NgModule({
@@ -86,13 +86,14 @@ import { WorkfromhomeComponent } from './components/dashboard/workfromhome/workf
     EmpdocumentComponent,
     EmpresumeComponent,
     EmpfinalComponent,
-    DashboardComponent,
+   
 
     TimeSheetComponent,
+    TimeSheetComponent,
     TimeSheetViewComponent,
-    WorkfromhomeComponent,
-
-    
+    HoildayCalendarComponent,
+    DashboardhomeComponent,
+    MainlayoutComponent,
     
   ],
   imports: [

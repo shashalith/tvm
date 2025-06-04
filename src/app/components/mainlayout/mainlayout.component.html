@@ -1,0 +1,95 @@
+<div class="container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">TVM INFOTECH</div>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <ul>
+        <!-- Home Dropdown -->
+        <li class="dropdown">
+          <button class="nav-button" (click)="toggleHomeDropdown()" [attr.aria-expanded]="showHomeDropdown"
+            aria-controls="homeDropdown" aria-haspopup="true">
+            <span class="material-icons" aria-hidden="true">home</span> Home
+          </button>
+
+          <div *ngIf="showHomeDropdown" class="dropdown-content" id="homeDropdown">
+            <ul class="dropdown-list" role="menu" aria-label="Home submenu">
+              <li role="none">
+                <a routerLink="dashboard" class="nav-link sub" role="menuitem">
+                  <span class="material-icons" aria-hidden="true">space_dashboard</span> Dashboard
+                </a>
+              </li>
+              <li role="none">
+                <a routerLink="/holidays" class="nav-link sub" role="menuitem">
+                  <span class="material-icons" aria-hidden="true">beach_access</span> Holidays
+                </a>
+              </li>
+              <li role="none">
+                <a routerLink="/feedbacks" class="nav-link sub" role="menuitem">
+                  <span class="material-icons" aria-hidden="true">question_answer</span> My Feedbacks
+                </a>
+              </li>
+              <li role="none">
+                <a routerLink="/directory" class="nav-link sub" role="menuitem">
+                  <span class="material-icons" aria-hidden="true">account_box</span> Organization Directory
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Other Navigation Buttons -->
+        <li>
+          <button class="nav-button">
+            <span class="material-icons" aria-hidden="true">home_work</span> Work from Home
+          </button>
+        </li>
+        <li>
+          <button class="nav-button">
+            <span class="material-icons" aria-hidden="true">event_note</span>Leave&Attendance
+          </button>
+        </li>
+        <li>
+          <button class="nav-button">
+            <span class="material-icons" aria-hidden="true">schedule</span> Timesheets
+          </button>
+        </li>
+        <li>
+          <button class="nav-button">
+            <span class="material-icons" aria-hidden="true">checklist</span> Tasks
+          </button>
+        </li>
+        <li>
+          <button class="nav-button">
+            <span class="material-icons" aria-hidden="true">flag</span> OKR
+          </button>
+        </li>
+        <li>
+          <button class="nav-button">
+            <span class="material-icons" aria-hidden="true">exit_to_app</span> OffBoarding
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+  <!-- Top Bar Icons -->
+  <div class="top-bar-icons" role="toolbar" aria-label="Top bar actions">
+    <button class="icon-btn" aria-label="Search">
+      <span class="material-icons">search</span>
+    </button>
+    <button class="icon-btn" aria-label="Notifications">
+      <span class="material-icons">notifications</span>
+    </button>
+    <button class="icon-btn" aria-label="Settings">
+      <span class="material-icons">settings</span>
+    </button>
+  </div>
+
+  <!-- Dynamic Page Content -->
+  <router-outlet></router-outlet>
+</main>
+</div>
+
+
