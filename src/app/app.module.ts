@@ -45,6 +45,12 @@ import { TimeSheetViewComponent } from './components/time-sheet/time-sheet-view/
 import { HoildayCalendarComponent } from './components/mainlayout/hoilday-calendar/hoilday-calendar.component';
 import { DashboardhomeComponent } from './components/mainlayout/dashboardhome/dashboardhome.component';
 import { MainlayoutComponent } from './components/mainlayout/mainlayout.component';
+import { FeedbacksComponent } from './components/mainlayout/feedbacks/feedbacks.component';
+import { WorkhoursComponent } from './components/mainlayout/workhours/workhours.component';
+import { HiringComponent } from './components/mainlayout/hiring/hiring.component';
+import { WorkHistoryComponent } from './components/mainlayout/work-history/work-history.component';
+import { WishcardComponent } from './components/mainlayout/wishcard/wishcard.component';
+import { AnnouncementComponent } from './components/mainlayout/announcement/announcement.component';
 
 
 @NgModule({
@@ -94,6 +100,12 @@ import { MainlayoutComponent } from './components/mainlayout/mainlayout.componen
     HoildayCalendarComponent,
     DashboardhomeComponent,
     MainlayoutComponent,
+    FeedbacksComponent,
+    WorkhoursComponent,
+    HiringComponent,
+    WorkHistoryComponent,
+    WishcardComponent,
+    AnnouncementComponent,
     
   ],
   imports: [

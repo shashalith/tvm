@@ -7,19 +7,19 @@
 
 <!-- Icon Menu -->
 <div class="icon-menu" role="toolbar" aria-label="Quick access menu">
-  <button aria-label="Workhours">
+  <button aria-label="workhours" (click)="toggleWorkhours()">
     <span class="material-icons">access_time</span> Workhours
   </button>
-  <button aria-label="Wishes">
+  <button aria-label="Wishes" (click)="toggleWishes()">
     <span class="material-icons">favorite</span> Wishes
   </button>
-  <button aria-label="Hirings">
+  <button aria-label="Hirings" (click)="toggleHiring()">
     <span class="material-icons">person_add</span> Hirings
   </button>
-  <button aria-label="Holidays">
+  <button aria-label="Holidays"  (click)="toggleHolidays()">
     <span class="material-icons">event</span> Holidays
   </button>
-  <button aria-label="Work History">
+  <button aria-label="Work History" (click)="toggleWorkHistory()">
     <span class="material-icons">history</span> Work History
   </button>
   <button aria-label="Policies">
@@ -33,3 +33,23 @@
   </button>
 </div>
 
+<div *ngIf="showHolidays" class="calendar-container">
+  <app-hoilday-calendar></app-hoilday-calendar>
+</div>
+
+
+<div *ngIf="showWorkhours" class="workhours-container">
+   <app-workhours></app-workhours>
+</div> 
+
+<div *ngIf="showHiring" class="hining-container">
+   <app-hiring></app-hiring>
+</div> 
+
+<div *ngIf="showworkhistory" class="workhistory-container">
+   <app-work-history></app-work-history>
+</div> 
+
+<div *ngIf="showwishes" class="showwishes-container">
+   <app-wishcard></app-wishcard>
+</div> 

@@ -43,6 +43,12 @@ import { EmpfinalComponent } from './components/employee-details/empfinal/empfin
 import { MainlayoutComponent } from './components/mainlayout/mainlayout.component';
 import { DashboardhomeComponent } from './components/mainlayout/dashboardhome/dashboardhome.component';
 import { HoildayCalendarComponent } from './components/mainlayout/hoilday-calendar/hoilday-calendar.component';
+import { FeedbacksComponent } from './components/mainlayout/feedbacks/feedbacks.component';
+import { WorkhoursComponent } from './components/mainlayout/workhours/workhours.component';
+import { HiringComponent } from './components/mainlayout/hiring/hiring.component';
+import { WorkHistoryComponent } from './components/mainlayout/work-history/work-history.component';
+import { WishcardComponent } from './components/mainlayout/wishcard/wishcard.component';
+import { AnnouncementComponent } from './components/mainlayout/announcement/announcement.component';
 // import { FeedbacksComponent } from './components/mainlayout/feedbacks/feedbacks.component';
 // import { DirectoryComponent } from './components/mainlayout/directory/directory.component';
 // import { HomeDefaultComponent } from './components/mainlayout/home-default/home-default.component'; // You must create this
@@ -76,11 +82,16 @@ const routes: Routes = [
     path: 'mainlayout',
     component: MainlayoutComponent,
     children: [
+      {path:'hiring', component: HiringComponent},
       // { path: '', component: HomeDefaultComponent }, // Default view
       { path: 'dashboard', component: DashboardhomeComponent },
       { path: 'holidays', component: HoildayCalendarComponent },
-      // { path: 'feedbacks', component: FeedbacksComponent },
+      { path: 'feedbacks', component: FeedbacksComponent },
       // { path: 'directory', component: DirectoryComponent },
+      {path: 'workhours',component: WorkhoursComponent},
+      {path: 'workhistory', component: WorkHistoryComponent},
+      {path:'wishcard', component: WishcardComponent},
+      {path:'announcement', component:AnnouncementComponent}
     ]
   },
 

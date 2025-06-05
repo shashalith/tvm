@@ -14,4 +14,17 @@ export class MainlayoutComponent {
   toggleHomeDropdown() {
     this.showHomeDropdown = !this.showHomeDropdown;
   }
+  showSearch = false;
+showSettings = false;
+
+toggleSearch() {
+  this.showSearch = !this.showSearch;
+  this.showSettings = false;
+}
+
+toggleSettings() {
+  this.showSettings = !this.showSettings;
+  this.showSearch = false;
+}
+
 }
