@@ -6,9 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./announcement.component.css']
 })
 export class AnnouncementComponent {
- currentTab: 'notification' | 'announcement' = 'announcement';
-  isLoading = false;
-
+  currentTab: 'notification' | 'announcement' = 'announcement';
   currentPage = 1;
 
   announcements = [
@@ -22,7 +20,6 @@ export class AnnouncementComponent {
     { title: 'WFH policy', startDate: '13 Feb 25', endDate: '13 Feb 25' },
     { title: 'Walkin Drive', startDate: '08 Feb 25', endDate: '08 Feb 25' },
     { title: 'Payroll Information', startDate: '27 Jan 25', endDate: '30 Jan 25' },
-
     { title: 'Investment Declaration FY 2025-26', startDate: '22 Apr 25', endDate: '23 Apr 25' },
     { title: 'March Payroll Info', startDate: '18 Apr 25', endDate: '18 Apr 25' },
     { title: 'Password Security', startDate: '31 Mar 25', endDate: '31 Mar 25' },
@@ -48,11 +45,7 @@ export class AnnouncementComponent {
   }
 
   switchTab(tab: 'notification' | 'announcement') {
-    this.isLoading = true;
-    setTimeout(() => {
-      this.currentTab = tab;
-      this.isLoading = false;
-    }, 500); 
-  }
+    this.currentTab = tab;
+  }
 
 }

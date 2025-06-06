@@ -5,121 +5,149 @@
 
     <nav class="nav" aria-label="Primary navigation">
       <ul>
-        <!-- Home Dropdown -->
+        <!-- Home -->
         <li class="dropdown">
           <button class="nav-button" (click)="toggleHomeDropdown()" [attr.aria-expanded]="showHomeDropdown"
             aria-controls="homeDropdown" aria-haspopup="true">
-            <span class="material-icons" aria-hidden="true">home</span> Home
+            <span class="material-icons">home</span> Home
           </button>
-
           <div *ngIf="showHomeDropdown" class="dropdown-content" id="homeDropdown">
-            <ul class="dropdown-list" role="menu" aria-label="Home submenu">
-              <li role="none">
-                <a routerLink="dashboard" class="nav-link sub" role="menuitem">
-                  <span class="material-icons" aria-hidden="true">space_dashboard</span> Dashboard
-                </a>
-              </li>
-              <li role="none">
-                <a routerLink="holidays" class="nav-link sub" role="menuitem">
-                  <span class="material-icons" aria-hidden="true">beach_access</span> Holidays
-                </a>
-              </li>
-              <li role="none">
-                <a routerLink="feedbacks" class="nav-link sub" role="menuitem">
-                  <span class="material-icons" aria-hidden="true">question_answer</span> My Feedbacks
-                </a>
-              </li>
-              <li role="none">
-                <a routerLink="/directory" class="nav-link sub" role="menuitem">
-                  <span class="material-icons" aria-hidden="true">account_box</span> Organization Directory
-                </a>
-              </li>
+            <ul class="dropdown-list" role="menu">
+              <li><a routerLink="dashboard" class="nav-link sub"><span class="material-icons">space_dashboard</span> Dashboard</a></li>
+              <li><a routerLink="holidays" class="nav-link sub"><span class="material-icons">beach_access</span> Holidays</a></li>
+              <li><a routerLink="feedbacks" class="nav-link sub"><span class="material-icons">question_answer</span> My Feedbacks</a></li>
+              <li><a routerLink="organization" class="nav-link sub"><span class="material-icons">account_box</span> Organization Directory</a></li>
             </ul>
           </div>
         </li>
 
-        <!-- Other Navigation Buttons -->
-        <li>
-          <button class="nav-button">
-            <span class="material-icons" aria-hidden="true">home_work</span> Work from Home
+        <!-- Work from Home -->
+        <li class="dropdown">
+          <button class="nav-button" (click)="toggleWFHDropdown()" [attr.aria-expanded]="showWFHDropdown"
+            aria-controls="wfhDropdown" aria-haspopup="true">
+            <span class="material-icons">home_work</span> Work from Home
           </button>
+          <div *ngIf="showWFHDropdown" class="dropdown-content" id="wfhDropdown">
+            <ul class="dropdown-list">
+              <li><a routerLink="workfromhome" class="nav-link sub"><span class="material-icons">assignment</span> WFH Request</a></li>
+            </ul>
+          </div>
         </li>
-        <li>
-          <button class="nav-button">
-            <span class="material-icons" aria-hidden="true">event_note</span>Leave&Attendance
+
+        <!-- Leave & Attendance -->
+        <li class="dropdown">
+          <button class="nav-button" (click)="toggleLeaveDropdown()" [attr.aria-expanded]="showLeaveDropdown"
+            aria-controls="leaveDropdown" aria-haspopup="true">
+            <span class="material-icons">event_note</span> Leave & Attendance
           </button>
+          <div *ngIf="showLeaveDropdown" class="dropdown-content" id="leaveDropdown">
+            <ul class="dropdown-list">
+              <li><a routerLink="myleave" class="nav-link sub"><span class="material-icons">calendar_today</span> My Leave</a></li>
+              <li><a routerLink="attendance" class="nav-link sub"><span class="material-icons">fact_check</span> My Attendance</a></li>
+            </ul>
+          </div>
         </li>
-        <li>
-          <button class="nav-button">
-            <span class="material-icons" aria-hidden="true">schedule</span> Timesheets
+
+        <!-- Timesheets -->
+        <li class="dropdown">
+          <button class="nav-button" (click)="toggleTimesheetDropdown()" [attr.aria-expanded]="showTimesheetDropdown"
+            aria-controls="timesheetDropdown" aria-haspopup="true">
+            <span class="material-icons">schedule</span> Timesheets
           </button>
+          <div *ngIf="showTimesheetDropdown" class="dropdown-content" id="timesheetDropdown">
+            <ul class="dropdown-list">
+              <li><a routerLink="Timelog" class="nav-link sub"><span class="material-icons">edit_calendar</span> Timesheet Entry</a></li>
+            </ul>
+          </div>
         </li>
-        <li>
-          <button class="nav-button">
-            <span class="material-icons" aria-hidden="true">checklist</span> Tasks
+
+        <!-- Tasks -->
+        <li class="dropdown">
+          <button class="nav-button" (click)="toggleTaskDropdown()" [attr.aria-expanded]="showTaskDropdown"
+            aria-controls="taskDropdown" aria-haspopup="true">
+            <span class="material-icons">checklist</span> Tasks
           </button>
+          <div *ngIf="showTaskDropdown" class="dropdown-content" id="taskDropdown">
+            <ul class="dropdown-list">
+              <li><a routerLink="task" class="nav-link sub"><span class="material-icons">task</span> My Tasks</a></li>
+            </ul>
+          </div>
         </li>
-        <li>
-          <button class="nav-button">
-            <span class="material-icons" aria-hidden="true">flag</span> OKR
+
+        <!-- Goal -->
+        <li class="dropdown">
+          <button class="nav-button" (click)="toggleOKRDropdown()" [attr.aria-expanded]="showOKRDropdown"
+            aria-controls="okrDropdown" aria-haspopup="true">
+            <span class="material-icons">flag</span> Goal Sheet
           </button>
+          <div *ngIf="showOKRDropdown" class="dropdown-content" id="okrDropdown">
+            <ul class="dropdown-list">
+              <li><a routerLink="goal" class="nav-link sub"><span class="material-icons">star_rate</span> Goal Sheet</a></li>
+            </ul>
+          </div>
         </li>
-        <li>
-          <button class="nav-button">
-            <span class="material-icons" aria-hidden="true">exit_to_app</span> OffBoarding
+
+        <!-- Offboarding -->
+        <li class="dropdown">
+          <button class="nav-button" (click)="toggleOffboardingDropdown()" [attr.aria-expanded]="showOffboardingDropdown"
+            aria-controls="offboardingDropdown" aria-haspopup="true">
+            <span class="material-icons">exit_to_app</span> OffBoarding
           </button>
+          <div *ngIf="showOffboardingDropdown" class="dropdown-content" id="offboardingDropdown">
+            <ul class="dropdown-list">
+              <li><a routerLink="resignation" class="nav-link sub"><span class="material-icons">logout</span> Resignation</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Add Job Opening -->
+        <li class="dropdown">
+          <button class="nav-button" (click)="toggleAddJobDropdown()" [attr.aria-expanded]="showAddJobDropdown"
+            aria-controls="addJobDropdown" aria-haspopup="true">
+            <span class="material-icons">add_business</span> Add Job Opening
+          </button>
+          <div *ngIf="showAddJobDropdown" class="dropdown-content" id="addJobDropdown">
+            <ul class="dropdown-list">
+              <li><a routerLink="addopening" class="nav-link sub"><span class="material-icons">add_box</span> Add Opening</a></li>
+            </ul>
+          </div>
         </li>
       </ul>
     </nav>
   </aside>
 
+  <!-- Main Content -->
   <main>
-  <!-- Top Bar Icons -->
-  <div class="top-bar-icons" role="toolbar" aria-label="Top bar actions">
-    <!-- Search -->
-    <button class="icon-btn" aria-label="Search" (click)="toggleSearch()">
-      <span class="material-icons">{{ showSearch ? 'close' : 'search' }}</span>
-    </button>
+    <div class="top-bar-icons">
+      <button class="icon-btn" (click)="toggleSearch()">
+        <span class="material-icons">{{ showSearch ? 'close' : 'search' }}</span>
+      </button>
+      <input *ngIf="showSearch" type="text" placeholder="Search..." class="search-input" />
 
-    <!-- Search Input -->
-    <input
-      *ngIf="showSearch"
-      type="text"
-      placeholder="Search..."
-      class="search-input"
-    />
-
-    <!-- Notifications -->
-    <button class="icon-btn" aria-label="Notifications">
-      <span class="material-icons">notifications</span>
-    </button>
-
-    <!-- Settings -->
-    <div class="settings-wrapper">
-      <button class="icon-btn" aria-label="Settings" (click)="toggleSettings()">
-        <span class="material-icons">settings</span>
+      <button class="icon-btn">
+        <span class="material-icons">notifications</span>
       </button>
 
-      <!-- Settings Dropdown -->
-      <div class="settings-dropdown" *ngIf="showSettings">
-        <div class="profile-header">
-          <img src="assets/profile.jpg" alt="Profile" class="profile-img" />
-          <div class="profile-name">Ramkumar Raja</div>
+      <div class="settings-wrapper">
+        <button class="icon-btn" (click)="toggleSettings()">
+          <span class="material-icons">settings</span>
+        </button>
+        <div *ngIf="showSettings" class="settings-dropdown">
+          <div class="profile-header">
+            <img src="assets/profile.jpg" alt="Profile" class="profile-img" />
+            <div class="profile-name">Ramkumar Raja</div>
+          </div>
+          <ul class="settings-menu">
+            <li><span class="material-icons">person</span> My Profile</li>
+            <li><span class="material-icons">campaign</span> My Announcements</li>
+            <li><span class="material-icons">notifications</span> My Notifications</li>
+            <li><span class="material-icons">event</span> Holidays</li>
+            <li><span class="material-icons">logout</span> Logout</li>
+          </ul>
         </div>
-        <ul class="settings-menu">
-          <li><span class="material-icons">person</span> My Profile</li>
-          <li><span class="material-icons">campaign</span> My Announcements</li>
-          <li><span class="material-icons">notifications</span> My Notifications</li>
-          <li><span class="material-icons">event</span> Holidays</li>
-          <li><span class="material-icons">logout</span> Logout</li>
-        </ul>
       </div>
     </div>
-  </div>
 
-  <!-- Dynamic Page Content -->
-  <router-outlet></router-outlet>
-</main>
+    <router-outlet></router-outlet>
+  </main>
 </div>
-
-

@@ -49,9 +49,17 @@ import { HiringComponent } from './components/mainlayout/hiring/hiring.component
 import { WorkHistoryComponent } from './components/mainlayout/work-history/work-history.component';
 import { WishcardComponent } from './components/mainlayout/wishcard/wishcard.component';
 import { AnnouncementComponent } from './components/mainlayout/announcement/announcement.component';
-// import { FeedbacksComponent } from './components/mainlayout/feedbacks/feedbacks.component';
-// import { DirectoryComponent } from './components/mainlayout/directory/directory.component';
-// import { HomeDefaultComponent } from './components/mainlayout/home-default/home-default.component'; // You must create this
+import { ApplyLeaveComponent } from './components/mainlayout/apply-leave/apply-leave.component';
+import { LeaveComponent } from './components/mainlayout/leave/leave.component';
+import { WorkfromhomeComponent } from './components/mainlayout/workfromhome/workfromhome.component';
+import { TimelogComponent } from './components/mainlayout/timelog/timelog.component';
+import { TaskComponent } from './components/mainlayout/task/task.component';
+import { ResignationComponent } from './components/mainlayout/resignation/resignation.component';
+import { OkrComponent } from './components/mainlayout/okr/okr.component';
+import { AttendanceComponent } from './components/mainlayout/attendance/attendance.component';
+import { OrganizationComponent } from './components/mainlayout/organization/organization.component';
+import { AddOpeningComponent } from './components/mainlayout/addopening/addopening.component';
+import { GoalComponent } from './components/mainlayout/goal/goal.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -81,17 +89,26 @@ const routes: Routes = [
   {
     path: 'mainlayout',
     component: MainlayoutComponent,
-    children: [
-      {path:'hiring', component: HiringComponent},
-      // { path: '', component: HomeDefaultComponent }, // Default view
-      { path: 'dashboard', component: DashboardhomeComponent },
+    children: [       
+      { path: 'dashboard', component: DashboardhomeComponent},
       { path: 'holidays', component: HoildayCalendarComponent },
       { path: 'feedbacks', component: FeedbacksComponent },
-      // { path: 'directory', component: DirectoryComponent },
+      {path:'organization', component:OrganizationComponent},
       {path: 'workhours',component: WorkhoursComponent},
       {path: 'workhistory', component: WorkHistoryComponent},
       {path:'wishcard', component: WishcardComponent},
-      {path:'announcement', component:AnnouncementComponent}
+      {path:'announcement', component:AnnouncementComponent},
+      {path: 'applyleave', component:ApplyLeaveComponent},
+      {path:'myleave',component:LeaveComponent},
+      {path:'workfromhome',component:WorkfromhomeComponent},
+      {path:'hiring', component: HiringComponent},
+      {path:'Timelog', component:TimelogComponent},
+      {path:'task', component:TaskComponent},
+      {path:'resignation', component:ResignationComponent},
+      {path:'okr',component:OkrComponent},
+      {path:'attendance', component:AttendanceComponent},
+      {path:'addopening', component:AddOpeningComponent},
+      {path:'goal', component:GoalComponent}
     ]
   },
 
@@ -107,10 +124,8 @@ const routes: Routes = [
   { path: 'admin/empdocument', component: EmpdocumentComponent },
   { path: 'admin/empresume', component: EmpresumeComponent },
   { path: 'admin/empfinal', component: EmpfinalComponent },
-
   { path: 'timesheet', component: TimeSheetComponent },
   { path: 'timesheet-view/:id', component: TimeSheetViewComponent },
-
   { path: '**', component: HomeComponent }, // Wildcard route
 ];
 
@@ -118,4 +133,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

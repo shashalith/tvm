@@ -13,14 +13,16 @@ export class DashboardhomeComponent {
   showHiring = false;
   showworkhistory =false;
   showwishes = false;
+  showAnnouncement = false;
 
   toggleHolidays() {
     this.showHolidays = !this.showHolidays;
     if (this.showHolidays) {
       this.showWorkhours = false;
-      this.showWorkhours = false;
       this.showwishes = false;
       this.showHiring= false;
+      this.showAnnouncement= false; 
+      this.showworkhistory = false;     
     }
   }
 
@@ -28,8 +30,10 @@ export class DashboardhomeComponent {
     this.showWorkhours = !this.showWorkhours;
     if (this.showWorkhours) {
       this.showHolidays = false;
+      this.showworkhistory = false;
       this.showwishes = false;
       this.showHiring= false;
+      this.showAnnouncement= false;
     }
   }
 toggleHiring() {
@@ -37,7 +41,9 @@ toggleHiring() {
   if (this.showHiring) {
     this.showHolidays = false;
     this.showWorkhours = false;
+    this.showworkhistory = false;
     this.showwishes = false;
+    this.showAnnouncement= false;
   }
 }
 
@@ -48,6 +54,7 @@ toggleWorkHistory(){
       this.showWorkhours = false;
       this.showHiring = false;
       this.showwishes = false;
+      this.showAnnouncement= false;
     }
 }
 
@@ -57,6 +64,18 @@ toggleWishes(){
       this.showHolidays = false;
       this.showWorkhours = false;
       this.showHiring = false;
+      this.showworkhistory = false;
+      this.showAnnouncement= false;
+    }
+}
+toggleAnnouncement(){
+  this.showAnnouncement = !this.showAnnouncement;
+    if (this.showAnnouncement) {
+      this.showHolidays = false;
+      this.showWorkhours = false;
+      this.showworkhistory = false;
+      this.showHiring = false;
+       this.showwishes = false;
     }
 }
 }

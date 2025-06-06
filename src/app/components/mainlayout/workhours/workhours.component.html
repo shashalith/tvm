@@ -1,12 +1,12 @@
 <div class="charts-wrapper">
   <!-- Left side: Pie chart with buttons on the left inside -->
   <div class="chart pie-chart">
-    <div class="buttons-left">
+    <!-- <div class="buttons-left">
       <button class="office-btn" (click)="showAndSpinChart()">
         {{ showChart ? 'HIDE CHARTS' : 'SHOW CHARTS' }}
-      </button>
+      </button> 
       <button class="system-btn">SYSTEM</button>
-    </div>
+    </div> -->
 
     <canvas *ngIf="showChart" id="attendancePieChart"></canvas>
   </div>

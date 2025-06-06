@@ -6,25 +6,54 @@ import { Component } from '@angular/core';
   styleUrls: ['./mainlayout.component.css']
 })
 export class MainlayoutComponent {
-
-  activeTab: 'notifications' | 'announcements' = 'notifications';
-
- showHomeDropdown = false;
+  showHomeDropdown = false;
+  showWFHDropdown = false;
+  showLeaveDropdown = false;
+  showTimesheetDropdown = false;
+  showTaskDropdown = false;
+  showOKRDropdown = false;
+  showOffboardingDropdown = false;
+  showAddJobDropdown = false;
+  showSettings = false;
+  showSearch = false;
 
   toggleHomeDropdown() {
     this.showHomeDropdown = !this.showHomeDropdown;
   }
-  showSearch = false;
-showSettings = false;
 
-toggleSearch() {
-  this.showSearch = !this.showSearch;
-  this.showSettings = false;
-}
+  toggleWFHDropdown() {
+    this.showWFHDropdown = !this.showWFHDropdown;
+  }
 
-toggleSettings() {
-  this.showSettings = !this.showSettings;
-  this.showSearch = false;
-}
+  toggleLeaveDropdown() {
+    this.showLeaveDropdown = !this.showLeaveDropdown;
+  }
 
+  toggleTimesheetDropdown() {
+    this.showTimesheetDropdown = !this.showTimesheetDropdown;
+  }
+
+  toggleTaskDropdown() {
+    this.showTaskDropdown = !this.showTaskDropdown;
+  }
+
+  toggleOKRDropdown() {
+    this.showOKRDropdown = !this.showOKRDropdown;
+  }
+
+  toggleOffboardingDropdown() {
+    this.showOffboardingDropdown = !this.showOffboardingDropdown;
+  }
+
+  toggleAddJobDropdown() {
+    this.showAddJobDropdown = !this.showAddJobDropdown;
+  }
+
+  toggleSettings() {
+    this.showSettings = !this.showSettings;
+  }
+
+  toggleSearch() {
+    this.showSearch = !this.showSearch;
+  }
 }

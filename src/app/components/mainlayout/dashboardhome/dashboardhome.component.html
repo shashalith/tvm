@@ -22,16 +22,17 @@
   <button aria-label="Work History" (click)="toggleWorkHistory()">
     <span class="material-icons">history</span> Work History
   </button>
-  <button aria-label="Policies">
+  <!-- <button aria-label="Policies">
     <span class="material-icons">policy</span> Policies
-  </button>
-  <button aria-label="Announcement">
+  </button> -->
+  <button aria-label="Announcement" (click)="toggleAnnouncement()">
     <span class="material-icons">campaign</span> Announcement
   </button>
-  <button aria-label="Organization">
+  <!-- <button aria-label="Organization">
     <span class="material-icons">groups</span> Organization
-  </button>
+  </button> -->
 </div>
+
 
 <div *ngIf="showHolidays" class="calendar-container">
   <app-hoilday-calendar></app-hoilday-calendar>
@@ -53,3 +54,8 @@
 <div *ngIf="showwishes" class="showwishes-container">
    <app-wishcard></app-wishcard>
 </div> 
+
+<div *ngIf="showAnnouncement" class="showAnnouncement-container">
+   <app-announcement></app-announcement>
+</div> 
+

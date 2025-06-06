@@ -1,0 +1,49 @@
+<div class="topbar">
+  <div class="spacer"></div>
+
+  <div class="center-date">
+    <span class="material-icons icon-btn" (click)="goToPreviousDate()" title="Previous Date">chevron_left</span>
+    
+    <span class="calendar-icon material-icons">calendar_today</span>
+    {{ dateRange }}
+    
+    <span class="material-icons icon-btn" (click)="goToNextDate()" title="Next Date">chevron_right</span>
+  </div>
+
+  <div class="right-icons">
+    <span
+      class="material-icons icon-btn"
+      [class.active]="viewMode === 'list'"
+      (click)="setViewMode('list')"
+      title="List View"
+    >
+      view_list
+    </span>
+
+    <span
+      class="material-icons icon-btn"
+      [class.active]="viewMode === 'grid'"
+      (click)="setViewMode('grid')"
+      title="Grid View"
+    >
+      grid_view
+    </span>
+
+  <div
+  class="icon-btn filter"
+  [class.active]="filterActive"
+  (click)="toggleFilter()"
+  title="Toggle Filter"
+>
+  <span class="material-icons">filter_alt</span>
+  <span class="filter-text">Search Filter</span>
+</div>
+
+  </div>
+</div>
+
+<div class="card-row" [ngClass]="viewMode">
+  <div class="card" *ngFor="let card of cards">
+    <strong>{{ card.label }}</strong> | {{ card.title }}
+  </div>
+</div>

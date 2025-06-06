@@ -1,13 +1,13 @@
 /* Container */
 .container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh; 
   font-family: 'Segoe UI', sans-serif;
 }
 
 /* Sidebar */
 .sidebar {
-  width: 280px;
+  width: 290px;
   background-color: #0a0f3c;
   color: white;
   padding: 1rem;
@@ -32,11 +32,12 @@
 
 .nav-button {
   background: none;
+  padding-top: 5px;
   border: none;
   color: white;
   display: flex;
   align-items: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
   padding: 0.75rem 1rem;
   width: 100%;
@@ -46,13 +47,13 @@
 
 .nav-button .material-icons {
   margin-right: 10px;
-  font-size: 20px;
+  font-size: 26px;
 }
 
 .nav-button:hover,
 .nav-button:focus {
-  background-color: #1a237e; /* Deep blue */
-  color: #ffffff; /* Bright white */
+  background-color: #1a237e;
+  color: #ffffff;
   outline: none;
 }
 
@@ -61,19 +62,23 @@
   margin-top: 0.5rem;
 }
 
+/* Submenu Items */
 .nav-link {
   display: flex;
   align-items: center;
   color: white;
   text-decoration: none;
   padding: 0.3rem 0;
+  font-size: 1.2rem;
 }
 
-.nav-link .material-icons {
+.nav-link .material-icons,
+.dropdown-list .material-icons {
   margin-right: 8px;
+  font-size: 22px;
 }
 
-
+/* Tabs */
 .tabs {
   font-family: Arial, sans-serif;
   margin: 20px;
@@ -112,35 +117,11 @@ main {
   background-color: white;
   padding: 1.5rem;
   overflow-y: auto;
-  position: relative;  /* For absolute positioning inside */
-  padding-top: 60px;   /* To avoid overlap with top-bar-icons */
+  position: relative;
+  padding-top: 60px;
+  min-height: 100vh;
 }
 
-.top-bar-icons {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  z-index: 10;
-}
-
-.icon-btn {
-  font-size: 26px;
-  cursor: pointer;
-  color: #534c4c;
-  background: transparent;
-  border: none;
-  padding: 6px;
-  border-radius: 50%;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-
-.icon-btn:hover {
-  color: #000;
-  background-color: #ffffff;
-}
 .top-bar-icons {
   position: absolute;
   top: 20px;
@@ -165,6 +146,29 @@ main {
 .icon-btn:hover {
   color: #000;
   background-color: #ffffff;
+}
+
+/* 👉 Customized Search Icon Button */
+.search-icon-btn {
+  background-color: #f0f0f0;
+  color: #0a0f3c;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon-btn:hover {
+  background-color: #0a0f3c;
+  color: white;
+  border-color: #0a0f3c;
+  transform: scale(1.05);
+}
+
+.search-icon-btn:active {
+  box-shadow: 0 0 10px rgba(10, 15, 60, 0.4);
 }
 
 /* Search Input */
@@ -196,7 +200,6 @@ main {
   z-index: 99;
 }
 
-/* Header of dropdown */
 .profile-header {
   background: #444a7c;
   color: white;
@@ -219,7 +222,6 @@ main {
   font-size: 14px;
 }
 
-/* Dropdown menu items */
 .settings-menu {
   list-style: none;
   padding: 10px 0;
@@ -242,4 +244,3 @@ main {
   margin-right: 10px;
   font-size: 20px;
 }
-

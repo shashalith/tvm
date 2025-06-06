@@ -51,6 +51,17 @@ import { HiringComponent } from './components/mainlayout/hiring/hiring.component
 import { WorkHistoryComponent } from './components/mainlayout/work-history/work-history.component';
 import { WishcardComponent } from './components/mainlayout/wishcard/wishcard.component';
 import { AnnouncementComponent } from './components/mainlayout/announcement/announcement.component';
+import { ApplyLeaveComponent } from './components/mainlayout/apply-leave/apply-leave.component';
+import { LeaveComponent } from './components/mainlayout/leave/leave.component';
+import { WorkfromhomeComponent } from './components/mainlayout/workfromhome/workfromhome.component';
+import { TimelogComponent } from './components/mainlayout/timelog/timelog.component';
+import { TaskComponent } from './components/mainlayout/task/task.component';
+import { ResignationComponent } from './components/mainlayout/resignation/resignation.component';
+import { OkrComponent } from './components/mainlayout/okr/okr.component';
+import { AttendanceComponent } from './components/mainlayout/attendance/attendance.component';
+import { OrganizationComponent } from './components/mainlayout/organization/organization.component';
+import { AddOpeningComponent } from './components/mainlayout/addopening/addopening.component';
+import { GoalComponent } from './components/mainlayout/goal/goal.component';
 
 
 @NgModule({
@@ -106,6 +117,17 @@ import { AnnouncementComponent } from './components/mainlayout/announcement/anno
     WorkHistoryComponent,
     WishcardComponent,
     AnnouncementComponent,
+    ApplyLeaveComponent,
+    LeaveComponent,
+    WorkfromhomeComponent,
+    TimelogComponent,
+    TaskComponent,
+    ResignationComponent,
+    OkrComponent,
+    AttendanceComponent,
+    OrganizationComponent,
+    AddOpeningComponent,
+    GoalComponent,
     
   ],
   imports: [

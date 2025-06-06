@@ -1,0 +1,112 @@
+<!-- Header -->
+<div class="header">
+  <div class="right-icons">
+    <button 
+      (click)="viewMode = 'list'" 
+      [class.active]="viewMode === 'list'" 
+      title="List View"
+      class="icon-btn"
+    >☰</button>
+
+    <button 
+      (click)="viewMode = 'table'" 
+      [class.active]="viewMode === 'table'" 
+      title="Table View"
+      class="icon-btn"
+    >⊞</button>
+  </div>
+
+  <button class="add-btn" (click)="showAddEntry = true">+ Add Time Log</button>
+</div>
+
+<!-- List View -->
+<div *ngIf="viewMode === 'list'" class="list-view">
+  <div class="summary">
+    <div><h3>{{ missedDays }}<br /><small>Days missed in last 30 days</small></h3></div>
+    <div><h3>{{ missedSelectedDays }}<br /><small>Missed in selected dates</small></h3></div>
+  </div>
+
+  <div class="activity-log">
+    <h4>{{ selectedDate | date:'dd MMM yyyy' }}</h4>
+    <div *ngFor="let entry of entries" class="entry">
+      <p><strong>{{ entry.title }}</strong><br />{{ entry.description }}</p>
+      <span>{{ entry.duration }}</span>
+      <span>{{ entry.status }}</span>
+      <button (click)="edit(entry)">✏</button>
+      <button (click)="delete(entry)">🗑</button>
+    </div>
+  </div>
+</div>
+
+<!-- Table View -->
+<div *ngIf="viewMode === 'table'" class="table-view">
+  <div class="summary">
+    <div><h3>{{ missedDays }}<br /><small>Days missed in last 30 days</small></h3></div>
+    <div><h3>{{ missedSelectedDays }}<br /><small>Missed in selected dates</small></h3></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Activity</th>
+        <th *ngFor="let day of week">{{ day.label }}</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Meeting</td>
+        <td *ngFor="let day of week">{{ day.hours || '-' }}</td>
+        <td>{{ getTotalHours() }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Add Entry Panel -->
+<div class="add-entry-panel" *ngIf="showAddEntry">
+  <form (ngSubmit)="saveEntry()">
+
+    <div class="row-group">
+      <div class="form-group">
+        <label>Project</label>
+        <input [(ngModel)]="newEntry.project" name="project" required />
+      </div>
+
+      <div class="form-group">
+        <label>Activity</label>
+        <input [(ngModel)]="newEntry.activity" name="activity" required />
+      </div>
+    </div>
+
+    <label>Start Time</label>
+    <input type="datetime-local" [(ngModel)]="newEntry.start" name="start" required />
+
+    <label>End Time</label>
+    <input type="datetime-local" [(ngModel)]="newEntry.end" name="end" required />
+
+    <label>Work Mode</label>
+    <select [(ngModel)]="newEntry.workMode" name="workMode" required>
+      <option>Work from Office</option>
+      <option>Work from Home</option>
+    </select>
+
+    <label>Working Device</label>
+    <select [(ngModel)]="newEntry.device" name="device" required>
+      <option>Sensiple system</option>
+    </select>
+
+    <label>Description</label>
+    <textarea [(ngModel)]="newEntry.description" name="description" required></textarea>
+
+    <label>Attachment</label>
+    <input type="file" />
+
+    <!-- Buttons -->
+    <div class="button-group">
+      <button type="submit" class="save-btn">Save</button>
+      <button type="button" class="cancel-btn" (click)="showAddEntry = false">Cancel</button>
+    </div>
+
+  </form>
+</div>

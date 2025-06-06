@@ -9,9 +9,9 @@ import { Chart, registerables } from 'chart.js';
 export class WorkhoursComponent implements AfterViewInit {
  pieChart: Chart | undefined;
   barChart: Chart | undefined;
-  showChart = false;
+  showChart = true;
 Chart: any;
-show: any;
+// show: any;
 
   constructor() {
     Chart.register(...registerables);
