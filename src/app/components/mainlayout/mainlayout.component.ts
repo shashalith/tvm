@@ -13,6 +13,7 @@ export class MainlayoutComponent {
   showTaskDropdown = false;
   showOKRDropdown = false;
   showOffboardingDropdown = false;
+  showOnboardingDropdown = false;
   showAddJobDropdown = false;
   showSettings = false;
   showSearch = false;
@@ -45,6 +46,10 @@ export class MainlayoutComponent {
     this.showOffboardingDropdown = !this.showOffboardingDropdown;
   }
 
+  toggleOnboardingDropdown() {
+    this.showOnboardingDropdown = !this.showOnboardingDropdown; // ✅ Correct variable
+  }
+  
   toggleAddJobDropdown() {
     this.showAddJobDropdown = !this.showAddJobDropdown;
   }

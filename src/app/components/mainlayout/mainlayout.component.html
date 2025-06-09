@@ -88,28 +88,27 @@
         </li>
 
         <!-- Offboarding -->
-       <li class="dropdown">
-  <button class="nav-button" (click)="toggleOffboardingDropdown()" [attr.aria-expanded]="showOffboardingDropdown"
-    aria-controls="offboardingDropdown" aria-haspopup="true">
-    <span class="material-icons">assignment_ind</span> OffBoarding
-  </button>
-  <div *ngIf="showOffboardingDropdown" class="dropdown-content" id="offboardingDropdown">
-    <ul class="dropdown-list">
-      <li><a routerLink="resignation" class="nav-link sub"><span class="material-icons">exit_to_app</span> Resignation</a></li>
-    </ul>
-  </div>
-</li>
-
-
-         <!-- Onboarding -->
-          <li class="dropdown">
+        <li class="dropdown">
           <button class="nav-button" (click)="toggleOffboardingDropdown()" [attr.aria-expanded]="showOffboardingDropdown"
             aria-controls="offboardingDropdown" aria-haspopup="true">
-            <span class="material-icons">exit_to_app</span> OnBoarding
+            <span class="material-icons">assignment_ind</span> OffBoarding
           </button>
           <div *ngIf="showOffboardingDropdown" class="dropdown-content" id="offboardingDropdown">
             <ul class="dropdown-list">
-              <li><a routerLink="personal" class="nav-link sub"><span class="material-icons">logout</span>OnBoarding</a></li>
+              <li><a routerLink="resignation" class="nav-link sub"><span class="material-icons">exit_to_app</span> Resignation</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Onboarding -->
+        <li class="dropdown">
+          <button class="nav-button" (click)="toggleOnboardingDropdown()" [attr.aria-expanded]="showOnboardingDropdown"
+            aria-controls="onboardingDropdown" aria-haspopup="true">
+            <span class="material-icons">how_to_reg</span> OnBoarding
+          </button>
+          <div *ngIf="showOnboardingDropdown" class="dropdown-content" id="onboardingDropdown">
+            <ul class="dropdown-list">
+              <li><a routerLink="personal" class="nav-link sub"><span class="material-icons">person</span> Personal Info</a></li>
             </ul>
           </div>
         </li>

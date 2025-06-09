@@ -109,6 +109,7 @@ const routes: Routes = [
       {path:'attendance', component:AttendanceComponent},
       {path:'addopening', component:AddOpeningComponent},
       {path:'goal', component:GoalComponent},
+      
       { path: 'personal', component: PersonalComponent },
       { path: 'kyc', component: KycComponent },
       { path: 'passport', component: PassportVisaComponent },
