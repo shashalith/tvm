@@ -108,7 +108,18 @@ const routes: Routes = [
       {path:'okr',component:OkrComponent},
       {path:'attendance', component:AttendanceComponent},
       {path:'addopening', component:AddOpeningComponent},
-      {path:'goal', component:GoalComponent}
+      {path:'goal', component:GoalComponent},
+      { path: 'personal', component: PersonalComponent },
+      { path: 'kyc', component: KycComponent },
+      { path: 'passport', component: PassportVisaComponent },
+      { path: 'family', component: FamilyComponent },
+      { path: 'previousEmployee', component: PreviousEmploymentComponent },
+      { path: 'education', component: EducationComponent },
+      { path: 'skills', component: SkillsComponent },
+      { path: 'certificate', component: CertificateComponent },
+      { path: 'document', component: DocumentComponent },
+      { path: 'resume', component: ResumeComponent },
+      { path: 'final', component: FinalComponent },
     ]
   },
 

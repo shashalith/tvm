@@ -57,7 +57,7 @@
 <!-- Goal Type Modal -->
 <div *ngIf="currentView === 'goalType'" class="modal-overlay">
   <div class="modal">
-    <div class="close-btn" (click)=" goClose() ">×</div>
+    <div class="close-btn" (click)="goClose()">×</div>
     <h2>Choose Goal Type</h2>
     <p>Select what type of goal to add</p>
     <div class="card-container">
@@ -83,39 +83,60 @@
 <!-- New Goal Form -->
 <div *ngIf="currentView === 'newGoal'" class="new-goal">
   <h3>New Goal</h3>
-  <form>
+  <form [formGroup]="goalForm" (ngSubmit)="submitGoal()">
     <label>Category*</label>
-    <select required>
+    <select formControlName="category">
       <option value="" disabled selected>Choose a category</option>
       <option>Business</option>
       <option>Technology</option>
       <option>People</option>
     </select>
+    <div class="error" *ngIf="goalForm.get('category')?.touched && goalForm.get('category')?.invalid">
+      Category is required
+    </div>
 
     <label>Goal Description*</label>
-    <input type="text" maxlength="35" required />
+    <input type="text" formControlName="description" maxlength="35" />
+    <div class="error" *ngIf="goalForm.get('description')?.touched && goalForm.get('description')?.invalid">
+      Description is required (max 35 characters)
+    </div>
 
     <label>Metrics*</label>
-    <textarea rows="2" required></textarea>
+    <textarea rows="2" formControlName="metrics"></textarea>
+    <div class="error" *ngIf="goalForm.get('metrics')?.touched && goalForm.get('metrics')?.invalid">
+      Metrics are required
+    </div>
 
     <label>Outcome*</label>
-    <select required>
+    <select formControlName="outcome">
       <option value="" disabled selected>Select</option>
       <option>Achieved</option>
       <option>Missed</option>
       <option>Ongoing</option>
     </select>
+    <div class="error" *ngIf="goalForm.get('outcome')?.touched && goalForm.get('outcome')?.invalid">
+      Outcome is required
+    </div>
 
-    <label>Weight*</label>
-    <input type="number" min="0" max="100" required /> %
+    <label>Weight* (%)</label>
+    <input type="number" formControlName="weight" min="0" max="100" />
+    <div class="error" *ngIf="goalForm.get('weight')?.touched && goalForm.get('weight')?.invalid">
+      Weight must be between 0 and 100
+    </div>
 
-      <label>Start Date*</label>
-    <input type="date" required />
+    <label>Start Date*</label>
+    <input type="date" formControlName="startDate" />
+    <div class="error" *ngIf="goalForm.get('startDate')?.touched && goalForm.get('startDate')?.invalid">
+      Start Date is required
+    </div>
 
     <label>End Date*</label>
-    <input type="date" required />
+    <input type="date" formControlName="endDate" />
+    <div class="error" *ngIf="goalForm.get('endDate')?.touched && goalForm.get('endDate')?.invalid">
+      End Date is required
+    </div>
 
-    <button type="submit" (click)="submitGoal()">Submit</button>
-    <button type="button" (click)=" goBack() ">← Back</button>
+    <button type="submit">Submit</button>
+    <button type="button" (click)="goBack()">← Back</button>
   </form>
 </div>

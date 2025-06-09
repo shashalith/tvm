@@ -69,6 +69,12 @@ main {
   padding: 0.5rem 0.5rem;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.icon-menu button:hover {
+  background-color: #dce0e5;
+  transform: scale(1.02);
 }
 
 .icon-menu .material-icons {

@@ -1,42 +1,54 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-goal',
   templateUrl: './goal.component.html',
   styleUrls: ['./goal.component.css']
 })
-export class GoalComponent {
-goToNewGoal() {
-throw new Error('Method not implemented.');
-}
+export class GoalComponent implements OnInit {
   currentView: 'main' | 'goalType' | 'newGoal' = 'main';
+  goalForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.goalForm = this.fb.group({
+      category: ['', Validators.required],
+      description: ['', [Validators.required, Validators.maxLength(35)]],
+      metrics: ['', Validators.required],
+      outcome: ['', Validators.required],
+      weight: ['', [Validators.required, Validators.min(0), Validators.max(100)]],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+    });
+  }
 
   goToGoalType() {
     this.currentView = 'goalType';
   }
 
-  selectPersonalGoal() {
+  move() {
     this.currentView = 'newGoal';
   }
 
   goClose() {
-    if (this.currentView === 'newGoal') {
-      this.currentView = 'goalType';
-    } else {
-      this.currentView = 'main';
-    }
+    this.currentView = this.currentView === 'newGoal' ? 'goalType' : 'main';
   }
-    move() {
-    this.currentView = 'newGoal'; // switch to new goal form
+
+  goBack() {
+    this.currentView = 'goalType';
   }
+
   submitGoal() {
-  alert('Your goal has been submitted successfully!');
-  // You can also reset the form or switch view here if needed
-}
-
-
-
- goBack() {
-    this.currentView = 'goalType'; // switch back to goalType view
+    if (this.goalForm.valid) {
+      console.log('Submitted Goal:', this.goalForm.value);
+      alert('Goal submitted successfully!');
+      this.goalForm.reset();
+      this.currentView = 'main';
+    } else {
+      alert('Please fill all required fields correctly.');
+      this.goalForm.markAllAsTouched();
+    }
   }
 }
