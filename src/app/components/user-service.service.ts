@@ -11,8 +11,9 @@ export class UserService {
   private formData: any = {};
   private formGroups: { [key: string]: FormGroup } = {}; 
 
-  constructor(private http: HttpClient) {}
+  private readonly BASE_URL = 'http://localhost:8081'; // Your backend port here
 
+  constructor(private http: HttpClient) {}
 
   setFormData(step: string, data: any) {
     this.formData[step] = data;
@@ -28,12 +29,14 @@ export class UserService {
   }
 
   submitFinalData(data: any): Observable<any> {
-    const apiUrl = 'http://localhost:8080/personal'; 
+    const apiUrl = `${this.BASE_URL}/personal`; 
     return this.http.post(apiUrl, data);
   }
+
   setFormGroup(step: string, formGroup: FormGroup) {
     this.formGroups[step] = formGroup;
   }
+
   isAllFormsValid(): boolean {
     return Object.values(this.formGroups).every(group => group.valid);
   }
@@ -41,8 +44,8 @@ export class UserService {
   getInvalidSteps(): string[] {
     return Object.keys(this.formGroups).filter(key => !this.formGroups[key].valid);
   }
-  uploadDocuments(formData: FormData) {
-  return this.http.post('/api/upload-documents', formData); //pending real API endpoint
-}
 
+  uploadDocuments(formData: FormData): Observable<any> {
+    return this.http.post(`${this.BASE_URL}/api/upload-documents`, formData);
+  }
 }

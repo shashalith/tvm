@@ -21,57 +21,61 @@ export class DocumentComponent {
       panCard: [null, Validators.required],
       aadharCard: [null, Validators.required],
       pSizePhoto: [null, Validators.required],
-      matric:[null, Validators.required],
+      matric: [null, Validators.required],
       intermediate: [null, Validators.required],
       graduationMarksheet: [null, Validators.required],
       postGraduation: [null, Validators.required],
       checkLeaf: [null, Validators.required],
       passbook: [null, Validators.required],
     });
-    this.userService.setFormData('education', this.documentForm);
+
+    // Store FormGroup to userService for validation checks later
+    this.userService.setFormGroup('education', this.documentForm);
   }
 
-onFileChange(event: any, controlName: string) {
-  const file = event.target.files[0];
-  if (file) {
-    const maxSizeInMB = 1;
-    const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
-    if (file.size > maxSizeInBytes) {
-      this.fileErrors[controlName] = 'File size must be less than 1 MB';
+  onFileChange(event: any, controlName: string) {
+    const file = event.target.files[0];
+    if (file) {
+      const maxSizeInMB = 1;
+      const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
+      if (file.size > maxSizeInBytes) {
+        this.fileErrors[controlName] = 'File size must be less than 1 MB';
 
-      // Clear the file input element in DOM to prevent InvalidStateError
-      event.target.value = ''; // ✅ safe and allowed
-      this.documentForm.get(controlName)?.setValue(null); // use setValue, not patchValue
+        // Clear file input to avoid invalid state
+        event.target.value = '';
+        this.documentForm.get(controlName)?.setValue(null);
 
-      return;
-    } else {
-      this.fileErrors[controlName] = '';
-      this.documentForm.get(controlName)?.setValue(file); // ✅ use setValue instead of patchValue
+        return;
+      } else {
+        this.fileErrors[controlName] = '';
+        this.documentForm.get(controlName)?.setValue(file);
+      }
     }
   }
-}
 
   submitForm() {
-  if (this.documentForm.valid) {
-    const formData = new FormData();
-    Object.keys(this.documentForm.controls).forEach(key => {
-      formData.append(key, this.documentForm.get(key)?.value);
-    });
+    if (this.documentForm.valid) {
+      const formData = new FormData();
+      Object.keys(this.documentForm.controls).forEach(key => {
+        const file = this.documentForm.get(key)?.value;
+        if (file) {
+          formData.append(key, file);
+        }
+      });
 
-    this.userService.uploadDocuments(formData).subscribe(
-      response => {
-        console.log('Upload success:', response);
-        this.router.navigate(['/resume']);
-      },
-      error => {
-        console.error('Upload failed:', error);
-        alert('Upload failed. Please try again.');
-      }
-    );
-  } else {
-    this.documentForm.markAllAsTouched();
-    // alert("Please fill all required documents.");
+      this.userService.uploadDocuments(formData).subscribe(
+        response => {
+          console.log('Upload success:', response);
+          this.router.navigate(['/resume']);
+        },
+        error => {
+          console.error('Upload failed:', error);
+          alert('Upload failed. Please try again.');
+        }
+      );
+    } else {
+      this.documentForm.markAllAsTouched();
+      alert("Please fill all required documents.");
+    }
   }
-}
-
 }

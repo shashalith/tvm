@@ -61,24 +61,22 @@ console.log("finalData"+finalData)
       
   
       // Send to backend
-  //     this.userService.submitFinalData(finalData).subscribe({
-  //       next: (response) => {
-  //         console.log('API Response:', response);
-  //         alert("Form Submitted Successfully");
-  //         this.declarationForm.reset();
-  //         this.userService.clearFormData();
-  //         this.router.navigate(['/thankYou']);
-  //       },
-  //       error: (err) => {
-  //         console.error('API Error:', err);
-  //         alert("Something went wrong while submitting. Please try again.");
-  //       }
-  //     });
-  //   } else {
-  //     // alert("All fields are mandatory*");
-  //     this.declarationForm.markAllAsTouched();
-  //   }
-  }
-  
-}
+      this.userService.submitFinalData(finalData).subscribe({
+        next: (response) => {
+          console.log('API Response:', response);
+          alert("Form Submitted Successfully");
+          this.declarationForm.reset();
+          this.userService.clearFormData();
+          this.router.navigate(['/thankYou']);
+        },
+        error: (err) => {
+          console.error('API Error:', err);
+          alert("Something went wrong while submitting. Please try again.");
+        }
+      });
+    } else {
+      // alert("All fields are mandatory*");
+      this.declarationForm.markAllAsTouched();
+    }
+  } 
 }

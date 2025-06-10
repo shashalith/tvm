@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user-service.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-previous-employment',
@@ -16,7 +17,8 @@ export class PreviousEmploymentComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -27,8 +29,12 @@ export class PreviousEmploymentComponent implements OnInit {
       startDate: ['', Validators.required],
       endDate: ['', Validators.required]
     });
-    this.userService.setFormGroup('personal', this.employmentForm);
 
+    this.http.get<any[]>('assets/previous-employment.json').subscribe(data => {
+      this.employmentList = data;
+    });
+
+    this.userService.setFormGroup('previousEmployment', this.employmentForm);
   }
 
   openPopup(): void {
@@ -44,8 +50,8 @@ export class PreviousEmploymentComponent implements OnInit {
     if (this.employmentForm.valid) {
       this.employmentList.push(this.employmentForm.value);
       this.userService.setFormData('previousEmployment', this.employmentList);
-      this.employmentForm.reset();
       this.closePopup();
+      this.employmentForm.reset();
     } else {
       this.employmentForm.markAllAsTouched();
     }
@@ -57,11 +63,10 @@ export class PreviousEmploymentComponent implements OnInit {
 
   finalSave(): void {
     if (this.employmentList.length > 0) {
-      console.log(this.employmentForm.controls)
       this.userService.setFormData('previousEmployment', this.employmentList);
       this.router.navigate(['/education']);
     } else {
-      this.employmentForm.markAllAsTouched();
+      alert('Please add at least one employment record.');
     }
   }
 }

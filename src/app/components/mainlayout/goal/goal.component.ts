@@ -1,5 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+interface Goal {
+  category: string;
+  description: string;
+  metrics: string;
+  outcome: string;
+  weight: number;
+  startDate: string;
+  endDate: string;
+}
 
 @Component({
   selector: 'app-goal',
@@ -7,10 +18,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./goal.component.css']
 })
 export class GoalComponent implements OnInit {
-  currentView: 'main' | 'goalType' | 'newGoal' = 'main';
+   currentView: 'main' | 'goalType' | 'newGoal' = 'main';
   goalForm!: FormGroup;
+  goals: Goal[] = [];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.goalForm = this.fb.group({
@@ -21,6 +33,14 @@ export class GoalComponent implements OnInit {
       weight: ['', [Validators.required, Validators.min(0), Validators.max(100)]],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
+    });
+
+    this.loadGoals();
+  }
+
+  loadGoals(): void {
+    this.http.get<Goal[]>('assets/goals.json').subscribe((data) => {
+      this.goals = data;
     });
   }
 
@@ -42,7 +62,8 @@ export class GoalComponent implements OnInit {
 
   submitGoal() {
     if (this.goalForm.valid) {
-      console.log('Submitted Goal:', this.goalForm.value);
+      const newGoal = this.goalForm.value;
+      this.goals.push(newGoal);
       alert('Goal submitted successfully!');
       this.goalForm.reset();
       this.currentView = 'main';

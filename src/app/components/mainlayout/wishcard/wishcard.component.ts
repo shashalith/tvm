@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2'; // ✅ Required for Swal.fire
+import Swal from 'sweetalert2';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-wishcard',
@@ -7,31 +8,9 @@ import Swal from 'sweetalert2'; // ✅ Required for Swal.fire
   styleUrls: ['./wishcard.component.css']
 })
 export class WishcardComponent implements OnInit {
-  allWishes = [
-    // WELCOME ON BOARD (10)
-    { name: 'RAHUL', date: '14 May 25', role: 'Marketing', category: 'WELCOME ON BOARD', image: 'assets/images/hero1.jpg', showButton: false },
-    { name: 'PRIYA', date: '20 Apr 25', role: 'Sales', category: 'WELCOME ON BOARD', image: 'assets/images/hero9.jpg', showButton: false },
-    { name: 'ARJUN', date: '10 Mar 25', role: 'Engineering', category: 'WELCOME ON BOARD', image: 'assets/images/hero3.jpg', showButton: false },
-    { name: 'SNEHA', date: '8 Jun 25', role: 'Support', category: 'WELCOME ON BOARD', image: 'assets/images/hero10.jpg', showButton: false },
-    { name: 'VIKRAM', date: '5 May 25', role: 'Design', category: 'WELCOME ON BOARD', image: 'assets/images/hero5.jpg', showButton: false },
-    { name: 'RADHA', date: '1 Feb 25', role: 'HR', category: 'WELCOME ON BOARD', image: 'assets/images/hero11.jpg', showButton: false },
-    { name: 'KARTHIK', date: '7 Jun 25', role: 'Finance', category: 'WELCOME ON BOARD', image: 'assets/images/hero7.jpg', showButton: false },
-    { name: 'MEENA', date: '12 Apr 25', role: 'Admin', category: 'WELCOME ON BOARD', image: 'assets/images/hero12.jpg', showButton: false },
-    { name: 'RAVI', date: '3 Jun 25', role: 'QA', category: 'WELCOME ON BOARD', image: 'assets/images/hero9.jpg', showButton: false },
-    { name: 'ANITA', date: '15 Jan 25', role: 'Legal', category: 'WELCOME ON BOARD', image: 'assets/images/hero13.jpg', showButton: false },
-
-    // BIRTHDAY WISHES (15)
-    { name: 'SRINIVASAN', date: '4 Jun', role: 'Tourism Dev', category: 'BIRTHDAY WISHES', image: 'assets/images/hero7.jpg', showButton: true },
-    // ... (other birthday wishes)
-    { name: 'POOJA', date: '4 Jun', role: 'PMO', category: 'BIRTHDAY WISHES', image: 'assets/images/hero11.jpg', showButton: true },
-
-    // ANNIVERSARY WISHES (10)
-    { name: 'KARUNAKARAN', date: '12 Yr | 4 Jan 13', role: 'Admin', category: 'ANNIVERSARY WISHES', image: 'assets/images/hero2.jpg', showButton: true },
-    // ... (other anniversary wishes)
-    { name: 'GEETHA', date: '4 Yr | 4 Jun 20', role: 'QA', category: 'ANNIVERSARY WISHES', image: 'assets/images/hero10.jpg', showButton: true }
-  ];
-
+  allWishes: any[] = [];
   today = new Date();
+
   onboardingWishes: any[] = [];
   birthdayWishes: any[] = [];
   anniversaryWishes: any[] = [];
@@ -40,8 +19,13 @@ export class WishcardComponent implements OnInit {
   birthdayIndex = 0;
   anniversaryIndex = 0;
 
+  constructor(private http: HttpClient) {}
+
   ngOnInit() {
-    this.filterWishes();
+    this.http.get<any[]>('assets/wishes.json').subscribe(data => {
+      this.allWishes = data;
+      this.filterWishes();
+    });
   }
 
   filterWishes() {
@@ -78,7 +62,7 @@ export class WishcardComponent implements OnInit {
   sendWishes(name: string) {
     Swal.fire({
       title: 'Wishes Sent!',
-      text: `You have sent wishes to ${name}.`, // ✅ FIXED: backticks for string interpolation
+      text: `You have sent wishes to ${name}.`,
       icon: 'success',
       confirmButtonColor: '#3085d6',
       confirmButtonText: 'OK'

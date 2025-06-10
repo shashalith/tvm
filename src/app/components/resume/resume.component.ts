@@ -1,40 +1,49 @@
-import { Component } from '@angular/core';
-import { Validators, FormBuilder,FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { UserService } from '../user-service.service';
-
 
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.css']
 })
-export class ResumeComponent {
+export class ResumeComponent implements OnInit {
 
-  resumeForm!:FormGroup;
-  achievements: string = '';
-  resumeCate='';
-  constructor(private formBuilder:FormBuilder,private router:Router,private userService:UserService){
+  resumeForm!: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private http: HttpClient,
+    private userService: UserService
+  ) {}
+
+  ngOnInit(): void {
     this.resumeForm = this.formBuilder.group({
-      achievements:['',Validators.required],
-      resumeCate:['',Validators.required],
+      achievements: ['', Validators.required],
+      resumeCate: ['', Validators.required],
     });
+
+    this.http.get<any>('assets/resume-data.json').subscribe(data => {
+      this.resumeForm.patchValue({
+        achievements: data.achievements,
+        resumeCate: data.resumeCate
+      });
+    });
+
     this.userService.setFormData('education', this.resumeForm);
   }
 
-  submitForm(){
-    if(this.resumeForm.valid){
-    console.log(this.resumeForm.value);
-    this.userService.setFormData("resume",this.resumeForm.value);
-    this.resumeForm.reset();
-    this.router.navigate(['/final']);
-    // this.achievements = this.resumeForm.value.achievements;
-    // this.resumeCate = this.resumeForm.value.resumeCate;
-  }else{
-    // alert("All fields are mandetory")
-    this.resumeForm.markAllAsTouched();
-    console.log("Invalid form");
-    
-  }
+  submitForm() {
+    if (this.resumeForm.valid) {
+      this.userService.setFormData('resume', this.resumeForm.value);
+      this.resumeForm.reset();
+      this.router.navigate(['/final']);
+    } else {
+      alert('All fields are mandatory');
+      this.resumeForm.markAllAsTouched();
+    }
   }
 }

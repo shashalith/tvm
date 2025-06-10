@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user-service.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-passport-visa',
@@ -15,7 +16,8 @@ export class PassportVisaComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +29,7 @@ export class PassportVisaComponent implements OnInit {
 
     this.userService.setFormGroup('passport', this.userForm);
 
-    // Listen to changes in ifPassport field
+    // Conditional validator
     this.userForm.get('ifPassport')?.valueChanges.subscribe(value => {
       this.passportValue = value; 
       const passportCtrl = this.userForm.get('passportNumber');
@@ -38,17 +40,23 @@ export class PassportVisaComponent implements OnInit {
       }
       passportCtrl?.updateValueAndValidity();
     });
+
+    this.loadJsonData();
+  }
+
+  loadJsonData(): void {
+    this.http.get<any>('assets/passport.json').subscribe(data => {
+      this.userForm.patchValue(data);
+    });
   }
 
   submitForm() {
     if (this.userForm.valid) {
-      console.log("passport form value: ", this.userForm.value);
       this.userService.setFormData('passport', this.userForm.value);
       this.router.navigate(['/family']);
     } else {
-      // alert("All fields are mandatory (if applicable)");
+      alert("All fields are mandatory (if applicable)");
       this.userForm.markAllAsTouched();
-      console.log("Invalid form", this.userForm.errors);
     }
   }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user-service.service';
 import { Router } from '@angular/router';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-family',
@@ -12,18 +12,11 @@ import { Router } from '@angular/router';
 export class FamilyComponent {
   familyForm!: FormGroup;
 
-      fatherName = "";
-      fatherDOB = "";
-      motherName = "";
-      motherDOB = "";
-      spouseName = ""; 
-      spouseDOB = ""; 
-      spouseGender = ""; 
-      children = ""; 
   constructor(
     private formBuilder: FormBuilder,
-    private userService:UserService,
-    private router:Router,
+    private userService: UserService,
+    private router: Router,
+    private http: HttpClient
   ) {
     this.familyForm = this.formBuilder.group({
       fatherName: ['', Validators.required],
@@ -35,22 +28,23 @@ export class FamilyComponent {
       spouseGender: [''],
       children: ['', Validators.required],
     });
+
     this.userService.setFormGroup('family', this.familyForm);
 
+    // Optional: Load data from JSON
+    this.http.get<any>('assets/family.json').subscribe(data => {
+      this.familyForm.patchValue(data);
+    });
   }
 
-  submitForm(){
+  submitForm() {
     if (this.familyForm.valid) {
-      console.log('Family Details:', this.familyForm.value);
-      this.userService.setFormData("family",this.familyForm.value);
+      this.userService.setFormData("family", this.familyForm.value);
       this.familyForm.reset();
       this.router.navigate(["/previousEmployee"]);
-
     } else {
       this.familyForm.markAllAsTouched();
-      // alert('All fields are mandatory');
-      console.log('this form is invalid');
-      
+      alert('All fields are mandatory (if applicable)');
     }
   }
 }

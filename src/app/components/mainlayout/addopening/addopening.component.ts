@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-addopening',
   templateUrl: './addopening.component.html',
   styleUrls: ['./addopening.component.css']
 })
-export class AddOpeningComponent {
+export class AddOpeningComponent implements OnInit {
   jobForm: FormGroup;
   submittedJobs: any[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.jobForm = this.fb.group({
       title: ['', Validators.required],
       qualifications: ['', Validators.required],
@@ -22,11 +23,22 @@ export class AddOpeningComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.http.get<any[]>('assets/job-openings.json').subscribe(data => {
+      this.submittedJobs = data;
+    });
+  }
+
   onSubmit() {
     if (this.jobForm.valid) {
       const formData = {
         ...this.jobForm.value,
-        skills: this.jobForm.value.skills.split(',').map((s: string) => s.trim())
+        qualifications: this.jobForm.value.qualifications
+          .split(',')
+          .map((q: string) => q.trim()),
+        skills: this.jobForm.value.skills
+          .split(',')
+          .map((s: string) => s.trim())
       };
       this.submittedJobs.push(formData);
       console.log('Job Posted:', formData);

@@ -90,9 +90,9 @@ const routes: Routes = [
     path: 'mainlayout',
     component: MainlayoutComponent,
     children: [       
-      { path: 'dashboard', component: DashboardhomeComponent},
-      { path: 'holidays', component: HoildayCalendarComponent },
-      { path: 'feedbacks', component: FeedbacksComponent },
+      {path: 'dashboard', component: DashboardhomeComponent},
+      {path: 'holidays', component: HoildayCalendarComponent },
+      {path: 'feedbacks', component: FeedbacksComponent },
       {path:'organization', component:OrganizationComponent},
       {path: 'workhours',component: WorkhoursComponent},
       {path: 'workhistory', component: WorkHistoryComponent},

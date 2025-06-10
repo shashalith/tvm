@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -7,17 +8,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./resignation.component.css']
 })
 export class ResignationComponent {
-  showForm = false;
+   showForm = false;
   resignationForm: FormGroup;
   submittedData: any[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.resignationForm = this.fb.group({
       name: ['', Validators.required],
       employeeId: ['', Validators.required],
       reason: ['', Validators.required],
       explanation: ['', Validators.required],
       acknowledge: [false, Validators.requiredTrue]
+    });
+  }
+
+  ngOnInit(): void {
+    this.http.get<any[]>('assets/resignations.json').subscribe(data => {
+      this.submittedData = data;
     });
   }
 
@@ -51,6 +58,7 @@ export class ResignationComponent {
       this.showForm = false;
     } else {
       console.warn('Form is invalid');
+      this.resignationForm.markAllAsTouched();
     }
   }
 }

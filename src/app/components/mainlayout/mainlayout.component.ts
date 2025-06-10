@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-mainlayout',
@@ -18,47 +18,80 @@ export class MainlayoutComponent {
   showSettings = false;
   showSearch = false;
 
+  // Hide all dropdowns except the one passed
+  closeAllDropdowns(except: string = '') {
+    this.showHomeDropdown = except === 'home';
+    this.showWFHDropdown = except === 'wfh';
+    this.showLeaveDropdown = except === 'leave';
+    this.showTimesheetDropdown = except === 'timesheet';
+    this.showTaskDropdown = except === 'task';
+    this.showOKRDropdown = except === 'okr';
+    this.showOffboardingDropdown = except === 'offboarding';
+    this.showOnboardingDropdown = except === 'onboarding';
+    this.showAddJobDropdown = except === 'addJob';
+    this.showSettings = except === 'settings';
+  }
+
   toggleHomeDropdown() {
-    this.showHomeDropdown = !this.showHomeDropdown;
+    const willShow = !this.showHomeDropdown;
+    this.closeAllDropdowns(willShow ? 'home' : '');
   }
 
   toggleWFHDropdown() {
-    this.showWFHDropdown = !this.showWFHDropdown;
+    const willShow = !this.showWFHDropdown;
+    this.closeAllDropdowns(willShow ? 'wfh' : '');
   }
 
   toggleLeaveDropdown() {
-    this.showLeaveDropdown = !this.showLeaveDropdown;
+    const willShow = !this.showLeaveDropdown;
+    this.closeAllDropdowns(willShow ? 'leave' : '');
   }
 
   toggleTimesheetDropdown() {
-    this.showTimesheetDropdown = !this.showTimesheetDropdown;
+    const willShow = !this.showTimesheetDropdown;
+    this.closeAllDropdowns(willShow ? 'timesheet' : '');
   }
 
   toggleTaskDropdown() {
-    this.showTaskDropdown = !this.showTaskDropdown;
+    const willShow = !this.showTaskDropdown;
+    this.closeAllDropdowns(willShow ? 'task' : '');
   }
 
   toggleOKRDropdown() {
-    this.showOKRDropdown = !this.showOKRDropdown;
+    const willShow = !this.showOKRDropdown;
+    this.closeAllDropdowns(willShow ? 'okr' : '');
   }
 
   toggleOffboardingDropdown() {
-    this.showOffboardingDropdown = !this.showOffboardingDropdown;
+    const willShow = !this.showOffboardingDropdown;
+    this.closeAllDropdowns(willShow ? 'offboarding' : '');
   }
 
   toggleOnboardingDropdown() {
-    this.showOnboardingDropdown = !this.showOnboardingDropdown; // ✅ Correct variable
+    const willShow = !this.showOnboardingDropdown;
+    this.closeAllDropdowns(willShow ? 'onboarding' : '');
   }
-  
+
   toggleAddJobDropdown() {
-    this.showAddJobDropdown = !this.showAddJobDropdown;
+    const willShow = !this.showAddJobDropdown;
+    this.closeAllDropdowns(willShow ? 'addJob' : '');
   }
 
   toggleSettings() {
-    this.showSettings = !this.showSettings;
+    const willShow = !this.showSettings;
+    this.closeAllDropdowns(willShow ? 'settings' : '');
   }
 
   toggleSearch() {
     this.showSearch = !this.showSearch;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const clickedInsideDropdown = target.closest('.dropdown') || target.closest('.settings-wrapper') || target.closest('.search-input');
+    if (!clickedInsideDropdown) {
+      this.closeAllDropdowns();
+    }
   }
 }
