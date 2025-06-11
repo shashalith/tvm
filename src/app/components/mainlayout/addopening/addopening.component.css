@@ -1,17 +1,25 @@
 .job-form-container {
-  max-width: 500px;
+  max-width: 70%;
   margin: auto;
-  background: #f4f6ff;
+  background: #0a0f3c;
   padding: 20px;
+  color: #ffff;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 h2 {
   text-align: center;
-  color: #2c3e50;
+  color: #ffff;
 }
-
+.job-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    background-color: blue;
+  }
+}
 form {
   display: flex;
   flex-direction: column;

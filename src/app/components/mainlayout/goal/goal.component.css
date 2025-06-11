@@ -16,14 +16,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #2e3a59;
+  background: #0a0f3c;
   color: #fff;
   padding: 10px 20px;
   font-size: 18px;
 }
 
 .logo {
-  font-weight: bold;
   font-size: 20px;
 }
 
@@ -68,18 +67,20 @@ body {
 }
 
 .card {
-  background: #fff;
+  background: #0a0f3c;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.goal-overview h3 {
+.goal-overview p {
   margin-bottom: 10px;
   font-size: 20px;
-  color: #2e3a59;
+ 
 }
-
+.goal-overview-header{
+ color: #f2f2f2;
+}
 .overview-content {
   display: flex;
   flex-wrap: wrap;
@@ -112,6 +113,7 @@ body {
 
 .stats-column li {
   padding: 5px 0;
+  color: #f2f2f2;
 }
 
 /* === Notifications === */
@@ -153,8 +155,9 @@ body {
 .info-card {
   flex: 1;
   padding: 15px;
-  background: #fff;
+  background: #0a0f3c;
   border-radius: 8px;
+  color: #f2f2f2;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 .new-goal {

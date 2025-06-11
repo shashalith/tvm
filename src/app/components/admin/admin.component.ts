@@ -9,12 +9,11 @@ import { EmployeeDataService } from 'src/app/services/employee-data.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  employees: any[] = [];
-  filteredEmployees: any[] = [];
-  selectedEmployee: any = null;
-  searchText: string = '';
+  public employees: any[] = [];
+  public filteredEmployees: any[] = [];
+  public selectedEmployee: any = null;
+  public searchText: string = '';
 
-  // constructor(private empService: EmployeeService) {}
   constructor(
   private empService: EmployeeService,
   private router: Router,

@@ -45,7 +45,8 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f3f3f3;
+  background: #0a0f3c;
+  color: #ffff;
   padding: 1rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid #ccc;
@@ -64,7 +65,8 @@ main {
 .icon-menu button {
   display: flex;
   align-items: center;
-  background: #eef0f3;
+  background: #0a0f3c;
+  color: #ffff;
   border: none;
   padding: 0.5rem 0.5rem;
   cursor: pointer;

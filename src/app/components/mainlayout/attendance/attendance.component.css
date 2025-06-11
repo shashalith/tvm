@@ -1,7 +1,7 @@
 /* Make container full page width by removing fixed container */
 :host {
   display: block;
-  width: 80vw;
+  max-width: 80vw;
   padding: 10px 20px;
   box-sizing: border-box;
   font-family: Arial, sans-serif;

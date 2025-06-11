@@ -10,7 +10,12 @@ export class AnnouncementComponent implements OnInit {
   currentTab: 'notification' | 'announcement' = 'announcement';
   currentPage = 1;
   announcements: any[] = [];
-
+  
+get visibleAnnouncements() {
+    const pageSize = 10;
+    const start = (this.currentPage - 1) * pageSize;
+    return this.announcements.slice(start, start + pageSize);
+  }
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
@@ -19,11 +24,7 @@ export class AnnouncementComponent implements OnInit {
     });
   }
 
-  get visibleAnnouncements() {
-    const pageSize = 10;
-    const start = (this.currentPage - 1) * pageSize;
-    return this.announcements.slice(start, start + pageSize);
-  }
+  
 
   changePage(page: number) {
     this.currentPage = page;

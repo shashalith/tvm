@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private formData: any = {};
-  private formGroups: { [key: string]: FormGroup } = {}; 
+  public formData: any = {};
+  public formGroups: { [key: string]: FormGroup } = {}; 
 
   private readonly BASE_URL = 'http://localhost:8081'; // Your backend port here
 

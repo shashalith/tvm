@@ -18,6 +18,14 @@ export class MainlayoutComponent {
   showSettings = false;
   showSearch = false;
 
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const clickedInsideDropdown = target.closest('.dropdown') || target.closest('.settings-wrapper') || target.closest('.search-input');
+    if (!clickedInsideDropdown) {
+      this.closeAllDropdowns();
+    }
+  }
   // Hide all dropdowns except the one passed
   closeAllDropdowns(except: string = '') {
     this.showHomeDropdown = except === 'home';
@@ -86,12 +94,5 @@ export class MainlayoutComponent {
     this.showSearch = !this.showSearch;
   }
 
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    const clickedInsideDropdown = target.closest('.dropdown') || target.closest('.settings-wrapper') || target.closest('.search-input');
-    if (!clickedInsideDropdown) {
-      this.closeAllDropdowns();
-    }
-  }
+  
 }

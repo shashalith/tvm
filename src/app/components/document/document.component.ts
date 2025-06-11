@@ -53,6 +53,7 @@ export class DocumentComponent {
     }
   }
 
+  
   submitForm() {
     if (this.documentForm.valid) {
       const formData = new FormData();
@@ -62,17 +63,7 @@ export class DocumentComponent {
           formData.append(key, file);
         }
       });
-
-      this.userService.uploadDocuments(formData).subscribe(
-        response => {
-          console.log('Upload success:', response);
-          this.router.navigate(['/resume']);
-        },
-        error => {
-          console.error('Upload failed:', error);
-          alert('Upload failed. Please try again.');
-        }
-      );
+      this.userService.setFormData('DocumentDetails', this.documentForm.value);
     } else {
       this.documentForm.markAllAsTouched();
       alert("Please fill all required documents.");

@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
-import { HttpClient } from '@angular/common/http';
+import { WorkService } from '../work.service';
 
 @Component({
   selector: 'app-workhours',
@@ -13,7 +14,7 @@ export class WorkhoursComponent implements AfterViewInit {
   showChart = true;
   chartData: any;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private project:WorkService) {
     Chart.register(...registerables);
   }
 

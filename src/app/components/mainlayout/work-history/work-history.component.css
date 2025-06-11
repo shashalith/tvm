@@ -12,10 +12,9 @@ body {
 }
 
 .container {
-  max-width: 900px;
-  margin: 40px auto;
+    margin: 40px auto;
   padding: 24px;
-  background-color: #ffffff;
+  background-color: #0a0f3c;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
@@ -24,6 +23,9 @@ h2 {
   font-size: 1.8rem;
   color: #2d3e50;
   margin-bottom: 6px;
+}
+.header{
+  color: #fff;
 }
 
 p {

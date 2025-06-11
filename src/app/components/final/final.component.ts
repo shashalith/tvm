@@ -51,7 +51,7 @@ export class FinalComponent {
         education: allData.education,
         skills: allData.skills,
         certification: allData.certification,
-        documents: allData.documents,
+        documents: allData.DocumentDetails,
         resume: allData.resume,
         aFinal: allData.aFinal
       };

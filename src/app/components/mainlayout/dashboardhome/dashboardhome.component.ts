@@ -3,79 +3,36 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-dashboardhome',
   templateUrl: './dashboardhome.component.html',
-  styleUrls: ['./dashboardhome.component.css']
+  styleUrls: ['./dashboardhome.component.css'],
 })
 export class DashboardhomeComponent {
-   userName = 'Ramkumar Raja';
+  public userName = 'Ramkumar Raja';
+  greeting: string = '';
+  public show: any = {
+    workhours: true,
+    wishes: false,
+    hirings: false,
+    holidays: false,
+    workhistory: false,
+    announcement: false,
+  };
 
-  showHolidays = false;
-  showWorkhours = false;
-  showHiring = false;
-  showworkhistory =false;
-  showwishes = false;
-  showAnnouncement = false;
+  ngOnInit() {
+  const hour = new Date().getHours();
 
-  toggleHolidays() {
-    this.showHolidays = !this.showHolidays;
-    if (this.showHolidays) {
-      this.showWorkhours = false;
-      this.showwishes = false;
-      this.showHiring= false;
-      this.showAnnouncement= false; 
-      this.showworkhistory = false;     
-    }
-  }
-
-  toggleWorkhours() {
-    this.showWorkhours = !this.showWorkhours;
-    if (this.showWorkhours) {
-      this.showHolidays = false;
-      this.showworkhistory = false;
-      this.showwishes = false;
-      this.showHiring= false;
-      this.showAnnouncement= false;
-    }
-  }
-toggleHiring() {
-  this.showHiring = !this.showHiring;
-  if (this.showHiring) {
-    this.showHolidays = false;
-    this.showWorkhours = false;
-    this.showworkhistory = false;
-    this.showwishes = false;
-    this.showAnnouncement= false;
+  if (hour < 12) {
+    this.greeting = 'Good Morning! 🌞';
+  } else if (hour < 17) {
+    this.greeting = 'Good Afternoon! ☀️';
+  } else {
+    this.greeting = 'Good Evening! 🌙';
   }
 }
 
-toggleWorkHistory(){
-  this.showworkhistory = !this.showworkhistory;
-    if (this.showworkhistory) {
-      this.showHolidays = false;
-      this.showWorkhours = false;
-      this.showHiring = false;
-      this.showwishes = false;
-      this.showAnnouncement= false;
+  toggle(section: string) {
+    for (let key in this.show) {
+      this.show[key] = false;
     }
-}
-
-toggleWishes(){
-  this.showwishes = !this.showwishes;
-    if (this.showwishes) {
-      this.showHolidays = false;
-      this.showWorkhours = false;
-      this.showHiring = false;
-      this.showworkhistory = false;
-      this.showAnnouncement= false;
-    }
-}
-toggleAnnouncement(){
-  this.showAnnouncement = !this.showAnnouncement;
-    if (this.showAnnouncement) {
-      this.showHolidays = false;
-      this.showWorkhours = false;
-      this.showworkhistory = false;
-      this.showHiring = false;
-       this.showwishes = false;
-    }
-}
+    this.show[section] = true;
+  }
 }

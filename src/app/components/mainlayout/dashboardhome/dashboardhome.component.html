@@ -1,61 +1,53 @@
 <div class="top-bar">
   <div class="welcome">
-    Good Morning, <strong>{{ userName }}</strong><br />
+    {{greeting}}, <strong>{{ userName }}</strong><br />
     <small>Welcome to ETAQ, You're in the R1 shift (11:30 - 20:30)</small>
   </div>
 </div>
-
-<!-- Icon Menu -->
 <div class="icon-menu" role="toolbar" aria-label="Quick access menu">
-  <button aria-label="workhours" (click)="toggleWorkhours()">
+  <button aria-label="Workhours" (click)="toggle('workhours')">
     <span class="material-icons">access_time</span> Workhours
   </button>
-  <button aria-label="Wishes" (click)="toggleWishes()">
+  <button aria-label="Wishes" (click)="toggle('wishes')">
     <span class="material-icons">favorite</span> Wishes
   </button>
-  <button aria-label="Hirings" (click)="toggleHiring()">
+  <button aria-label="Hirings" (click)="toggle('hirings')">
     <span class="material-icons">person_add</span> Hirings
   </button>
-  <button aria-label="Holidays"  (click)="toggleHolidays()">
+  <button aria-label="Holidays" (click)="toggle('holidays')">
     <span class="material-icons">event</span> Holidays
   </button>
-  <button aria-label="Work History" (click)="toggleWorkHistory()">
+  <button aria-label="Work History" (click)="toggle('workhistory')">
     <span class="material-icons">history</span> Work History
   </button>
-  <!-- <button aria-label="Policies">
-    <span class="material-icons">policy</span> Policies
-  </button> -->
-  <button aria-label="Announcement" (click)="toggleAnnouncement()">
+  <button aria-label="Announcement" (click)="toggle('announcement')">
     <span class="material-icons">campaign</span> Announcement
   </button>
-  <!-- <button aria-label="Organization">
-    <span class="material-icons">groups</span> Organization
-  </button> -->
 </div>
 
 
-<div *ngIf="showHolidays" class="calendar-container">
+<div *ngIf="show.holidays" class="calendar-container">
   <app-hoilday-calendar></app-hoilday-calendar>
 </div>
 
 
-<div *ngIf="showWorkhours" class="workhours-container">
+<div *ngIf="show.workhours" class="workhours-container">
    <app-workhours></app-workhours>
 </div> 
 
-<div *ngIf="showHiring" class="hining-container">
+<div *ngIf="show.hirings" class="hining-container">
    <app-hiring></app-hiring>
 </div> 
 
-<div *ngIf="showworkhistory" class="workhistory-container">
+<div *ngIf="show.workhistory" class="workhistory-container">
    <app-work-history></app-work-history>
 </div> 
 
-<div *ngIf="showwishes" class="showwishes-container">
+<div *ngIf="show.wishes" class="showwishes-container">
    <app-wishcard></app-wishcard>
 </div> 
 
-<div *ngIf="showAnnouncement" class="showAnnouncement-container">
+<div *ngIf="show.announcement" class="showAnnouncement-container">
    <app-announcement></app-announcement>
 </div> 
 
