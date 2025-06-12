@@ -71,7 +71,7 @@ export class PersonalComponent {
   submitForm() {
     if (this.userForm.valid) {
       this.userService.setFormData('personal', this.userForm.value);
-      this.router.navigate(['/kyc']);
+      this.router.navigate(['/mainlayout/kyc']);
     } else {
       alert("All fields are mandatory");
       this.userForm.markAllAsTouched();

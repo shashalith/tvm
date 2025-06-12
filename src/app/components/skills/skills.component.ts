@@ -63,7 +63,7 @@ export class SkillsComponent implements OnInit {
   finalSubmit(): void {
     if (this.skillList.length > 0) {
       this.userService.setFormData("skills", this.skillList);
-      this.router.navigate(['/certificate']);
+      this.router.navigate(['/mainlayout/certificate']);
     } else {
       alert("Please add at least one skill");
     }

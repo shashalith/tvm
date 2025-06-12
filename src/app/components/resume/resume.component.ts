@@ -39,7 +39,7 @@ export class ResumeComponent implements OnInit {
   submitForm() {
     if (this.resumeForm.valid) {
       this.userService.setFormData('resume', this.resumeForm.value);
-      this.router.navigate(['/final']);
+      this.router.navigate(['/mainlayout/final']);
     } else {
       alert('All fields are mandatory');
       this.resumeForm.markAllAsTouched();

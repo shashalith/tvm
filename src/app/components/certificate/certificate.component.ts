@@ -49,7 +49,7 @@ export class CertificateComponent {
   finalSubmit() {
     if (this.certificateList.length > 0) {
       this.userService.setFormData("certification", this.certificateList);
-      this.router.navigate(["/document"]);
+      this.router.navigate(["/mainlayout/document"]);
     } else {
       alert("Please add at least one certificate.");
     }

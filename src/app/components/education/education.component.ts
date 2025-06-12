@@ -45,7 +45,7 @@ export class EducationComponent implements OnInit {
     if (this.educationForm.valid) {
       // this.educationList.push();
       this.userService.setFormData("educationList", this.educationForm.value);
-      this.router.navigate(["/skills"]);
+      this.router.navigate(["/mainlayout/skills"]);
     } else {
       this.educationForm.markAllAsTouched();
     }

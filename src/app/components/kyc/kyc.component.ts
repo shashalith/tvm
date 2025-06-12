@@ -46,7 +46,7 @@ export class KycComponent implements OnInit {
   submitForm(): void {
     if (this.kycForm.valid) {
       this.userService.setFormData("kyc", this.kycForm.value);
-      this.router.navigate(["/passport"]);
+      this.router.navigate(["/mainlayout/passport"]);
     } else {
       this.kycForm.markAllAsTouched();
     }

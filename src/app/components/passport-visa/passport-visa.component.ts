@@ -53,7 +53,7 @@ export class PassportVisaComponent implements OnInit {
   submitForm() {
     if (this.userForm.valid) {
       this.userService.setFormData('passport', this.userForm.value);
-      this.router.navigate(['/family']);
+      this.router.navigate(['/mainlayout/family']);
     } else {
       alert("All fields are mandatory (if applicable)");
       this.userForm.markAllAsTouched();

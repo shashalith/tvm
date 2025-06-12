@@ -39,7 +39,7 @@ export class FamilyComponent {
   submitForm() {
     if (this.familyForm.valid) {
       this.userService.setFormData("family", this.familyForm.value);
-      this.router.navigate(["/previousEmployee"]);
+      this.router.navigate(["/mainlayout/previousEmployee"]);
     } else {
       this.familyForm.markAllAsTouched();
       alert("All fields are mandatory (if applicable)");

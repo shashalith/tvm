@@ -63,7 +63,7 @@ export class DocumentComponent {
         }
       });
       this.userService.setFormData("DocumentDetails", this.documentForm.value);
-      this.router.navigate(["/resume"]);
+      this.router.navigate(["/mainlayout/resume"]);
     } else {
       this.documentForm.markAllAsTouched();
       alert("Please fill all required documents.");
