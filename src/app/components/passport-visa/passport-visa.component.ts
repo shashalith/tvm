@@ -41,14 +41,14 @@ export class PassportVisaComponent implements OnInit {
       passportCtrl?.updateValueAndValidity();
     });
 
-    this.loadJsonData();
+    // this.loadJsonData();
   }
 
-  loadJsonData(): void {
-    this.http.get<any>('assets/passport.json').subscribe(data => {
-      this.userForm.patchValue(data);
-    });
-  }
+  // loadJsonData(): void {
+  //   this.http.get<any>('assets/passport.json').subscribe(data => {
+  //     this.userForm.patchValue(data);
+  //   });
+  // }
 
   submitForm() {
     if (this.userForm.valid) {

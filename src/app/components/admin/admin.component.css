@@ -11,7 +11,7 @@
   margin-right: 200px;
   margin-top: 20px;
   margin-bottom: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0,  0,  0,  0.1);
 }
 .searchBox i {
   font-size: 22px;
@@ -55,7 +55,8 @@ table {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
 }
 
-th, td {
+th,
+td {
   padding: 14px 12px;
   text-align: left;
   border-bottom: 1px solid #eee;
@@ -65,13 +66,13 @@ th {
   background-color: #1976d2;
   color: white;
 }
-tr:nth-child(1){
+tr:nth-child(1) {
   width: 40px;
 }
-tr:nth-child(2){
+tr:nth-child(2) {
   width: 200px;
 }
-tr:nth-child(3){
+tr:nth-child(3) {
   width: 300px;
 }
 tr:hover {
@@ -111,7 +112,8 @@ a {
   position: relative;
 }
 
-.popup-content h3, .popup-content h4 {
+.popup-content h3,
+.popup-content h4 {
   margin-bottom: 10px;
   color: #1976d2;
 }

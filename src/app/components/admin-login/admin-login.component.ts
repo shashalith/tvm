@@ -1,35 +1,24 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-admin-login',
-//   templateUrl: './admin-login.component.html',
-//   styleUrls: ['./admin-login.component.css']
-// })
-// export class AdminLoginComponent {
-
-// }
-
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-admin-login',
-  templateUrl: './admin-login.component.html',
-  styleUrls: ['./admin-login.component.css'],
+  selector: "app-admin-login",
+  templateUrl: "./admin-login.component.html",
+  styleUrls: ["./admin-login.component.css"],
 })
 export class AdminLoginComponent {
   public adminLoginForm: FormGroup;
-  public loginError: string = '';
+  public loginError: string = "";
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router
   ) {
     this.adminLoginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", Validators.required],
     });
   }
 
@@ -38,7 +27,7 @@ export class AdminLoginComponent {
       const loginData = this.adminLoginForm.value;
 
       // Load JSON file from assets folder
-      this.http.get<any[]>('assets/users.json').subscribe({
+      this.http.get<any[]>("assets/users.json").subscribe({
         next: (users) => {
           const matchedUser = users.find(
             (user) =>
@@ -47,19 +36,19 @@ export class AdminLoginComponent {
           );
 
           if (matchedUser) {
-            this.router.navigate(['/personal']);
+            this.router.navigate(["/mainlayout/dashboard"]);
           } else {
-            this.loginError = 'Admin email or password is incorrect';
+            this.loginError = "Admin email or password is incorrect";
           }
         },
         error: (err) => {
-          console.error('Error loading admin users JSON:', err);
-          this.loginError = 'An error occurred. Please try again later.';
+          console.error("Error loading admin users JSON:", err);
+          this.loginError = "An error occurred. Please try again later.";
         },
       });
     } else {
       this.adminLoginForm.markAllAsTouched();
     }
-    this.loginError = '';
+    this.loginError = "";
   }
 }

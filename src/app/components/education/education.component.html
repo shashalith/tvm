@@ -1,34 +1,77 @@
 <app-nav-details></app-nav-details>
 <form class="form-grid" [formGroup]="educationForm" (ngSubmit)="submitForm()">
-  
   <div class="form-group">
     <label for="">Qualification</label>
-    <input type="text" name="qualification" formControlName="qualification" placeholder="Enter Qualification (e.g., B.Tech, M.Sc)">
-    <div class="error" *ngIf="educationForm.get('qualification')?.touched && educationForm.get('qualification')?.invalid">
+    <input
+      type="text"
+      name="qualification"
+      formControlName="qualification"
+      placeholder="Enter Qualification (e.g., B.Tech, M.Sc)"
+    />
+    <div
+      class="error"
+      *ngIf="
+        educationForm.get('qualification')?.touched &&
+        educationForm.get('qualification')?.invalid
+      "
+    >
       Qualification is required.
     </div>
   </div>
 
   <div class="form-group">
     <label for="">Specilization</label>
-    <input type="text" name="specilization" formControlName="specilization" placeholder="Enter Specialization (e.g., Computer Science)" />
-    <div class="error" *ngIf="educationForm.get('specilization')?.touched && educationForm.get('specilization')?.invalid">
+    <input
+      type="text"
+      name="specilization"
+      formControlName="specilization"
+      placeholder="Enter Specialization (e.g., Computer Science)"
+    />
+    <div
+      class="error"
+      *ngIf="
+        educationForm.get('specilization')?.touched &&
+        educationForm.get('specilization')?.invalid
+      "
+    >
       Specialization is required.
     </div>
   </div>
 
   <div class="form-group">
     <label for="">Institute Name</label>
-    <input type="text" name="instituteName" formControlName="instituteName" placeholder="Enter Institute Name">
-    <div class="error" *ngIf="educationForm.get('instituteName')?.touched && educationForm.get('instituteName')?.invalid">
+    <input
+      type="text"
+      name="instituteName"
+      formControlName="instituteName"
+      placeholder="Enter Institute Name"
+    />
+    <div
+      class="error"
+      *ngIf="
+        educationForm.get('instituteName')?.touched &&
+        educationForm.get('instituteName')?.invalid
+      "
+    >
       Institute name is required.
     </div>
   </div>
 
   <div class="form-group">
     <label for="">University Name</label>
-    <input type="text" name="universityName" formControlName="universityName" placeholder="Enter University Name">
-    <div class="error" *ngIf="educationForm.get('universityName')?.touched && educationForm.get('universityName')?.invalid">
+    <input
+      type="text"
+      name="universityName"
+      formControlName="universityName"
+      placeholder="Enter University Name"
+    />
+    <div
+      class="error"
+      *ngIf="
+        educationForm.get('universityName')?.touched &&
+        educationForm.get('universityName')?.invalid
+      "
+    >
       University name is required.
     </div>
   </div>
@@ -40,39 +83,91 @@
       <option value="full_time">Full-time</option>
       <option value="part_time">Part-time</option>
     </select>
-    <div class="error" *ngIf="educationForm.get('time')?.touched && educationForm.get('time')?.invalid">
+    <div
+      class="error"
+      *ngIf="
+        educationForm.get('time')?.touched && educationForm.get('time')?.invalid
+      "
+    >
       Study mode is required.
     </div>
   </div>
 
   <div class="form-group">
     <label for="">From</label>
-    <input type="text" name="fromDate" formControlName="fromDate" placeholder="Start Year">
-    <div class="error" *ngIf="educationForm.get('fromDate')?.touched && educationForm.get('fromDate')?.invalid">
+    <input
+      type="text"
+      name="fromDate"
+      formControlName="fromDate"
+      placeholder="Start Year"
+    />
+    <div
+      class="error"
+      *ngIf="
+        educationForm.get('fromDate')?.touched &&
+        educationForm.get('fromDate')?.invalid
+      "
+    >
       Start year is required.
     </div>
   </div>
 
   <div class="form-group">
     <label for="">To</label>
-    <input type="text" name="toDate" formControlName="toDate" placeholder="End Year">
-    <div class="error" *ngIf="educationForm.get('toDate')?.touched && educationForm.get('toDate')?.invalid">
+    <input
+      type="text"
+      name="toDate"
+      formControlName="toDate"
+      placeholder="End Year"
+    />
+    <div
+      class="error"
+      *ngIf="
+        educationForm.get('toDate')?.touched &&
+        educationForm.get('toDate')?.invalid
+      "
+    >
       End year is required.
     </div>
   </div>
 
   <div class="form-group">
     <label for="">Percentage(%)</label>
-    <input type="number" name="percentage" formControlName="percentage" placeholder="Enter Percentage (%)" step="0.01" min="0" max="100">
-    <div class="error" *ngIf="educationForm.get('percentage')?.touched && educationForm.get('percentage')?.invalid">
+    <input
+      type="number"
+      name="percentage"
+      formControlName="percentage"
+      placeholder="Enter Percentage (%)"
+      step="0.01"
+      min="0"
+      max="100"
+    />
+    <div
+      class="error"
+      *ngIf="
+        educationForm.get('percentage')?.touched &&
+        educationForm.get('percentage')?.invalid
+      "
+    >
       Percentage is required.
     </div>
   </div>
 
   <div class="form-group">
     <label for="">Roll No:</label>
-    <input type="text" name="rollNo" formControlName="rollNo" placeholder="Enter Roll Number">
-    <div class="error" *ngIf="educationForm.get('rollNo')?.touched && educationForm.get('rollNo')?.invalid">
+    <input
+      type="text"
+      name="rollNo"
+      formControlName="rollNo"
+      placeholder="Enter Roll Number"
+    />
+    <div
+      class="error"
+      *ngIf="
+        educationForm.get('rollNo')?.touched &&
+        educationForm.get('rollNo')?.invalid
+      "
+    >
       Roll number is required.
     </div>
   </div>
@@ -88,12 +183,18 @@
       <option value="phd">Ph.D</option>
       <option value="certification">Certification</option>
     </select>
-    <div class="error" *ngIf="educationForm.get('educationType')?.touched && educationForm.get('educationType')?.invalid">
+    <div
+      class="error"
+      *ngIf="
+        educationForm.get('educationType')?.touched &&
+        educationForm.get('educationType')?.invalid
+      "
+    >
       Education type is required.
     </div>
   </div>
 
-  <br>
+  <br />
   <div class="button-group">
     <a routerLink="/previousEmployee">&laquo; Previous</a>
     <button class="update-button" type="submit">Next &raquo;</button>

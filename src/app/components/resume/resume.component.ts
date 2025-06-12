@@ -26,12 +26,12 @@ export class ResumeComponent implements OnInit {
       resumeCate: ['', Validators.required],
     });
 
-    this.http.get<any>('assets/resume-data.json').subscribe(data => {
-      this.resumeForm.patchValue({
-        achievements: data.achievements,
-        resumeCate: data.resumeCate
-      });
-    });
+    // this.http.get<any>('assets/resume-data.json').subscribe(data => {
+    //   this.resumeForm.patchValue({
+    //     achievements: data.achievements,
+    //     resumeCate: data.resumeCate
+    //   });
+    // });
 
     this.userService.setFormData('education', this.resumeForm);
   }
@@ -39,7 +39,6 @@ export class ResumeComponent implements OnInit {
   submitForm() {
     if (this.resumeForm.valid) {
       this.userService.setFormData('resume', this.resumeForm.value);
-      this.resumeForm.reset();
       this.router.navigate(['/final']);
     } else {
       alert('All fields are mandatory');

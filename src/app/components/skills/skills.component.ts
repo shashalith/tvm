@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user-service.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-skills',
@@ -17,8 +16,7 @@ export class SkillsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router,
-    private http: HttpClient
+    private router: Router
   ) {
     this.skillForm = this.formBuilder.group({
       skillName: ['', Validators.required],
@@ -33,19 +31,11 @@ export class SkillsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadSkillsFromJson();
-  }
-
-  loadSkillsFromJson(): void {
-    this.http.get<any[]>('assets/skills.json').subscribe(
-      (data) => {
-        this.skillList = data;
-        this.userService.setFormData('skills', this.skillList);
-      },
-      (error) => {
-        console.error('Error loading skills.json:', error);
-      }
-    );
+    // Load saved data from service if available
+    const savedSkills = this.userService.getFormData('skills');
+    if (savedSkills && Array.isArray(savedSkills)) {
+      this.skillList = savedSkills;
+    }
   }
 
   openPopup(): void {
@@ -54,15 +44,12 @@ export class SkillsComponent implements OnInit {
 
   closePopup(): void {
     this.showPopup = false;
-    // Optional: reset the form
-    // this.skillForm.reset();
   }
 
   addSkill(): void {
     if (this.skillForm.valid) {
       this.skillList.push(this.skillForm.value);
       this.userService.setFormData("skills", this.skillList);
-      this.skillForm.reset();
       this.showPopup = false;
     } else {
       this.skillForm.markAllAsTouched();

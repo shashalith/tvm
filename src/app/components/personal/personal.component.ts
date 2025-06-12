@@ -59,19 +59,18 @@ export class PersonalComponent {
     });
 
     this.userService.setFormGroup('personal', this.userForm);
-    this.loadJsonData();  // Load data into form
+    // this.loadJsonData();  // Load data into form
   }
 
-  loadJsonData() {
-    this.http.get<any>('assets/personal.json').subscribe(data => {
-      this.userForm.patchValue(data);
-    });
-  }
+  // loadJsonData() {
+  //   this.http.get<any>('assets/personal.json').subscribe(data => {
+  //     this.userForm.patchValue(data);
+  //   });
+  // }
 
   submitForm() {
     if (this.userForm.valid) {
       this.userService.setFormData('personal', this.userForm.value);
-      this.userForm.reset();
       this.router.navigate(['/kyc']);
     } else {
       alert("All fields are mandatory");

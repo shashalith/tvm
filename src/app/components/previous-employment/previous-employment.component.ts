@@ -30,11 +30,10 @@ export class PreviousEmploymentComponent implements OnInit {
       endDate: ['', Validators.required]
     });
 
-    this.http.get<any[]>('assets/previous-employment.json').subscribe(data => {
-      this.employmentList = data;
-    });
+    // this.http.get<any[]>('assets/previous-employment.json').subscribe(data => {
+    //   this.employmentList = data;
+    // });
 
-    this.userService.setFormGroup('previousEmployment', this.employmentForm);
   }
 
   openPopup(): void {
@@ -51,7 +50,6 @@ export class PreviousEmploymentComponent implements OnInit {
       this.employmentList.push(this.employmentForm.value);
       this.userService.setFormData('previousEmployment', this.employmentList);
       this.closePopup();
-      this.employmentForm.reset();
     } else {
       this.employmentForm.markAllAsTouched();
     }
@@ -63,7 +61,7 @@ export class PreviousEmploymentComponent implements OnInit {
 
   finalSave(): void {
     if (this.employmentList.length > 0) {
-      this.userService.setFormData('previousEmployment', this.employmentList);
+      this.userService.setFormData('previousEmployment', this.employmentForm.value);
       this.router.navigate(['/education']);
     } else {
       alert('Please add at least one employment record.');
